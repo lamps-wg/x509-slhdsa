@@ -219,7 +219,7 @@ When any of the id-alg-slh-dsa-* identifiers appear in the algorithm field as an
 
 # SLH-DSA Public Keys in PKIX {#sec-pub-keys}
 
- In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
+In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 
 ~~~
     SubjectPublicKeyInfo  ::=  SEQUENCE  {
@@ -234,7 +234,7 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 
 * subjectPublicKey contains the byte stream of the public key.
 
-The following public key identifiers are defined for SLH-DSA:
+{{!I-D.draft-ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for SLH-DSA:
 
 ~~~
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -242,99 +242,86 @@ The following public key identifiers are defined for SLH-DSA:
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-sha2-128f PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-sha2-128f
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-sha2-192s PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-sha2-192s
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-sha2-192f PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-sha2-192f
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-sha2-256s PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-sha2-256s
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-sha2-256f PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-sha2-256f
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-shake-128s PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-shake-128s
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-shake-128f PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-shake-128f
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-shake-192s PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-shake-192s
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-shake-192f PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-shake-192f
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-shake-256s PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-shake-256s
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-slh-dsa-shake-256f PUBLIC-KEY ::= {
       IDENTIFIER id-alg-slh-dsa-shake-256f
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
          { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
-      -- PRIVATE-KEY no ASN.1 wrapping --
-      }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    SLH-DSA-PublicKey ::= OCTET STRING
-
 ~~~
 
 Section 9.1 of {{FIPS205}} defines the raw octet string encoding of an SLH-DSA
@@ -343,7 +330,7 @@ string length is 2*n bytes, where n is 16, 24, or 32, depending on the parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encodings of the public keys.
 
-This document defines the SLH-DSA-PublicKey ASN.1 OCTET STRING type for encoding a public key
+{{!I-D.draft-ietf-lamps-cms-sphincs-plus}} defines the SLH-DSA-PublicKey ASN.1 OCTET STRING type for encoding a public key
 when not used in a SubjectPublicKeyInfo. The OCTET STRING is mapped to a
 subjectPublicKey (a value of type BIT STRING) as follows: the most significant
 bit of the OCTET STRING value becomes the most significant bit of the BIT
@@ -374,49 +361,6 @@ The intended application for the key is indicated in the keyUsage certificate ex
 ~~~
 
 Requirements about the keyUsage extension bits defined in {{!RFC5280}} still apply.
-
-# SLH-DSA Private Keys
-
-<!-- Borrowed liberally from section 7 of RFC8410 -->
-"Asymmetric Key Packages" {{!RFC5958}} describes how to encode a private key in a structure that both identifies what algorithm the private key is for and allows for the public key and additional attributes about the key to be included as well.  For illustration, the ASN.1 structure OneAsymmetricKey is replicated below.  The algorithm-specific details of how a private key is encoded are left for the document describing the algorithm itself.
-
-~~~ asn1
-   OneAsymmetricKey ::= SEQUENCE {
-      version Version,
-      privateKeyAlgorithm PrivateKeyAlgorithmIdentifier,
-      privateKey PrivateKey,
-      attributes [0] IMPLICIT Attributes OPTIONAL,
-      ...,
-      [[2: publicKey [1] IMPLICIT PublicKey OPTIONAL ]],
-      ...
-   }
-
-   PrivateKey ::= OCTET STRING
-
-   PublicKey ::= BIT STRING
-~~~
-
-Section 9.1 of {{FIPS205}} defines the raw octet string representation of an SLH-DSA
-private key as the concatenation of the SK.seed, SK.prf, PK.seed and PK.root values. The octet
-string length is 4*n bytes, where n is 16, 24, or 32, depending on the parameter
-set. When an SLH-DSA private key is encoded in a OneAsymmetricKey (or its predecessor
-PrivateKeyInfo), the privateKey OCTET STRING contains the raw octet string encoding of
-the private key. The "privateKeyAlgorithm" field uses the AlgorithmIdentifier structure.
-The structure is encoded as defined above.  If present, the "publicKey" field will hold the
-encoded key as defined in {{sec-pub-keys}}.
-
-The raw octet string representation of a SLH-DSA is encoded directly into the PrivateKey OCTET STRING
-without any additional wrapping when used in the OneAsymmetricKey type.
-
-The following is an example of a private key encoded using the textual encoding defined in {{!RFC7468}}.
-
-~~~
------BEGIN PRIVATE KEY-----
-TODO
------END PRIVATE KEY-----
-~~~
-
-NOTE: There exist some private key import functions that have not picked up the new ASN.1 structure OneAsymmetricKey that is defined in {{!RFC7748}}.  This means that they will not accept a private key structure that contains the public key field.  This means a balancing act needs to be done between being able to do a consistency check on the key pair and widest ability to import the key.
 
 # Security Considerations
 
@@ -464,6 +408,8 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).
 
 # ASN.1 Module {#sec-asn1}
 
+RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of [I-D.draft-ietf-lamps-cms-sphincs-plus].
+
 ~~~
 <CODE BEGINS>
 {::include X509-SLHDSA-2024.asn}
@@ -495,4 +441,4 @@ The parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{t
 # Acknowledgments
 {:numbered="false"}
 
-Much of the structure and text of this document is based on {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{?I-D.draft-ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.
+Much of the structure and text of this document is based on {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.draft-ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.
