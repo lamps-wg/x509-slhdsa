@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 5 January 2025                                    Cisco Systems
+Expires: 6 January 2025                                    Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                             4 July 2024
+                                                             5 July 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -66,7 +66,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 January 2025.
+   This Internet-Draft will expire on 6 January 2025.
 
 Copyright Notice
 
@@ -114,9 +114,11 @@ Table of Contents
    security levels were chosen to provide 128 bits of security, 192 bits
    of security, and 256 bits of security.  There are small (s) or fast
    (f) version of the algorithm, and the option to use SHA-256 [FIPS180]
-   or SHAKE256 [FIPS202].  For example, id-alg-slh-dsa-shake-256s
-   represents the 256-bit security level, the small version of the
-   algorithm, and the use of SHAKE256.
+   or SHAKE256 [FIPS202].  The fast versions are optimized for key
+   generation and signing speed, they are actually slower at
+   verification than the small parameter sets.  For example, id-alg-slh-
+   dsa-shake-256s represents the 256-bit security level, the small
+   version of the algorithm, and the use of SHAKE256.
 
    Separate algorithm identifiers have been assigned for SLH-DSA at each
    of these security levels, fast vs small, and SHA-256 vs SHAKE256.
