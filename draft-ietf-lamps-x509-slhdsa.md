@@ -102,7 +102,7 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 Stateless Hash-Based Digital Signatures (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} \[EDNOTE: {{FIPS205-ipd}} until officially published] by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. This document specifies the use of the SLH-DSA algorithm in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs).
 
-SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to provide 128 bits of security, 192 bits of security, and 256 bits of security. There are small (s) or fast (f) version of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}}. For example, id-alg-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
+SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to provide 128 bits of security, 192 bits of security, and 256 bits of security. There are small (s) or fast (f) version of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}}. The fast versions are optimized for key generation and signing speed, they are actually slower at verification than the small parameter sets. For example, id-alg-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
 Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.
 
