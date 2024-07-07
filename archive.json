@@ -1,0 +1,610 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-07-07T01:09:09.357058+00:00",
+  "repo": "lamps-wg/x509-slhdsa",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOLS83Ic6AEUh4",
+      "title": "Should we expose the \"SLH-DSA Hash-based Signature Algorithm Overview\" section?",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/2",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I added a \"SLH-DSA Hash-based Signature Algorithm Overview\" section copied from draft-ietf-lamps-cms-sphincs-plus but it is commented out in the markdown.\r\n\r\nIn my opinion, our draft should contain this section and it should be removed from draft-ietf-lamps-cms-sphincs-plus, which should reference our draft more.  But that's something to decide among the authors of both drafts, and so I don't want to make any changes to this text until that is decided, so that the texts don't get out of sync.\r\n\r\nIf we use the text, @BashiriK had some comments on it in #1 which can be addressed when we add the text:\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494667760\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494674721\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494676398\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494726908",
+      "createdAt": "2024-02-22T09:31:20Z",
+      "updatedAt": "2024-02-22T09:31:20Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOLS83Ic6AEbrJ",
+      "title": "SHA2 Parameters",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/3",
+      "state": "CLOSED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "              Did we decide to leave out SHA2-parameters for level III and V due to the discussion on the forum? Is it really decided in that way? If yes, I missed that.\r\n\r\n_Originally posted by @BashiriK in https://github.com/x509-hbs/draft-x509-slhdsa/pull/1#discussion_r1494678234_\r\n            ",
+      "createdAt": "2024-02-22T09:46:11Z",
+      "updatedAt": "2024-06-03T11:24:55Z",
+      "closedAt": "2024-06-03T11:24:55Z",
+      "comments": [
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "              These are the parameters from draft-ietf-lamps-cms-sphincs-plus.  Justification is in https://mailarchive.ietf.org/arch/msg/spasm/4sfCKyRYmFWa6L2-R6zH5BBPyNw/\r\n\r\nIf our draft is adopted we can reopen this issue as that discussion thread occurred before FIPS205-ipd was published.\r\n\r\n_Originally posted by @danvangeest in https://github.com/x509-hbs/draft-x509-slhdsa/pull/1#discussion_r1498944614_\r\n",
+          "createdAt": "2024-02-22T09:46:49Z",
+          "updatedAt": "2024-02-22T09:46:49Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We are using all the FIPS205-ipd OIDs.",
+          "createdAt": "2024-06-03T11:24:55Z",
+          "updatedAt": "2024-06-03T11:24:55Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOLS83Ic6AOQVl",
+      "title": "Say something about reduced security when many many signatures are created",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/4",
+      "state": "CLOSED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The security of SLH-DSA slowly reduces below the target levels when more than 2^64 signatures have been created.  While this is not a practical number of signatures, we should still mention something about this fact in the Security Considerations section.  And maybe point out that if lower signature limit parameter sets are produced in the future, real-world use cases would have to be considered.",
+      "createdAt": "2024-02-23T14:36:25Z",
+      "updatedAt": "2024-06-03T11:25:07Z",
+      "closedAt": "2024-06-03T11:25:07Z",
+      "comments": [
+        {
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I think the #signatures discussion should be left out as it doesn't help an implementer but rather poses confusion. This draft should define how to use SLH-DSA in X.509 and point to FIPS205 for the general security considerations.\r\n\r\nAlso I am unsure about the benefit of pointing towards a future discussion around the reduced number of signatures version of SPHINCS+. I think that might again rather confuse than help.",
+          "createdAt": "2024-02-26T10:01:18Z",
+          "updatedAt": "2024-02-26T10:01:18Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "agreed",
+          "createdAt": "2024-06-03T11:25:07Z",
+          "updatedAt": "2024-06-03T11:25:07Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOLS83Ic6Az-ha",
+      "title": "SHA2 vs SHAKE, fast vs small",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/5",
+      "state": "CLOSED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Explain the differences between parameter sets with sha2 vs shake, fast vs small.\r\n\r\nFrom John Mattson:\r\n    If you explain the \"fast\" parameter sets, please describe that they have much slower verification than the \"small\" parameter sets.\r\n",
+      "createdAt": "2024-02-29T12:09:50Z",
+      "updatedAt": "2024-07-05T04:51:15Z",
+      "closedAt": "2024-07-05T04:51:15Z",
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOLS83Ic6DHyUu",
+      "title": "Use in PKCS#10, CMP, OCSP?",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/6",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From John Mattsson: \"For 5G use cases, I would strongly like the document to also cover use of SLH-DSA in RFC 2986 (PKCS #10), RFC 4210 (CMP), and RFC 6090 (OCSP).\"",
+      "createdAt": "2024-03-21T11:00:08Z",
+      "updatedAt": "2024-06-03T11:26:42Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Unclear what John wants, seeing as we use similar language as many other RFCs.",
+          "createdAt": "2024-06-03T11:25:49Z",
+          "updatedAt": "2024-06-03T11:25:49Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I've emailed John for clarification.  Will find him at IETF 120 / mention needing clarification for this during the presentation if he doesn't respond.",
+          "createdAt": "2024-06-03T11:26:41Z",
+          "updatedAt": "2024-06-03T11:26:41Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOLS83Ic6LMS67",
+      "title": "pure vs predigest mode",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/9",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Once NIST publishes FIPS205, decide what to do about pure vs predigest mode.  If we only support pure mode, add this text to the introduction:\r\n\r\n> The final version of {{FIPS205}} is expected to define two signature modes: pure mode and predigest mode.  This document only specifies the use of pure mode with X.509 certificates and CRLs.\r\n",
+      "createdAt": "2024-06-05T08:36:07Z",
+      "updatedAt": "2024-06-05T08:36:08Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOLS83Ic5nQnJg",
+      "title": "Initial draft",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/1",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Strongly based on lamps-dilithium-certificates and lamps-cms-sphincs-plus",
+      "createdAt": "2024-02-19T08:48:20Z",
+      "updatedAt": "2024-02-26T10:18:23Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "d98768b2233db6944ed204d81dba6a19fe67eeaa",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/initial_draft",
+      "headRefOid": "71156406bb559f39420c3905d880bd7ed68aaf9c",
+      "closedAt": "2024-02-22T11:35:48Z",
+      "mergedAt": "2024-02-22T11:35:48Z",
+      "mergedBy": "fluppe2",
+      "mergeCommit": {
+        "oid": "2b96f7ac6e8d89d5162d468c5bc7c51e4fbba39f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic5wkdb0",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-19T14:53:22Z",
+          "updatedAt": "2024-02-19T14:53:23Z",
+          "comments": [
+            {
+              "originalPosition": 97,
+              "body": "Though of negligible size, but there is also a randomizer included in the signature. ",
+              "createdAt": "2024-02-19T14:53:23Z",
+              "updatedAt": "2024-02-19T14:53:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic5wkgDg",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-19T14:58:07Z",
+          "updatedAt": "2024-02-19T14:58:07Z",
+          "comments": [
+            {
+              "originalPosition": 103,
+              "body": "Above the hypertree part of SLH-DSA was separated from the FORS part. However, here it is written that \"The parameters of the SLH-DSA hypertree include [...] the number of FORS trees\". I would change it to \r\n\"The parameters of SLH-DSA include ...\".",
+              "createdAt": "2024-02-19T14:58:07Z",
+              "updatedAt": "2024-02-19T14:58:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic5wkgvy",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-19T14:59:21Z",
+          "updatedAt": "2024-02-19T14:59:21Z",
+          "comments": [
+            {
+              "originalPosition": 103,
+              "body": "My opinion: If we include the hash function as a paramter of the scheme, we should also include \"small vs. fast\" as a parameter.",
+              "createdAt": "2024-02-19T14:59:21Z",
+              "updatedAt": "2024-02-19T14:59:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic5wkhfu",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-19T15:00:45Z",
+          "updatedAt": "2024-02-19T15:00:45Z",
+          "comments": [
+            {
+              "originalPosition": 129,
+              "body": "Did we decide to leave out SHA2-parameters for level III and V due to the discussion on the forum? Is it really decided in that way? If yes, I missed that. ",
+              "createdAt": "2024-02-19T15:00:45Z",
+              "updatedAt": "2024-02-19T15:00:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic5wkzuO",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-19T15:28:29Z",
+          "updatedAt": "2024-02-19T15:28:29Z",
+          "comments": [
+            {
+              "originalPosition": 169,
+              "body": "My optinion: This paragraph belongs to the section \"SLH-DSA Hash-based Signature Algorithm Overview\"",
+              "createdAt": "2024-02-19T15:28:29Z",
+              "updatedAt": "2024-02-19T15:28:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic5w-OFE",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I don't plan on making changes based on the provided comments, but they are something that can be addressed after WG adoption per my reasoning in response to the comments.",
+          "createdAt": "2024-02-22T09:32:22Z",
+          "updatedAt": "2024-02-22T09:38:10Z",
+          "comments": [
+            {
+              "originalPosition": 97,
+              "body": "Will be handled with #2 if/when we expose that text.",
+              "createdAt": "2024-02-22T09:32:22Z",
+              "updatedAt": "2024-02-22T09:38:10Z"
+            },
+            {
+              "originalPosition": 103,
+              "body": "Will be handled with #2 if/when we expose that text.",
+              "createdAt": "2024-02-22T09:32:34Z",
+              "updatedAt": "2024-02-22T09:38:10Z"
+            },
+            {
+              "originalPosition": 169,
+              "body": "Will be handled with #2 if/when we expose that text.",
+              "createdAt": "2024-02-22T09:32:48Z",
+              "updatedAt": "2024-02-22T09:38:10Z"
+            },
+            {
+              "originalPosition": 129,
+              "body": "These are the parameters from draft-ietf-lamps-cms-sphincs-plus.  Justification is in https://mailarchive.ietf.org/arch/msg/spasm/4sfCKyRYmFWa6L2-R6zH5BBPyNw/\r\n\r\nIf our draft is adopted we can reopen this issue as that discussion thread occurred before FIPS205-ipd was published.",
+              "createdAt": "2024-02-22T09:36:47Z",
+              "updatedAt": "2024-02-22T09:38:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic5w_RH1",
+          "commit": {
+            "abbreviatedOid": "7115640"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-22T11:35:37Z",
+          "updatedAt": "2024-02-22T11:35:37Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOLS83Ic5tKZ0D",
+      "title": "Rename to draft-ietf-x509-slhdsa.",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/7",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-04-19T12:02:44Z",
+      "updatedAt": "2024-04-22T11:04:58Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "2b96f7ac6e8d89d5162d468c5bc7c51e4fbba39f",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/rename",
+      "headRefOid": "b527310679b70b1ce1b4c2f634a3fecb2de59a9b",
+      "closedAt": "2024-04-22T11:04:58Z",
+      "mergedAt": "2024-04-22T11:04:58Z",
+      "mergedBy": "BashiriK",
+      "mergeCommit": {
+        "oid": "8974f62eca1e27c107d158931a63cfcd83c24b8f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic54EjJ-",
+          "commit": {
+            "abbreviatedOid": "b527310"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-04-22T11:04:53Z",
+          "updatedAt": "2024-04-22T11:04:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOLS83Ic5xSXLb",
+      "title": "Draft update",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/8",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Fix encoding text for public and private keys\r\n- Separate ASN.1 module and add PublicKeys and PublicKeys lists\r\n- Security Considerations\r\n- Sizes table",
+      "createdAt": "2024-06-03T11:32:33Z",
+      "updatedAt": "2024-06-05T12:41:25Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "d7b5b9073c9636da749c359db7255f99f8298b32",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/encoding",
+      "headRefOid": "5d4b7e293bcb8250afdb42ed11d6ae314cca654e",
+      "closedAt": "2024-06-05T12:41:24Z",
+      "mergedAt": "2024-06-05T12:41:24Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "eaed861bd918a7adf3cbdfcece30873eb8111b75"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic581Cd6",
+          "commit": {
+            "abbreviatedOid": "126f017"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-06-03T15:53:56Z",
+          "updatedAt": "2024-06-03T15:58:03Z",
+          "comments": [
+            {
+              "originalPosition": 457,
+              "body": "Here we can give reference to the new paper of my friend Markku Saarinen who suggests further recommendations and, moreover, provides some insights into side-channel resistant implementation of SLH-DSA. ",
+              "createdAt": "2024-06-03T15:53:57Z",
+              "updatedAt": "2024-06-03T15:58:03Z"
+            },
+            {
+              "originalPosition": 457,
+              "body": "https://eprint.iacr.org/2024/367\r\n",
+              "createdAt": "2024-06-03T15:57:58Z",
+              "updatedAt": "2024-06-03T15:58:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic585Ql_",
+          "commit": {
+            "abbreviatedOid": "126f017"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Agree with Kaveh to maybe add more references to fault attacks. Otherwise I agree with the changes.",
+          "createdAt": "2024-06-04T05:59:10Z",
+          "updatedAt": "2024-06-04T05:59:10Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic588Iz1",
+          "commit": {
+            "abbreviatedOid": "0e54cdc"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved",
+          "createdAt": "2024-06-04T11:43:05Z",
+          "updatedAt": "2024-06-04T11:43:05Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic59E9eE",
+          "commit": {
+            "abbreviatedOid": "5d4b7e2"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-05T08:50:46Z",
+          "updatedAt": "2024-06-05T08:50:46Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic59F-hH",
+          "commit": {
+            "abbreviatedOid": "5d4b7e2"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved",
+          "createdAt": "2024-06-05T10:26:53Z",
+          "updatedAt": "2024-06-05T10:26:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOLS83Ic50dOjB",
+      "title": "Align with cms-sphincs-plus",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/10",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Refer to the ASN.1 in the cms-sphincs-plus draft.\r\nRemove Private Key section as the private key encoding is specified in cms-sphincs-plus draft.",
+      "createdAt": "2024-07-04T15:05:02Z",
+      "updatedAt": "2024-07-04T15:29:46Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "eaed861bd918a7adf3cbdfcece30873eb8111b75",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/align_with_cms_sphincs_plus",
+      "headRefOid": "0d866283ee83239c575ba85240b11e29420cb9e1",
+      "closedAt": "2024-07-04T15:29:46Z",
+      "mergedAt": "2024-07-04T15:29:46Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "1b2ecc4feab764da18be8b61afe8d266c6d17bbf"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6Askgd",
+          "commit": {
+            "abbreviatedOid": "0d86628"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me",
+          "createdAt": "2024-07-04T15:29:30Z",
+          "updatedAt": "2024-07-04T15:29:30Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOLS83Ic50d0Lj",
+      "title": "Explain that fast parameter sets are actually slower at verification",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/11",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #5 ",
+      "createdAt": "2024-07-04T17:14:29Z",
+      "updatedAt": "2024-07-05T04:51:14Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "1b2ecc4feab764da18be8b61afe8d266c6d17bbf",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/fast_v_small",
+      "headRefOid": "e0c91d8d29248c1eeee64550a3aea1a04a093292",
+      "closedAt": "2024-07-05T04:51:14Z",
+      "mergedAt": "2024-07-05T04:51:14Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "8bd50ce9074c13ad8f5774ad42f1359235cc9c09"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6AvHku",
+          "commit": {
+            "abbreviatedOid": "e0c91d8"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved",
+          "createdAt": "2024-07-05T04:51:07Z",
+          "updatedAt": "2024-07-05T04:51:07Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
