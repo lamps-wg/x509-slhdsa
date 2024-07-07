@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-04T01:03:37.943916+00:00",
+  "timestamp": "2024-07-07T01:09:09.357058+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -133,15 +133,15 @@
       "id": "I_kwDOLS83Ic6Az-ha",
       "title": "SHA2 vs SHAKE, fast vs small",
       "url": "https://github.com/lamps-wg/x509-slhdsa/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Explain the differences between parameter sets with sha2 vs shake, fast vs small.\r\n\r\nFrom John Mattson:\r\n    If you explain the \"fast\" parameter sets, please describe that they have much slower verification than the \"small\" parameter sets.\r\n",
       "createdAt": "2024-02-29T12:09:50Z",
-      "updatedAt": "2024-02-29T12:09:50Z",
-      "closedAt": null,
+      "updatedAt": "2024-07-05T04:51:15Z",
+      "closedAt": "2024-07-05T04:51:15Z",
       "comments": []
     },
     {
@@ -518,6 +518,90 @@
           "body": "Approved",
           "createdAt": "2024-06-05T10:26:53Z",
           "updatedAt": "2024-06-05T10:26:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOLS83Ic50dOjB",
+      "title": "Align with cms-sphincs-plus",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/10",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Refer to the ASN.1 in the cms-sphincs-plus draft.\r\nRemove Private Key section as the private key encoding is specified in cms-sphincs-plus draft.",
+      "createdAt": "2024-07-04T15:05:02Z",
+      "updatedAt": "2024-07-04T15:29:46Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "eaed861bd918a7adf3cbdfcece30873eb8111b75",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/align_with_cms_sphincs_plus",
+      "headRefOid": "0d866283ee83239c575ba85240b11e29420cb9e1",
+      "closedAt": "2024-07-04T15:29:46Z",
+      "mergedAt": "2024-07-04T15:29:46Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "1b2ecc4feab764da18be8b61afe8d266c6d17bbf"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6Askgd",
+          "commit": {
+            "abbreviatedOid": "0d86628"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me",
+          "createdAt": "2024-07-04T15:29:30Z",
+          "updatedAt": "2024-07-04T15:29:30Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOLS83Ic50d0Lj",
+      "title": "Explain that fast parameter sets are actually slower at verification",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/11",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #5 ",
+      "createdAt": "2024-07-04T17:14:29Z",
+      "updatedAt": "2024-07-05T04:51:14Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "1b2ecc4feab764da18be8b61afe8d266c6d17bbf",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/fast_v_small",
+      "headRefOid": "e0c91d8d29248c1eeee64550a3aea1a04a093292",
+      "closedAt": "2024-07-05T04:51:14Z",
+      "mergedAt": "2024-07-05T04:51:14Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "8bd50ce9074c13ad8f5774ad42f1359235cc9c09"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6AvHku",
+          "commit": {
+            "abbreviatedOid": "e0c91d8"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved",
+          "createdAt": "2024-07-05T04:51:07Z",
+          "updatedAt": "2024-07-05T04:51:07Z",
           "comments": []
         }
       ]
