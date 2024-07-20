@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 6 January 2025                                    Cisco Systems
+Expires: 21 January 2025                                   Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                             5 July 2024
+                                                            20 July 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -66,7 +66,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 January 2025.
+   This Internet-Draft will expire on 21 January 2025.
 
 Copyright Notice
 
@@ -397,6 +397,16 @@ Table of Contents
        keyCertSign; or
        cRLSign.
 
+   If the keyUsage extension is present in a certificate that indicates
+   an id-alg-slh-dsa-* identifier in the SubjectPublicKeyInfo, then the
+   following MUST NOT be present:
+
+       keyEncipherment; or
+       dataEncipherment; or
+       keyAgreement; or
+       encipherOnly; or
+       decipherOnly.
+
    Requirements about the keyUsage extension bits defined in [RFC5280]
    still apply.
 
@@ -458,9 +468,9 @@ Table of Contents
               Housley, R., Fluhrer, S., Kampanakis, P., and B.
               Westerbaan, "Use of the SLH-DSA Signature Algorithm in the
               Cryptographic Message Syntax (CMS)", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-06, 3
+              Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-07, 5
               July 2024, <https://datatracker.ietf.org/doc/html/draft-
-              ietf-lamps-cms-sphincs-plus-06>.
+              ietf-lamps-cms-sphincs-plus-07>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
