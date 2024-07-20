@@ -360,6 +360,16 @@ The intended application for the key is indicated in the keyUsage certificate ex
     cRLSign.
 ~~~
 
+If the keyUsage extension is present in a certificate that indicates an id-alg-slh-dsa-* identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
+
+~~~
+    keyEncipherment; or
+    dataEncipherment; or
+    keyAgreement; or
+    encipherOnly; or
+    decipherOnly.
+~~~
+
 Requirements about the keyUsage extension bits defined in {{!RFC5280}} still apply.
 
 # Security Considerations
