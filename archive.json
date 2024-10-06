@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-03T01:13:49.983630+00:00",
+  "timestamp": "2024-10-06T01:18:49.395247+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -602,6 +602,48 @@
           "body": "Approved",
           "createdAt": "2024-07-05T04:51:07Z",
           "updatedAt": "2024-07-05T04:51:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOLS83Ic59rvj6",
+      "title": "Update draft-ietf-lamps-x509-slhdsa.md",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/12",
+      "state": "MERGED",
+      "author": "exception42",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Quick fix for my name",
+      "createdAt": "2024-10-05T06:48:30Z",
+      "updatedAt": "2024-10-05T23:13:41Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "162ff1d5698e43b5b98656e55f823399e7d2e0b4",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "exception42-patch-1",
+      "headRefOid": "726933b8c7eb43df3dee42e7a1bf0cb46305abe5",
+      "closedAt": "2024-10-05T23:13:41Z",
+      "mergedAt": "2024-10-05T23:13:41Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "13c3090d768cb61e411034df1c9c28d909468d88"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6MGIbE",
+          "commit": {
+            "abbreviatedOid": "726933b"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-05T23:13:34Z",
+          "updatedAt": "2024-10-05T23:13:34Z",
           "comments": []
         }
       ]
