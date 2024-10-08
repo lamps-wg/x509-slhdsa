@@ -199,7 +199,7 @@ algorithm identifier and a location for the signature.
       signatureValue       BIT STRING }
 ~~~
 
-The same algorithm identifiers in {{sec-alg-ids}} are used for signatures as are used
+The same algorithm identifiers are used for signatures as are used
 for public keys.  When used to identify signature algorithms, the
 parameters MUST be absent.
 
@@ -414,7 +414,7 @@ the key pair and widest ability to import the key.
 
 # Security Considerations
 
-The security considerations of {{RFC5280}} applies accordingly.
+The security considerations of {{RFC5280}} apply accordingly.
 
 Implementations MUST protect the private keys.  Compromise of the
 private keys may result in the ability to forge signatures.
