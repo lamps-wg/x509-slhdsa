@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 10 April 2025                                     Cisco Systems
+Expires: 11 April 2025                                     Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                          7 October 2024
+                                                          8 October 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 April 2025.
+   This Internet-Draft will expire on 11 April 2025.
 
 Copyright Notice
 
@@ -208,9 +208,9 @@ Table of Contents
          signatureAlgorithm   AlgorithmIdentifier,
          signatureValue       BIT STRING }
 
-   The same algorithm identifiers in Section 3 are used for signatures
-   as are used for public keys.  When used to identify signature
-   algorithms, the parameters MUST be absent.
+   The same algorithm identifiers are used for signatures as are used
+   for public keys.  When used to identify signature algorithms, the
+   parameters MUST be absent.
 
    The data to be signed is prepared for SLH-DSA.  Then, a private key
    operation is performed to generate the raw signature value.
@@ -429,7 +429,7 @@ Table of Contents
 
 8.  Security Considerations
 
-   The security considerations of [RFC5280] applies accordingly.
+   The security considerations of [RFC5280] apply accordingly.
 
    Implementations MUST protect the private keys.  Compromise of the
    private keys may result in the ability to forge signatures.
