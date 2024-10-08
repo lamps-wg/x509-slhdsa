@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-06T01:18:49.395247+00:00",
+  "timestamp": "2024-10-08T01:13:40.289474+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -647,6 +647,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDOLS83Ic591OA8",
+      "title": "FIPS version",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/13",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- NIST OIDs\r\n- Private Key Encodings\r\n- More generally PKIX instead of certificates + CRLs\r\n- More like RFC 8410 than dilithum-certificates\r\n- Examples",
+      "createdAt": "2024-10-07T15:05:21Z",
+      "updatedAt": "2024-10-07T15:05:21Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "13c3090d768cb61e411034df1c9c28d909468d88",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/FIPS205",
+      "headRefOid": "128c68b6b141e109e3e0ec8f3f47c832a4baaa30",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
