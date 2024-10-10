@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-08T01:13:40.289474+00:00",
+  "timestamp": "2024-10-10T01:13:09.536525+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -653,26 +653,115 @@
       "id": "PR_kwDOLS83Ic591OA8",
       "title": "FIPS version",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "- NIST OIDs\r\n- Private Key Encodings\r\n- More generally PKIX instead of certificates + CRLs\r\n- More like RFC 8410 than dilithum-certificates\r\n- Examples",
       "createdAt": "2024-10-07T15:05:21Z",
-      "updatedAt": "2024-10-07T15:05:21Z",
+      "updatedAt": "2024-10-08T11:27:31Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "13c3090d768cb61e411034df1c9c28d909468d88",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/FIPS205",
-      "headRefOid": "128c68b6b141e109e3e0ec8f3f47c832a4baaa30",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "e841fd8afb90853673ec72b4a954b2456927c52a",
+      "closedAt": "2024-10-08T11:27:31Z",
+      "mergedAt": "2024-10-08T11:27:31Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "329a228b732daf4a76246ca8b53e3c68e5e6a30c"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6MT4qM",
+          "commit": {
+            "abbreviatedOid": "128c68b"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-08T10:03:53Z",
+          "updatedAt": "2024-10-08T10:03:53Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6MUDoR",
+          "commit": {
+            "abbreviatedOid": "128c68b"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-08T10:25:01Z",
+          "updatedAt": "2024-10-08T10:25:01Z",
+          "comments": [
+            {
+              "originalPosition": 143,
+              "body": "Is there a doubling of \"are used\" in \"are used for signatures as are used for public keys\"?",
+              "createdAt": "2024-10-08T10:25:01Z",
+              "updatedAt": "2024-10-08T10:25:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6MUFJB",
+          "commit": {
+            "abbreviatedOid": "128c68b"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-08T10:28:02Z",
+          "updatedAt": "2024-10-08T10:28:03Z",
+          "comments": [
+            {
+              "originalPosition": 385,
+              "body": "```suggestion\r\nThe security considerations of {{RFC5280}} apply accordingly.\r\n```",
+              "createdAt": "2024-10-08T10:28:02Z",
+              "updatedAt": "2024-10-08T10:28:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6MUF9r",
+          "commit": {
+            "abbreviatedOid": "128c68b"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "LGTM\r\n\r\nJust some minor editorial comments that should be checked prior to merging.\r\n",
+          "createdAt": "2024-10-08T10:29:41Z",
+          "updatedAt": "2024-10-08T10:29:41Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6MUh2f",
+          "commit": {
+            "abbreviatedOid": "128c68b"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-08T11:21:34Z",
+          "updatedAt": "2024-10-08T11:21:34Z",
+          "comments": [
+            {
+              "originalPosition": 143,
+              "body": "That is fine in English, I think it's the \"in {{sec-alg-ids}}\" that makes it awkward and isn't necessary so I'll remove that.",
+              "createdAt": "2024-10-08T11:21:34Z",
+              "updatedAt": "2024-10-08T11:21:34Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
