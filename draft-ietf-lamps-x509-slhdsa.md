@@ -86,6 +86,12 @@ informative:
     date: '2024'
     target: https://eprint.iacr.org/2024/367.pdf
     title: 'Accelerating SLH-DSA by Two Orders of Magnitude with a Single Hash Unit'
+  X680:
+    target: https://www.itu.int/rec/T-REC-X.680
+    title: "Information Technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation. ITU-T Recommendation X.680 (2021) | ISO/IEC 8824-1:2021."
+    author:
+      org: ITU-T
+    date: February 2021
 
 --- abstract
 
@@ -131,16 +137,17 @@ SLH-DSA was designed to sign up to 2^64 messages and offers three security level
 
 The AlgorithmIdentifier type, which is included herein for convenience, is defined as follows:
 
+~~~ asn.1
+AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
+        SEQUENCE {
+            algorithm   ALGORITHM-TYPE.&id({AlgorithmSet}),
+            parameters  ALGORITHM-TYPE.
+                   &Params({AlgorithmSet}{@algorithm}) OPTIONAL
+        }
 ~~~
-    AlgorithmIdentifier  ::=  SEQUENCE  {
-        algorithm   OBJECT IDENTIFIER,
-        parameters  ANY DEFINED BY algorithm OPTIONAL
-    }
 
-    |  NOTE: The above syntax is from [RFC5280] and matches the
-    |  version used therein, i.e., the 1988 ASN.1 syntax.  See
-    |  [RFC5912] for ASN.1 copmatible with the 2015 ASN.1 syntax.
-~~~
+The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+See {{?RFC5280}} for the 1988 ASN.1 syntax.
 
 The fields in AlgorithmIdentifier have the following meanings:
 
@@ -150,7 +157,7 @@ The fields in AlgorithmIdentifier have the following meanings:
 
 The SLH-DSA OIDs are:
 
-~~~
+~~~ asn.1
    nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
      country(16) us(840) organization(1) gov(101) csor(3) 4 }
 
@@ -192,7 +199,7 @@ The top level structure for a certificate is given below as being
 illustrative of how signatures are frequently encoded with an
 algorithm identifier and a location for the signature.
 
-~~~
+~~~ asn.1
    Certificate  ::=  SEQUENCE  {
       tbsCertificate       TBSCertificate,
       signatureAlgorithm   AlgorithmIdentifier,
@@ -218,7 +225,7 @@ value is encoded in the "signatureValue" BIT STRING field.
 
 In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 
-~~~
+~~~ asn.1
    SubjectPublicKeyInfo  ::=  SEQUENCE  {
       algorithm         AlgorithmIdentifier,
       subjectPublicKey  BIT STRING }
@@ -232,7 +239,7 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 
 {{!I-D.draft-ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for SLH-DSA:
 
-~~~
+~~~ asn.1
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
       IDENTIFIER id-slh-dsa-sha2-128s
       -- KEY no ASN.1 wrapping --
@@ -373,7 +380,7 @@ key is for and optionally allows for the public key and additional attributes
 about the key to be included as well.  For illustration, the ASN.1
 structure OneAsymmetricKey is replicated below.
 
-~~~
+~~~ asn.1
    OneAsymmetricKey ::= SEQUENCE {
       version Version,
       privateKeyAlgorithm PrivateKeyAlgorithmIdentifier,
@@ -456,7 +463,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).
 
 RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of [I-D.draft-ietf-lamps-cms-sphincs-plus].
 
-~~~
+~~~ asn.1
 <CODE BEGINS>
 {::include X509-SLHDSA-2024.asn}
 <CODE ENDS>
