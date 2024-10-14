@@ -449,16 +449,18 @@ force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
 
-Implementers SHOULD consider their particular use cases and may choose
-to implement OPTIONAL fault attack countermeasures [CMP2018],[Ge2023]. While
-verifying a signature before releasing it is a typical fault attack
-countermeasure, it is not effective for SLH-DSA [Ge2023]. Redundancy, i.e.
-replicating the signature generation process, MAY be used as an effective
-fault attack countermeasure for SLH-DSA [Ge2023], however SLH-DSA signature
-generation it typically slow.
+Implementers SHOULD consider their particular use cases and may
+choose to implement OPTIONAL fault attack countermeasures [CMP2018],[Ge2023].
+Verifying a signature before releasing the signature value
+is a typical fault attack countermeasure; however, this
+countermeasure is not effective for SLH-DSA [Ge2023].  Redundancy by
+replicating the signature generation process can be used as an
+effective fault attack countermeasure for SLH-DSA [Ge2023]; however,
+the SLH-DSA signature generation is already considered slow.
 
-SLH-DSA is highly vulnerable to passive power and emissions side-channel
-attacks [SLotH] and protections SHOULD be considered depending on use case.
+Likewise, Implementers SHOULD consider their particular use cases and
+may choose to implement protections against passive power and
+emissions side-channel attacks [SLotH].
 
 # IANA Considerations
 
