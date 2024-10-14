@@ -92,6 +92,13 @@ informative:
     author:
       org: ITU-T
     date: February 2021
+  Ge2023:
+    author:
+    - name: Aymeric Genêt
+    target: https://doi.org/10.46586/tches.v2023.i2.80-114
+    title: On Protecting SPHINCS+ Against Fault Attacks
+    seriesinfo:
+      TCHES: 2023/02
 
 --- abstract
 
@@ -442,12 +449,16 @@ force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
 
-When computing signatures, implementations SHOULD include protections
-against fault injection attacks [CMP2018],[SLotH].  Protections against these
-attacks include signature verification prior to releasing the
-signature value to confirm that no error injected and generating the
-signature a few times to confirm that the same signature value is
-produced each time.
+Implementers SHOULD consider their particular use cases and may choose
+to implement OPTIONAL fault attack countermeasures [CMP2018],[Ge2023]. While
+verifying a signature before releasing it is a typical fault attack
+countermeasure, it is not effective for SLH-DSA [Ge2023]. Redundancy, i.e.
+replicating the signature generation process, MAY be used as an effective
+fault attack countermeasure for SLH-DSA [Ge2023], however SLH-DSA signature
+generation it typically slow.
+
+SLH-DSA is highly vulnerable to passive power and emissions side-channel
+attacks [SLotH] and protections SHOULD be considered depending on use case.
 
 # IANA Considerations
 
