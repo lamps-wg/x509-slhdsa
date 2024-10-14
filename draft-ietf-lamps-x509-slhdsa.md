@@ -103,7 +103,7 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 # Introduction
 
-Stateless Hash-Based Digital Signatures (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
+Stateless Hash-Based Digital Signatures (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
 
 SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal hash functions. The fast versions are optimized for key generation and signing speed, they are actually slower at verification than the small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
