@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 11 April 2025                                     Cisco Systems
+Expires: 17 April 2025                                     Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                          8 October 2024
+                                                         14 October 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 April 2025.
+   This Internet-Draft will expire on 17 April 2025.
 
 Copyright Notice
 
@@ -140,14 +140,15 @@ Table of Contents
    The AlgorithmIdentifier type, which is included herein for
    convenience, is defined as follows:
 
-       AlgorithmIdentifier  ::=  SEQUENCE  {
-           algorithm   OBJECT IDENTIFIER,
-           parameters  ANY DEFINED BY algorithm OPTIONAL
-       }
+   AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
+           SEQUENCE {
+               algorithm   ALGORITHM-TYPE.&id({AlgorithmSet}),
+               parameters  ALGORITHM-TYPE.
+                      &Params({AlgorithmSet}{@algorithm}) OPTIONAL
+           }
 
-       |  NOTE: The above syntax is from [RFC5280] and matches the
-       |  version used therein, i.e., the 1988 ASN.1 syntax.  See
-       |  [RFC5912] for ASN.1 copmatible with the 2015 ASN.1 syntax.
+   The above syntax is from [RFC5912] and is compatible with the 2021
+   ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1 syntax.
 
    The fields in AlgorithmIdentifier have the following meanings:
 
@@ -541,6 +542,11 @@ Table of Contents
               DOI 10.17487/RFC4086, June 2005,
               <https://www.rfc-editor.org/rfc/rfc4086>.
 
+   [RFC5912]  Hoffman, P. and J. Schaad, "New ASN.1 Modules for the
+              Public Key Infrastructure Using X.509 (PKIX)", RFC 5912,
+              DOI 10.17487/RFC5912, June 2010,
+              <https://www.rfc-editor.org/rfc/rfc5912>.
+
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
               April 2015, <https://www.rfc-editor.org/rfc/rfc7468>.
@@ -560,6 +566,11 @@ Table of Contents
               Magnitude with a Single Hash Unit", 2024,
               <https://eprint.iacr.org/2024/367.pdf>.
 
+   [X680]     ITU-T, "Information Technology - Abstract Syntax Notation
+              One (ASN.1): Specification of basic notation. ITU-T
+              Recommendation X.680 (2021) | ISO/IEC 8824-1:2021.",
+              February 2021, <https://www.itu.int/rec/T-REC-X.680>.
+
 Appendix A.  ASN.1 Module
 
    RFC EDITOR: Please replace TBD2 with the value assigned by IANA
@@ -576,7 +587,7 @@ Appendix A.  ASN.1 Module
 
    IMPORTS
      PUBLIC-KEY, SIGNATURE-ALGORITHM
-       FROM AlgorithmInformation-2009  -- in [RFC5911]
+       FROM AlgorithmInformation-2009  -- in [RFC5912]
        { iso(1) identified-organization(3) dod(6) internet(1)
          security(5) mechanisms(5) pkix(7) id-mod(0)
          id-mod-algorithmInformation-02(58) }
