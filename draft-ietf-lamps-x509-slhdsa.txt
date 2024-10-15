@@ -737,7 +737,7 @@ Appendix B.  Security Strengths
 
 Appendix C.  Examples
 
-   This section contains examples of SLH-DSA public keys, private keys
+   This appendix contains examples of SLH-DSA public keys, private keys
    and certificates.
 
 C.1.  Example Public Key
