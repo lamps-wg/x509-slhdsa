@@ -153,8 +153,10 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
         }
 ~~~
 
+<aside markdown="block">
 The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
 See {{?RFC5280}} for the 1988 ASN.1 syntax.
+</aside>
 
 The fields in AlgorithmIdentifier have the following meanings:
 
@@ -207,11 +209,28 @@ illustrative of how signatures are frequently encoded with an
 algorithm identifier and a location for the signature.
 
 ~~~ asn.1
-   Certificate  ::=  SEQUENCE  {
-      tbsCertificate       TBSCertificate,
-      signatureAlgorithm   AlgorithmIdentifier,
-      signatureValue       BIT STRING }
+  Certificate  ::=  SIGNED{ TBSCertificate }
+
+  SIGNED{ToBeSigned} ::= SEQUENCE {
+     toBeSigned           ToBeSigned,
+     algorithmIdentifier  SEQUENCE {
+         algorithm        SIGNATURE-ALGORITHM.
+                            &id({SignatureAlgorithms}),
+         parameters       SIGNATURE-ALGORITHM.
+                            &Params({SignatureAlgorithms}
+                              {@algorithmIdentifier.algorithm})
+                                OPTIONAL
+     },
+     signature BIT STRING (CONTAINING SIGNATURE-ALGORITHM.&Value(
+                              {SignatureAlgorithms}
+                              {@algorithmIdentifier.algorithm}))
+  }
 ~~~
+
+<aside markdown="block">
+The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+See {{?RFC5280}} for the 1988 ASN.1 syntax.
+</aside>
 
 The same algorithm identifiers are used for signatures as are used
 for public keys.  When used to identify signature algorithms, the
@@ -233,10 +252,15 @@ value is encoded in the "signatureValue" BIT STRING field.
 In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 
 ~~~ asn.1
-   SubjectPublicKeyInfo  ::=  SEQUENCE  {
-      algorithm         AlgorithmIdentifier,
-      subjectPublicKey  BIT STRING }
+  SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
+      algorithm        AlgorithmIdentifier {PUBLIC-KEY, {IOSet}},
+      subjectPublicKey BIT STRING }
 ~~~
+
+<aside markdown="block">
+The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+See {{?RFC5280}} for the 1988 ASN.1 syntax.
+</aside>
 
 The fields in SubjectPublicKeyInfo have the following meanings:
 
