@@ -1258,8 +1258,10 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
         }
 </pre><a href="#section-3-2" class="pilcrow">¶</a>
 </div>
-<p id="section-3-3">The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
-See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<aside id="section-3-3">
+        <p id="section-3-3.1">The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
+See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3.1" class="pilcrow">¶</a></p>
+</aside>
 <p id="section-3-4">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-5.1">
@@ -1317,24 +1319,40 @@ illustrative of how signatures are frequently encoded with an
 algorithm identifier and a location for the signature.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <div class="lang-asn.1 sourcecode" id="section-4-3">
 <pre>
-   Certificate  ::=  SEQUENCE  {
-      tbsCertificate       TBSCertificate,
-      signatureAlgorithm   AlgorithmIdentifier,
-      signatureValue       BIT STRING }
+  Certificate  ::=  SIGNED{ TBSCertificate }
+
+  SIGNED{ToBeSigned} ::= SEQUENCE {
+     toBeSigned           ToBeSigned,
+     algorithmIdentifier  SEQUENCE {
+         algorithm        SIGNATURE-ALGORITHM.
+                            &amp;id({SignatureAlgorithms}),
+         parameters       SIGNATURE-ALGORITHM.
+                            &amp;Params({SignatureAlgorithms}
+                              {@algorithmIdentifier.algorithm})
+                                OPTIONAL
+     },
+     signature BIT STRING (CONTAINING SIGNATURE-ALGORITHM.&amp;Value(
+                              {SignatureAlgorithms}
+                              {@algorithmIdentifier.algorithm}))
+  }
 </pre><a href="#section-4-3" class="pilcrow">¶</a>
 </div>
-<p id="section-4-4">The same algorithm identifiers are used for signatures as are used
+<aside id="section-4-4">
+        <p id="section-4-4.1">The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
+See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-4-4.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="section-4-5">The same algorithm identifiers are used for signatures as are used
 for public keys.  When used to identify signature algorithms, the
-parameters <span class="bcp14">MUST</span> be absent.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5">The data to be signed is prepared for SLH-DSA.  Then, a private key
-operation is performed to generate the raw signature value.<a href="#section-4-5" class="pilcrow">¶</a></p>
-<p id="section-4-6">Section 9.2 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA signature as three elements,
+parameters <span class="bcp14">MUST</span> be absent.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<p id="section-4-6">The data to be signed is prepared for SLH-DSA.  Then, a private key
+operation is performed to generate the raw signature value.<a href="#section-4-6" class="pilcrow">¶</a></p>
+<p id="section-4-7">Section 9.2 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA signature as three elements,
 R, SIG_FORS and SIG_HT. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
 The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
-value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-6" class="pilcrow">¶</a></p>
+value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-pub-keys">
@@ -1345,22 +1363,26 @@ value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-6"
 <p id="section-5-1">In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div class="lang-asn.1 sourcecode" id="section-5-2">
 <pre>
-   SubjectPublicKeyInfo  ::=  SEQUENCE  {
-      algorithm         AlgorithmIdentifier,
-      subjectPublicKey  BIT STRING }
+  SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
+      algorithm        AlgorithmIdentifier {PUBLIC-KEY, {IOSet}},
+      subjectPublicKey BIT STRING }
 </pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
-<p id="section-5-3">The fields in SubjectPublicKeyInfo have the following meanings:<a href="#section-5-3" class="pilcrow">¶</a></p>
+<aside id="section-5-3">
+        <p id="section-5-3.1">The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
+See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-5-3.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="section-5-4">The fields in SubjectPublicKeyInfo have the following meanings:<a href="#section-5-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5-4.1">
-          <p id="section-5-4.1.1">algorithm is the algorithm identifier and parameters for the public key (see above).<a href="#section-5-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-5-5.1">
+          <p id="section-5-5.1.1">algorithm is the algorithm identifier and parameters for the public key (see above).<a href="#section-5-5.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-4.2">
-          <p id="section-5-4.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-5-4.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-5.2">
+          <p id="section-5-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-5"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for SLH-DSA:<a href="#section-5-5" class="pilcrow">¶</a></p>
-<div class="breakable lang-asn.1 sourcecode" id="section-5-6">
+<p id="section-5-6"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
+<div class="breakable lang-asn.1 sourcecode" id="section-5-7">
 <pre>
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
       IDENTIFIER id-slh-dsa-sha2-128s
@@ -1447,15 +1469,15 @@ value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-6"
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    SLH-DSA-PublicKey ::= OCTET STRING
-</pre><a href="#section-5-6" class="pilcrow">¶</a>
+</pre><a href="#section-5-7" class="pilcrow">¶</a>
 </div>
-<p id="section-5-7">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
+<p id="section-5-8">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
 PK.seed and PK.root. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these two elements, i.e. PK.seed || PK.root. The octet
 string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
-contains the raw octet string encoding of the public key.<a href="#section-5-7" class="pilcrow">¶</a></p>
-<p id="section-5-8"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
+contains the raw octet string encoding of the public key.<a href="#section-5-8" class="pilcrow">¶</a></p>
+<p id="section-5-9"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
 OCTET STRING type to provide an option for encoding a public key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
 SLH-DSA raw octet string to ASN.1. To map an SLH-DSA-PublicKey OCTET STRING to
@@ -1463,10 +1485,10 @@ a SubjectPublicKeyInfo, the OCTET STRING is mapped to the subjectPublicKey
 field (a value of type BIT STRING) as follows: the most significant
 bit of the OCTET STRING value becomes the most significant bit of the BIT
 STRING value, and so on; the least significant bit of the OCTET STRING
-becomes the least significant bit of the BIT STRING.<a href="#section-5-8" class="pilcrow">¶</a></p>
-<p id="section-5-9">The id-slh-dsa-* identifiers in <a href="#sec-alg-ids" class="auto internal xref">Section 3</a> <span class="bcp14">MUST</span> be used as the algorithm field in the SubjectPublicKeyInfo sequence <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> to identify a SLH-DSA public key.<a href="#section-5-9" class="pilcrow">¶</a></p>
-<p id="section-5-10"><a href="#example-public" class="auto internal xref">Appendix C.1</a> contains an example of an id-slh-dsa-sha2-128s public
-key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-10" class="pilcrow">¶</a></p>
+becomes the least significant bit of the BIT STRING.<a href="#section-5-9" class="pilcrow">¶</a></p>
+<p id="section-5-10">The id-slh-dsa-* identifiers in <a href="#sec-alg-ids" class="auto internal xref">Section 3</a> <span class="bcp14">MUST</span> be used as the algorithm field in the SubjectPublicKeyInfo sequence <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> to identify a SLH-DSA public key.<a href="#section-5-10" class="pilcrow">¶</a></p>
+<p id="section-5-11"><a href="#example-public" class="auto internal xref">Appendix C.1</a> contains an example of an id-slh-dsa-sha2-128s public
+key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-usage-bits">
