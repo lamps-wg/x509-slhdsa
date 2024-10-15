@@ -530,7 +530,7 @@ The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are liste
 
 # Examples
 
-This section contains examples of SLH-DSA public keys, private keys and certificates.
+This appendix contains examples of SLH-DSA public keys, private keys and certificates.
 
 ## Example Public Key {#example-public}
 
