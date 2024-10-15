@@ -11,7 +11,7 @@
 <meta content="Daniel Van Geest" name="author">
 <meta content="Stavros Kousidis" name="author">
 <meta content="
-       Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document describes the conventions for using the Stateless Hash-Based Digital Signature Standard (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also described. 
+       Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document describes the conventions for using the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also described. 
        
 
 
@@ -1039,7 +1039,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bashiri, et al.</td>
-<td class="center">Expires 17 April 2025</td>
+<td class="center">Expires 18 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1052,12 +1052,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-x509-slhdsa-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-14" class="published">14 October 2024</time>
+<time datetime="2024-10-15" class="published">15 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-17">17 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-18">18 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1086,7 +1086,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-DSA</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document describes the conventions for using the Stateless Hash-Based Digital Signature Standard (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document describes the conventions for using the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1122,7 +1122,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 17 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1224,8 +1224,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Stateless Hash-Based Digital Signatures (SLH-DSA) is a quantum-resistant digital signature scheme standardized in <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> by the US National Institute of Standards and Technology (NIST) PQC project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 <span>[<a href="#FIPS180" class="cite xref">FIPS180</a>]</span> or SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span> as internal hash functions. The fast versions are optimized for key generation and signing speed, they are actually slower at verification than the small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-1">The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> by the US National Institute of Standards and Technology (NIST) PQC project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 <span>[<a href="#FIPS180" class="cite xref">FIPS180</a>]</span> or SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span> as internal hash functions. The fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">SLH-DSA offers two signature modes: pure mode and predigest mode. SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string.
 This document only specifies the use of pure mode with an empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
@@ -1452,7 +1452,7 @@ value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-6"
 <p id="section-5-7">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
 PK.seed and PK.root. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these two elements, i.e. PK.seed || PK.root. The octet
-string length is 2*n bytes, where n is 16, 24, or 32, depending on the parameter
+string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encoding of the public key.<a href="#section-5-7" class="pilcrow">¶</a></p>
 <p id="section-5-8"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
@@ -1527,7 +1527,7 @@ structure OneAsymmetricKey is replicated below.<a href="#section-7-1" class="pil
 elements, SK.seed, SK.prf, PK.seed and PK.root.  The raw octet string
 encoding of an SLH-DSA private key is the concatenation of these four
 elements, i.e. SK.seed || SK.prf || PK.seed || PK.root.  The octet string
-length is 4*n bytes, where n is 16, 24, or 32, depending on the parameter
+length is 4*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set.  When used in a OneAsymmetricKey type, the privateKey
 OCTET STRING contains the raw octet string encoding of the private key.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <p id="section-7-4">When an SLH-DSA public key is included in a OneAsymmetricKey type, it is
@@ -1565,12 +1565,17 @@ searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
 random numbers is difficult, and <span>[<a href="#RFC4086" class="cite xref">RFC4086</a>]</span> offers important guidance
 in this area.<a href="#section-8-5" class="pilcrow">¶</a></p>
-<p id="section-8-6">When computing signatures, implementations <span class="bcp14">SHOULD</span> include protections
-against fault injection attacks <span>[<a href="#CMP2018" class="cite xref">CMP2018</a>]</span>,<span>[<a href="#SLotH" class="cite xref">SLotH</a>]</span>.  Protections against these
-attacks include signature verification prior to releasing the
-signature value to confirm that no error injected and generating the
-signature a few times to confirm that the same signature value is
-produced each time.<a href="#section-8-6" class="pilcrow">¶</a></p>
+<p id="section-8-6">Implementers <span class="bcp14">SHOULD</span> consider their particular use cases and may
+choose to implement <span class="bcp14">OPTIONAL</span> fault attack countermeasures <span>[<a href="#CMP2018" class="cite xref">CMP2018</a>]</span>,<span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>.
+Verifying a signature before releasing the signature value
+is a typical fault attack countermeasure; however, this
+countermeasure is not effective for SLH-DSA <span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>.  Redundancy by
+replicating the signature generation process can be used as an
+effective fault attack countermeasure for SLH-DSA <span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>; however,
+the SLH-DSA signature generation is already considered slow.<a href="#section-8-6" class="pilcrow">¶</a></p>
+<p id="section-8-7">Likewise, Implementers <span class="bcp14">SHOULD</span> consider their particular use cases and
+may choose to implement protections against passive power and
+emissions side-channel attacks <span>[<a href="#SLotH" class="cite xref">SLotH</a>]</span>.<a href="#section-8-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1640,6 +1645,10 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <dt id="FIPS202">[FIPS202]</dt>
         <dd>
 <span class="refAuthor">Dworkin, M.</span>, <span class="refAuthor">Dworkin, M. J.</span>, and <span class="refAuthor">NIST</span>, <span class="refTitle">"SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions"</span>, <span class="seriesInfo">FIPS PUB 202</span>, <span class="seriesInfo">NIST Federal Information Processing Standards Publications 202</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.202</span>, <span class="seriesInfo">DOI 10.6028/NIST.FIPS.202</span>, <time datetime="2015-08" class="refDate">August 2015</time>, <span>&lt;<a href="http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf">http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Ge2023">[Ge2023]</dt>
+        <dd>
+<span class="refAuthor">Genêt, A.</span>, <span class="refTitle">"On Protecting SPHINCS+ Against Fault Attacks"</span>, <span class="seriesInfo">TCHES 2023/02</span>, <span>n.d.</span>, <span>&lt;<a href="https://doi.org/10.46586/tches.v2023.i2.80-114">https://doi.org/10.46586/tches.v2023.i2.80-114</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-dilithium-certificates">[I-D.ietf-lamps-dilithium-certificates]</dt>
         <dd>
@@ -1770,7 +1779,7 @@ END
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-security-strengths" class="section-name selfRef">Security Strengths</a>
       </h2>
 <p id="appendix-B-1">Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST has instead elected to define a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">The parameter sets defined for NIST security levels 1, 3 and 5 are listed in <a href="#tab-strengths" class="auto internal xref">Table 1</a>, along with the resulting signature size, public key, and private key sizes in bytes.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in <a href="#tab-strengths" class="auto internal xref">Table 1</a>, along with the resulting signature size, public key, and private key sizes in bytes.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <span id="name-slh-dsa-security-strengths"></span><div id="tab-strengths">
 <table class="center" id="table-1">
         <caption>

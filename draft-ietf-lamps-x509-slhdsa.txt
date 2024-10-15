@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 17 April 2025                                     Cisco Systems
+Expires: 18 April 2025                                     Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                         14 October 2024
+                                                         15 October 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -24,7 +24,7 @@ Abstract
    Digital signatures are used within X.509 Public Key Infrastructure
    such as X.509 certificates, Certificate Revocation Lists (CRLs), and
    to sign messages.  This document describes the conventions for using
-   the Stateless Hash-Based Digital Signature Standard (SLH-DSA) in
+   the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in
    X.509 Public Key Infrastructure.  The conventions for the associated
    signatures, subject public keys, and private keys are also described.
 
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 April 2025.
+   This Internet-Draft will expire on 18 April 2025.
 
 Copyright Notice
 
@@ -99,14 +99,14 @@ Table of Contents
 
 1.  Introduction
 
-   Stateless Hash-Based Digital Signatures (SLH-DSA) is a quantum-
-   resistant digital signature scheme standardized in [FIPS205] by the
-   US National Institute of Standards and Technology (NIST) PQC project
-   [NIST-PQC].  Prior to standardization, the algorithm was known as
-   SPHINCS+. SLH-DSA and SPHINCS+ are not compatible.  This document
-   defines the ASN.1 Object Identifiers (OIDs) and conventions for the
-   encoding of SLH-DSA digital signatures, public keys and private keys
-   in the X.509 Public Key Infrastructure.
+   The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a
+   quantum-resistant digital signature scheme standardized in [FIPS205]
+   by the US National Institute of Standards and Technology (NIST) PQC
+   project [NIST-PQC].  Prior to standardization, the algorithm was
+   known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible.  This
+   document defines the ASN.1 Object Identifiers (OIDs) and conventions
+   for the encoding of SLH-DSA digital signatures, public keys and
+   private keys in the X.509 Public Key Infrastructure.
 
    SLH-DSA offers three security levels.  The parameters for each of the
    security levels were chosen to be at least as secure as a generic
@@ -114,9 +114,10 @@ Table of Contents
    (f) versions of the algorithm, and the option to use SHA-256
    [FIPS180] or SHAKE256 [FIPS202] as internal hash functions.  The fast
    versions are optimized for key generation and signing speed, they are
-   actually slower at verification than the small parameter sets.  For
-   example, id-slh-dsa-shake-256s represents the 256-bit security level,
-   the small version of the algorithm, and the use of SHAKE256.
+   actually slower at verification than the SLH-DSA small parameter
+   sets.  For example, id-slh-dsa-shake-256s represents the 256-bit
+   security level, the small version of the algorithm, and the use of
+   SHAKE256.
 
    Separate algorithm identifiers have been assigned for SLH-DSA at each
    of these security levels, fast vs small, and SHA-256 vs SHAKE256.
@@ -335,8 +336,8 @@ Table of Contents
    elements, PK.seed and PK.root.  The raw octet string encoding of an
    SLH-DSA public key is the concatenation of these two elements, i.e.
    PK.seed || PK.root.  The octet string length is 2*n bytes, where n is
-   16, 24, or 32, depending on the parameter set.  When used in a
-   SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING contains
+   16, 24, or 32, depending on the SLH-DSA parameter set.  When used in
+   a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING contains
    the raw octet string encoding of the public key.
 
    [I-D.draft-ietf-lamps-cms-sphincs-plus] defines the SLH-DSA-PublicKey
@@ -410,9 +411,9 @@ Table of Contents
    string encoding of an SLH-DSA private key is the concatenation of
    these four elements, i.e. SK.seed || SK.prf || PK.seed || PK.root.
    The octet string length is 4*n bytes, where n is 16, 24, or 32,
-   depending on the parameter set.  When used in a OneAsymmetricKey
-   type, the privateKey OCTET STRING contains the raw octet string
-   encoding of the private key.
+   depending on the SLH-DSA parameter set.  When used in a
+   OneAsymmetricKey type, the privateKey OCTET STRING contains the raw
+   octet string encoding of the private key.
 
    When an SLH-DSA public key is included in a OneAsymmetricKey type, it
    is encoded in the same manner as in a SubjectPublicKeyInfo type.
@@ -452,12 +453,19 @@ Table of Contents
    random numbers is difficult, and [RFC4086] offers important guidance
    in this area.
 
-   When computing signatures, implementations SHOULD include protections
-   against fault injection attacks [CMP2018],[SLotH].  Protections
-   against these attacks include signature verification prior to
-   releasing the signature value to confirm that no error injected and
-   generating the signature a few times to confirm that the same
-   signature value is produced each time.
+   Implementers SHOULD consider their particular use cases and may
+   choose to implement OPTIONAL fault attack countermeasures
+   [CMP2018],[Ge2023].  Verifying a signature before releasing the
+   signature value is a typical fault attack countermeasure; however,
+   this countermeasure is not effective for SLH-DSA [Ge2023].
+   Redundancy by replicating the signature generation process can be
+   used as an effective fault attack countermeasure for SLH-DSA
+   [Ge2023]; however, the SLH-DSA signature generation is already
+   considered slow.
+
+   Likewise, Implementers SHOULD consider their particular use cases and
+   may choose to implement protections against passive power and
+   emissions side-channel attacks [SLotH].
 
 9.  IANA Considerations
 
@@ -524,6 +532,10 @@ Table of Contents
               Standards Publications 202, DOI 10.6028/nist.fips.202,
               DOI 10.6028/NIST.FIPS.202, August 2015,
               <http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf>.
+
+   [Ge2023]   Genêt, A., "On Protecting SPHINCS+ Against Fault Attacks",
+              TCHES 2023/02, n.d.,
+              <https://doi.org/10.46586/tches.v2023.i2.80-114>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
@@ -667,9 +679,9 @@ Appendix B.  Security Strengths
    hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a
    block cipher with a 256-bit key (e.g., AES 256).
 
-   The parameter sets defined for NIST security levels 1, 3 and 5 are
-   listed in Table 1, along with the resulting signature size, public
-   key, and private key sizes in bytes.
+   The SLH-DSA parameter sets defined for NIST security levels 1, 3 and
+   5 are listed in Table 1, along with the resulting signature size,
+   public key, and private key sizes in bytes.
 
      +=======================+============+=======+==========+=======+
      | OID                   | NIST Level | Sig.  | Pub. Key | Priv. |
