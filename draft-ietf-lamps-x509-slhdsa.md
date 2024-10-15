@@ -157,7 +157,7 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
 The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
 See {{?RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
- 
+
 The fields in AlgorithmIdentifier have the following meanings:
 
 * algorithm identifies the cryptographic algorithm with an object identifier.
@@ -218,7 +218,8 @@ algorithm identifier and a location for the signature.
                             &id({SignatureAlgorithms}),
          parameters       SIGNATURE-ALGORITHM.
                             &Params({SignatureAlgorithms}
-                              {@algorithmIdentifier.algorithm}) OPTIONAL
+                              {@algorithmIdentifier.algorithm})
+                                OPTIONAL
      },
      signature BIT STRING (CONTAINING SIGNATURE-ALGORITHM.&Value(
                               {SignatureAlgorithms}
