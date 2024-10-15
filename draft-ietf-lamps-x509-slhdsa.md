@@ -92,10 +92,17 @@ informative:
     author:
       org: ITU-T
     date: February 2021
+  Ge2023:
+    author:
+    - name: Aymeric Genêt
+    target: https://doi.org/10.46586/tches.v2023.i2.80-114
+    title: On Protecting SPHINCS+ Against Fault Attacks
+    seriesinfo:
+      TCHES: 2023/02
 
 --- abstract
 
-Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document describes the conventions for using the Stateless Hash-Based Digital Signature Standard (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also described.
+Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document describes the conventions for using the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also described.
 
 <!-- End of Abstract -->
 
@@ -103,9 +110,9 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 # Introduction
 
-Stateless Hash-Based Digital Signatures (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
+The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
 
-SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal hash functions. The fast versions are optimized for key generation and signing speed, they are actually slower at verification than the small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
+SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal hash functions. The fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
 Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.
 
@@ -330,7 +337,7 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 Section 9.1 of {{FIPS205}} defines an SLH-DSA public key as two n-byte elements,
 PK.seed and PK.root. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these two elements, i.e. PK.seed || PK.root. The octet
-string length is 2*n bytes, where n is 16, 24, or 32, depending on the parameter
+string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encoding of the public key.
 
@@ -400,7 +407,7 @@ Section 9.1 of {{FIPS205}} defines an SLH-DSA private key as four n-byte
 elements, SK.seed, SK.prf, PK.seed and PK.root.  The raw octet string
 encoding of an SLH-DSA private key is the concatenation of these four
 elements, i.e. SK.seed || SK.prf || PK.seed || PK.root.  The octet string
-length is 4*n bytes, where n is 16, 24, or 32, depending on the parameter
+length is 4*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set.  When used in a OneAsymmetricKey type, the privateKey
 OCTET STRING contains the raw octet string encoding of the private key.
 
@@ -442,12 +449,18 @@ force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
 
-When computing signatures, implementations SHOULD include protections
-against fault injection attacks [CMP2018],[SLotH].  Protections against these
-attacks include signature verification prior to releasing the
-signature value to confirm that no error injected and generating the
-signature a few times to confirm that the same signature value is
-produced each time.
+Implementers SHOULD consider their particular use cases and may
+choose to implement OPTIONAL fault attack countermeasures [CMP2018],[Ge2023].
+Verifying a signature before releasing the signature value
+is a typical fault attack countermeasure; however, this
+countermeasure is not effective for SLH-DSA [Ge2023].  Redundancy by
+replicating the signature generation process can be used as an
+effective fault attack countermeasure for SLH-DSA [Ge2023]; however,
+the SLH-DSA signature generation is already considered slow.
+
+Likewise, Implementers SHOULD consider their particular use cases and
+may choose to implement protections against passive power and
+emissions side-channel attacks [SLotH].
 
 # IANA Considerations
 
@@ -473,7 +486,7 @@ RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publi
 
 Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST has instead elected to define a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).
 
-The parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{tab-strengths}}, along with the resulting signature size, public key, and private key sizes in bytes.
+The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{tab-strengths}}, along with the resulting signature size, public key, and private key sizes in bytes.
 
 | OID                   | NIST Level | Sig.  | Pub. Key | Priv. Key |
 |---                    |---         |---    |---       |---        |
