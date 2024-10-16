@@ -376,7 +376,7 @@ key encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Key Usage Bits
 
-The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then at least one of following MUST be present:
+The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
 
 ~~~
     digitalSignature; or
