@@ -50,13 +50,7 @@ author:
     email: kousidis.ietf@gmail.com
 
 normative:
-  FIPS205: # TODO: just use NIST.FIPS.205 when bib.ietf.org is updated
-      title: "Stateless Hash-Based Digital Signature Standard"
-      date: 2024-08-13
-      target: https://doi.org/10.6028/NIST.FIPS.205
-      author:
-        org: National Institute of Standards and Technology (NIST)
-      seriesinfo: FIPS PUB 205
+  FIPS205: DOI.10.6028/NIST.FIPS.205
 
 informative:
   NIST-PQC:
