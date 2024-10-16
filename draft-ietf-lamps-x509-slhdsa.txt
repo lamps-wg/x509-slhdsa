@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 18 April 2025                                     Cisco Systems
+Expires: 19 April 2025                                     Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                         15 October 2024
+                                                         16 October 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 April 2025.
+   This Internet-Draft will expire on 19 April 2025.
 
 Copyright Notice
 
@@ -500,10 +500,10 @@ Table of Contents
 
 10.1.  Normative References
 
-   [FIPS205]  National Institute of Standards and Technology (NIST),
-              "Stateless Hash-Based Digital Signature Standard", FIPS
-              PUB 205 , 13 August 2024,
-              <https://doi.org/10.6028/NIST.FIPS.205>.
+   [FIPS205]  "Stateless Hash-Based Digital Signature Standard",
+              National Institute of Standards and Technology,
+              DOI 10.6028/nist.fips.205, August 2024,
+              <https://doi.org/10.6028/nist.fips.205>.
 
    [I-D.draft-ietf-lamps-cms-sphincs-plus]
               Housley, R., Fluhrer, S., Kampanakis, P., and B.
