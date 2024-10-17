@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-15T01:14:47.165325+00:00",
+  "timestamp": "2024-10-17T01:13:57.625418+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -188,6 +188,22 @@
       "body": "Once NIST publishes FIPS205, decide what to do about pure vs predigest mode.  If we only support pure mode, add this text to the introduction:\r\n\r\n> The final version of {{FIPS205}} is expected to define two signature modes: pure mode and predigest mode.  This document only specifies the use of pure mode with X.509 certificates and CRLs.\r\n",
       "createdAt": "2024-06-05T08:36:07Z",
       "updatedAt": "2024-06-05T08:36:08Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOLS83Ic6aTqpr",
+      "title": "To be Explicit or Implicit?",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/issues/16",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Settle on whether ASN.1 module should be implicit or explicit.",
+      "createdAt": "2024-10-15T13:48:44Z",
+      "updatedAt": "2024-10-15T13:48:44Z",
       "closedAt": null,
       "comments": []
     }
@@ -768,26 +784,173 @@
       "id": "PR_kwDOLS83Ic5-j39d",
       "title": "Address Markku's fault attack comments",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-10-14T15:19:00Z",
-      "updatedAt": "2024-10-14T18:16:29Z",
+      "updatedAt": "2024-10-15T08:18:11Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "00b62fdd796917ad183786e2e6d2f85c13c45c65",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/fault_attacks",
       "headRefOid": "e50b5a18b5020482bda76ab8cafcba168f470edb",
+      "closedAt": "2024-10-15T08:18:11Z",
+      "mergedAt": "2024-10-15T08:18:11Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "23b5a64d4a39be8a250b7cc1a5c721b469665118"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6NKphe",
+          "commit": {
+            "abbreviatedOid": "e50b5a1"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I am disappointed from myself, because this remark should have came from me, since Markku and me spent a lot of time thinking about fault attacks. However, I like the new version, thank you. \r\n\r\nI think, for me, the reference [SLotH] did not work, but I did not give my best to find out what the problem was. So I think, the error is on my side. ",
+          "createdAt": "2024-10-15T07:16:33Z",
+          "updatedAt": "2024-10-15T07:16:33Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOLS83Ic5-reS5",
+      "title": "Make s4 & s5 ASN.1 examples '21",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/15",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "For consistency use '21 ASN.1 everywhere.",
+      "createdAt": "2024-10-15T13:44:58Z",
+      "updatedAt": "2024-10-15T14:48:52Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "23b5a64d4a39be8a250b7cc1a5c721b469665118",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-asn-2021-everywhere",
+      "headRefOid": "2a3eea7479b95c09d08b7f9b79893e8faf8986a8",
+      "closedAt": "2024-10-15T14:48:52Z",
+      "mergedAt": "2024-10-15T14:48:52Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "5740faf826c9ff89345992ae149e83f5abaa4afa"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6NPXy3",
+          "commit": {
+            "abbreviatedOid": "2a3eea7"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-15T14:48:42Z",
+          "updatedAt": "2024-10-15T14:48:42Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOLS83Ic5-snbj",
+      "title": "Nit: s/section/appendix",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/17",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-15T15:43:10Z",
+      "updatedAt": "2024-10-15T15:44:58Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "5740faf826c9ff89345992ae149e83f5abaa4afa",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-nit-1",
+      "headRefOid": "4dc915b8e84118103c6501c91a080a081ec86753",
+      "closedAt": "2024-10-15T15:44:48Z",
+      "mergedAt": "2024-10-15T15:44:48Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "b6cf46b278add14d1f39535efeb9aabc310b2b2a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6NQOje",
+          "commit": {
+            "abbreviatedOid": "4dc915b"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-15T15:44:19Z",
+          "updatedAt": "2024-10-15T15:44:19Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOLS83Ic5-1Y-l",
+      "title": "Address Corey's feedback",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/18",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-16T13:49:03Z",
+      "updatedAt": "2024-10-16T14:45:24Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "8ce28df2aeec2cb3d55165f81cdeaf8b63b6ff1f",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/coreys_review",
+      "headRefOid": "24a96e2099d77281bc8c069011fd077e5fd5eef6",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6Nanuu",
+          "commit": {
+            "abbreviatedOid": "a9baae8"
+          },
+          "author": "CBonnell",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-16T13:52:45Z",
+          "updatedAt": "2024-10-16T13:52:46Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "```suggestion\r\nThe intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:\r\n```",
+              "createdAt": "2024-10-16T13:52:46Z",
+              "updatedAt": "2024-10-16T13:52:46Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
