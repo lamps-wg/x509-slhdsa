@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-17T01:13:57.625418+00:00",
+  "timestamp": "2024-10-20T01:19:55.025465+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -203,9 +203,17 @@
       "labels": [],
       "body": "Settle on whether ASN.1 module should be implicit or explicit.",
       "createdAt": "2024-10-15T13:48:44Z",
-      "updatedAt": "2024-10-15T13:48:44Z",
+      "updatedAt": "2024-10-17T13:03:51Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "By sheer force of numbers, it'll be IMPLICIT.",
+          "createdAt": "2024-10-17T13:03:50Z",
+          "updatedAt": "2024-10-17T13:03:50Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -910,25 +918,35 @@
       "id": "PR_kwDOLS83Ic5-1Y-l",
       "title": "Address Corey's feedback",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/18",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-10-16T13:49:03Z",
-      "updatedAt": "2024-10-16T14:45:24Z",
+      "updatedAt": "2024-10-17T13:03:09Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "8ce28df2aeec2cb3d55165f81cdeaf8b63b6ff1f",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/coreys_review",
       "headRefOid": "24a96e2099d77281bc8c069011fd077e5fd5eef6",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2024-10-17T13:03:08Z",
+      "mergedAt": "2024-10-17T13:03:08Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "88caa55d868279eac1780e395dce815bc922a5a5"
+      },
+      "comments": [
+        {
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For the sake of future traceability: Here are the comments: https://mailarchive.ietf.org/arch/msg/spasm/u7TR7966gUhSTPWBgxKZkwIhKUY/",
+          "createdAt": "2024-10-17T12:42:43Z",
+          "updatedAt": "2024-10-17T12:42:43Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOLS83Ic6Nanuu",
@@ -936,7 +954,7 @@
             "abbreviatedOid": "a9baae8"
           },
           "author": "CBonnell",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-10-16T13:52:45Z",
@@ -949,6 +967,32 @@
               "updatedAt": "2024-10-16T13:52:46Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6Ngbw5",
+          "commit": {
+            "abbreviatedOid": "24a96e2"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2024-10-17T03:53:51Z",
+          "updatedAt": "2024-10-17T03:53:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6NkY3-",
+          "commit": {
+            "abbreviatedOid": "24a96e2"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-17T12:42:54Z",
+          "updatedAt": "2024-10-17T12:42:54Z",
+          "comments": []
         }
       ]
     }
