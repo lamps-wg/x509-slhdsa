@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 20 April 2025                                     Cisco Systems
+Expires: 26 April 2025                                     Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                         17 October 2024
+                                                         23 October 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 April 2025.
+   This Internet-Draft will expire on 26 April 2025.
 
 Copyright Notice
 
@@ -532,6 +532,18 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+   [X680]     ITU-T, "Information technology - Abstract Syntax Notation
+              One (ASN.1): Specification of basic notation", ITU-T
+              Recommendation X.680, ISO/IEC 8824-1:2021, February 2021,
+              <https://www.itu.int/rec/T-REC-X.680>.
+
+   [X690]     ITU-T, "Information technology - Abstract Syntax Notation
+              One (ASN.1): ASN.1 encoding rules: Specification of Basic
+              Encoding Rules (BER), Canonical Encoding Rules (CER) and
+              Distinguished Encoding Rules (DER)", ITU-T
+              Recommendation X.690, ISO/IEC 8825-1:2021, February 2021,
+              <https://www.itu.int/rec/T-REC-X.690>.
+
 10.2.  Informative References
 
    [CMP2018]  Castelnovi, L., A, Martinelli, and T. Prest, "Grafting
@@ -600,12 +612,12 @@ Table of Contents
               Magnitude with a Single Hash Unit", 2024,
               <https://eprint.iacr.org/2024/367.pdf>.
 
-   [X680]     ITU-T, "Information Technology - Abstract Syntax Notation
-              One (ASN.1): Specification of basic notation. ITU-T
-              Recommendation X.680 (2021) | ISO/IEC 8824-1:2021.",
-              February 2021, <https://www.itu.int/rec/T-REC-X.680>.
-
 Appendix A.  ASN.1 Module
+
+   This appendix includes the ASN.1 module [X680] for SLH-DSA.  Note
+   that as per [RFC5280], certificates use the Distinguished Encoding
+   Rules; see [X690].  This module imports objects from [RFC5912] and
+   [I-D.draft-ietf-lamps-cms-sphincs-plus].
 
    RFC EDITOR: Please replace TBD2 with the value assigned by IANA
    during the publication of [I-D.draft-ietf-lamps-cms-sphincs-plus].
