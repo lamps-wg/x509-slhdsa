@@ -264,8 +264,8 @@ Table of Contents
 
    *  subjectPublicKey contains the byte stream of the public key.
 
-   [I-D.draft-ietf-lamps-cms-sphincs-plus] defines the following public
-   key identifiers for SLH-DSA:
+   [I-D.ietf-lamps-cms-sphincs-plus] defines the following public key
+   identifiers for SLH-DSA:
 
       pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
          IDENTIFIER id-slh-dsa-sha2-128s
@@ -361,16 +361,16 @@ Table of Contents
    a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING contains
    the raw octet string encoding of the public key.
 
-   [I-D.draft-ietf-lamps-cms-sphincs-plus] defines the SLH-DSA-PublicKey
-   ASN.1 OCTET STRING type to provide an option for encoding a public
-   key in an environment that uses ASN.1 encoding but doesn't define its
-   own mapping of an SLH-DSA raw octet string to ASN.1.  To map an SLH-
-   DSA-PublicKey OCTET STRING to a SubjectPublicKeyInfo, the OCTET
-   STRING is mapped to the subjectPublicKey field (a value of type BIT
-   STRING) as follows: the most significant bit of the OCTET STRING
-   value becomes the most significant bit of the BIT STRING value, and
-   so on; the least significant bit of the OCTET STRING becomes the
-   least significant bit of the BIT STRING.
+   [I-D.ietf-lamps-cms-sphincs-plus] defines the SLH-DSA-PublicKey ASN.1
+   OCTET STRING type to provide an option for encoding a public key in
+   an environment that uses ASN.1 encoding but doesn't define its own
+   mapping of an SLH-DSA raw octet string to ASN.1.  To map an SLH-DSA-
+   PublicKey OCTET STRING to a SubjectPublicKeyInfo, the OCTET STRING is
+   mapped to the subjectPublicKey field (a value of type BIT STRING) as
+   follows: the most significant bit of the OCTET STRING value becomes
+   the most significant bit of the BIT STRING value, and so on; the
+   least significant bit of the OCTET STRING becomes the least
+   significant bit of the BIT STRING.
 
    The AlgorithmIdentifier for an SLH-DSA public key MUST use one of the
    id-slh-dsa-* object identifiers from Section 3.  The parameters field
@@ -508,7 +508,7 @@ Table of Contents
               DOI 10.6028/nist.fips.205, August 2024,
               <https://doi.org/10.6028/nist.fips.205>.
 
-   [I-D.draft-ietf-lamps-cms-sphincs-plus]
+   [I-D.ietf-lamps-cms-sphincs-plus]
               Housley, R., Fluhrer, S., Kampanakis, P., and B.
               Westerbaan, "Use of the SLH-DSA Signature Algorithm in the
               Cryptographic Message Syntax (CMS)", Work in Progress,
@@ -620,10 +620,10 @@ Appendix A.  ASN.1 Module
    This appendix includes the ASN.1 module [X680] for SLH-DSA.  Note
    that as per [RFC5280], certificates use the Distinguished Encoding
    Rules; see [X690].  This module imports objects from [RFC5912] and
-   [I-D.draft-ietf-lamps-cms-sphincs-plus].
+   [I-D.ietf-lamps-cms-sphincs-plus].
 
    RFC EDITOR: Please replace TBD2 with the value assigned by IANA
-   during the publication of [I-D.draft-ietf-lamps-cms-sphincs-plus].
+   during the publication of [I-D.ietf-lamps-cms-sphincs-plus].
 
    <CODE BEGINS>
    X509-SLH-DSA-Module-2024
@@ -653,7 +653,7 @@ Appendix A.  ASN.1 Module
      sa-slh-dsa-shake-128s, sa-slh-dsa-shake-128f,
      sa-slh-dsa-shake-192s, sa-slh-dsa-shake-192f,
      sa-slh-dsa-shake-256s, sa-slh-dsa-shake-256f
-       FROM SLH-DSA-Module-2024  -- in [I-D.draft-ietf-lamps-cms-sphincs-plus]
+       FROM SLH-DSA-Module-2024  -- in [I-D.ietf-lamps-cms-sphincs-plus]
        { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
          id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
 
@@ -1449,9 +1449,9 @@ Acknowledgments
 
    Much of the structure and text of this document is based on [RFC8410]
    and [I-D.ietf-lamps-dilithium-certificates].  The remainder comes
-   from [I-D.draft-ietf-lamps-cms-sphincs-plus].  Thanks to those
-   authors, and the ones they based their work on, for making our work
-   earier.  "Copying always makes things easier and less error prone" -
+   from [I-D.ietf-lamps-cms-sphincs-plus].  Thanks to those authors, and
+   the ones they based their work on, for making our work earier.
+   "Copying always makes things easier and less error prone" -
    [RFC8411].
 
 Authors' Addresses

@@ -1381,7 +1381,7 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
           <p id="section-5-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-6"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
+<p id="section-5-6"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
 <div class="breakable lang-asn.1 sourcecode" id="section-5-7">
 <pre>
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -1477,7 +1477,7 @@ public key is the concatenation of these two elements, i.e. PK.seed || PK.root. 
 string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encoding of the public key.<a href="#section-5-8" class="pilcrow">¶</a></p>
-<p id="section-5-9"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
+<p id="section-5-9"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
 OCTET STRING type to provide an option for encoding a public key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
 SLH-DSA raw octet string to ASN.1. To map an SLH-DSA-PublicKey OCTET STRING to
@@ -1630,7 +1630,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
         <dd>
 <span class="refTitle">"Stateless Hash-Based Digital Signature Standard"</span>, <span class="refContent">National Institute of Standards and Technology</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.205</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.fips.205">https://doi.org/10.6028/nist.fips.205</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.draft-ietf-lamps-cms-sphincs-plus">[I-D.draft-ietf-lamps-cms-sphincs-plus]</dt>
+<dt id="I-D.ietf-lamps-cms-sphincs-plus">[I-D.ietf-lamps-cms-sphincs-plus]</dt>
         <dd>
 <span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Kampanakis, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of the SLH-DSA Signature Algorithm in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-09</span>, <time datetime="2024-08-21" class="refDate">21 August 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-09">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-09</a>&gt;</span>. </dd>
 <dd class="break"></dd>
@@ -1727,8 +1727,8 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
       </h2>
 <p id="appendix-A-1">This appendix includes the ASN.1 module <span>[<a href="#X680" class="cite xref">X680</a>]</span> for SLH-DSA.  Note that
 as per <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, certificates use the Distinguished Encoding Rules; see
-<span>[<a href="#X690" class="cite xref">X690</a>]</span>. This module imports objects from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and <span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
-<p id="appendix-A-2">RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of <span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<span>[<a href="#X690" class="cite xref">X690</a>]</span>. This module imports objects from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <div class="breakable lang-asn.1 sourcecode" id="appendix-A-3">
 <pre>
 &lt;CODE BEGINS&gt;
@@ -1759,7 +1759,7 @@ IMPORTS
   sa-slh-dsa-shake-128s, sa-slh-dsa-shake-128f,
   sa-slh-dsa-shake-192s, sa-slh-dsa-shake-192f,
   sa-slh-dsa-shake-256s, sa-slh-dsa-shake-256f
-    FROM SLH-DSA-Module-2024  -- in [I-D.draft-ietf-lamps-cms-sphincs-plus]
+    FROM SLH-DSA-Module-2024  -- in [I-D.ietf-lamps-cms-sphincs-plus]
     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
       id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
 
@@ -2648,7 +2648,7 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-D-1">Much of the structure and text of this document is based on <span>[<a href="#RFC8410" class="cite xref">RFC8410</a>]</span> and <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The remainder comes from <span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span>. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - <span>[<a href="#RFC8411" class="cite xref">RFC8411</a>]</span>.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
+<p id="appendix-D-1">Much of the structure and text of this document is based on <span>[<a href="#RFC8410" class="cite xref">RFC8410</a>]</span> and <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The remainder comes from <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - <span>[<a href="#RFC8411" class="cite xref">RFC8411</a>]</span>.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
