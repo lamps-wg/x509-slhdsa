@@ -421,6 +421,10 @@ structure OneAsymmetricKey is replicated below.
    PublicKey ::= BIT STRING
 ~~~
 
+<aside markdown="block">
+The above syntax is from {{?RFC5958}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+</aside>
+
 Section 9.1 of {{FIPS205}} defines an SLH-DSA private key as four n-byte
 elements, SK.seed, SK.prf, PK.seed and PK.root.  The raw octet string
 encoding of an SLH-DSA private key is the concatenation of these four
