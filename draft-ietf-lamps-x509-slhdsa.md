@@ -509,7 +509,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).
 
 # ASN.1 Module {#sec-asn1}
 
-This appendix includes the ASN.1 module {{X680}} for the SL-DSA.  Note that
+This appendix includes the ASN.1 module {{X680}} for SLH-DSA.  Note that
 as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 {{X690}}. This module imports objects from {{RFC5912}} and {{I-D.draft-ietf-lamps-cms-sphincs-plus}}.
 
