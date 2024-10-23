@@ -74,7 +74,7 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
-      
+
 informative:
   NIST-PQC:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
