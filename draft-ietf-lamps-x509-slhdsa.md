@@ -516,7 +516,7 @@ This appendix includes the ASN.1 module {{X680}} for SLH-DSA.  Note that
 as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 {{X690}}. This module imports objects from {{RFC5912}} and {{I-D.ietf-lamps-cms-sphincs-plus}}.
 
-RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of {{I-D.ietf-lamps-cms-sphincs-plus}}.
+RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of {{I-D.ietf-lamps-cms-sphincs-plus}}. Also please replace [I-D.ietf-lamps-cms-sphincs-plus] in the module with a reference to the published RFC.
 
 ~~~ asn.1
 <CODE BEGINS>
