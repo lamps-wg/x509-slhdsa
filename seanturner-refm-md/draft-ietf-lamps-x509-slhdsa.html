@@ -1545,25 +1545,28 @@ structure OneAsymmetricKey is replicated below.<a href="#section-7-1" class="pil
    PublicKey ::= BIT STRING
 </pre><a href="#section-7-2" class="pilcrow">¶</a>
 </div>
-<p id="section-7-3">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA private key as four n-byte
+<aside id="section-7-3">
+        <p id="section-7-3.1">The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-7-3.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="section-7-4">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA private key as four n-byte
 elements, SK.seed, SK.prf, PK.seed and PK.root.  The raw octet string
 encoding of an SLH-DSA private key is the concatenation of these four
 elements, i.e. SK.seed || SK.prf || PK.seed || PK.root.  The octet string
 length is 4*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set.  When used in a OneAsymmetricKey type, the privateKey
-OCTET STRING contains the raw octet string encoding of the private key.<a href="#section-7-3" class="pilcrow">¶</a></p>
-<p id="section-7-4">When an SLH-DSA public key is included in a OneAsymmetricKey type, it is
+OCTET STRING contains the raw octet string encoding of the private key.<a href="#section-7-4" class="pilcrow">¶</a></p>
+<p id="section-7-5">When an SLH-DSA public key is included in a OneAsymmetricKey type, it is
 encoded in the same manner as in a SubjectPublicKeyInfo type. That is, the
 publicKey BIT STRING contains the raw octet string encoding of the public
-key.<a href="#section-7-4" class="pilcrow">¶</a></p>
-<p id="section-7-5"><a href="#example-private" class="auto internal xref">Appendix C.2</a> contains an example of an id-slh-dsa-sha2-128s private
-key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-7-5" class="pilcrow">¶</a></p>
-<p id="section-7-6">NOTE: There exist some private key import functions that have not
+key.<a href="#section-7-5" class="pilcrow">¶</a></p>
+<p id="section-7-6"><a href="#example-private" class="auto internal xref">Appendix C.2</a> contains an example of an id-slh-dsa-sha2-128s private
+key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-7-6" class="pilcrow">¶</a></p>
+<p id="section-7-7">NOTE: There exist some private key import functions that have not
 picked up the new ASN.1 structure OneAsymmetricKey that is defined in
 <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>.  This means that they will not accept a private key
 structure that contains the public key field.  This means a balancing
 act needs to be done between being able to do a consistency check on
-the key pair and widest ability to import the key.<a href="#section-7-6" class="pilcrow">¶</a></p>
+the key pair and widest ability to import the key.<a href="#section-7-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1644,8 +1647,16 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <span class="refAuthor">Turner, S.</span>, <span class="refTitle">"Asymmetric Key Packages"</span>, <span class="seriesInfo">RFC 5958</span>, <span class="seriesInfo">DOI 10.17487/RFC5958</span>, <time datetime="2010-08" class="refDate">August 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5958">https://www.rfc-editor.org/rfc/rfc5958</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="X680">[X680]</dt>
+        <dd>
+<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation"</span>, <span class="seriesInfo">ITU-T Recommendation X.680</span>, <span class="seriesInfo">ISO/IEC 8824-1:2021</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.680">https://www.itu.int/rec/T-REC-X.680</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="X690">[X690]</dt>
+      <dd>
+<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information technology - Abstract Syntax Notation One (ASN.1): ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"</span>, <span class="seriesInfo">ITU-T Recommendation X.690</span>, <span class="seriesInfo">ISO/IEC 8825-1:2021</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.690">https://www.itu.int/rec/T-REC-X.690</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1701,12 +1712,8 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <span class="refAuthor">Schaad, J.</span> and <span class="refAuthor">R. Andrews</span>, <span class="refTitle">"IANA Registration for the Cryptographic Algorithm Object Identifier Range"</span>, <span class="seriesInfo">RFC 8411</span>, <span class="seriesInfo">DOI 10.17487/RFC8411</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8411">https://www.rfc-editor.org/rfc/rfc8411</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SLotH">[SLotH]</dt>
-        <dd>
-<span class="refAuthor">Saarinen, M-J.</span>, <span class="refTitle">"Accelerating SLH-DSA by Two Orders of Magnitude with a Single Hash Unit"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://eprint.iacr.org/2024/367.pdf">https://eprint.iacr.org/2024/367.pdf</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="X680">[X680]</dt>
       <dd>
-<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information Technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation. ITU-T Recommendation X.680 (2021) | ISO/IEC 8824-1:2021."</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.680">https://www.itu.int/rec/T-REC-X.680</a>&gt;</span>. </dd>
+<span class="refAuthor">Saarinen, M-J.</span>, <span class="refTitle">"Accelerating SLH-DSA by Two Orders of Magnitude with a Single Hash Unit"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://eprint.iacr.org/2024/367.pdf">https://eprint.iacr.org/2024/367.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1718,8 +1725,11 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
       <h2 id="name-asn1-module">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-asn1-module" class="section-name selfRef">ASN.1 Module</a>
       </h2>
-<p id="appendix-A-1">RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
-<div class="breakable lang-asn.1 sourcecode" id="appendix-A-2">
+<p id="appendix-A-1">This appendix includes the ASN.1 module <span>[<a href="#X680" class="cite xref">X680</a>]</span> for SLH-DSA.  Note that
+as per <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, certificates use the Distinguished Encoding Rules; see
+<span>[<a href="#X690" class="cite xref">X690</a>]</span>. This module imports objects from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<div class="breakable lang-asn.1 sourcecode" id="appendix-A-3">
 <pre>
 &lt;CODE BEGINS&gt;
 X509-SLH-DSA-Module-2024
@@ -1791,7 +1801,7 @@ PublicKeyAlgorithms PUBLIC-KEY ::= {
 
 END
 &lt;CODE ENDS&gt;
-</pre><a href="#appendix-A-2" class="pilcrow">¶</a>
+</pre><a href="#appendix-A-3" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
