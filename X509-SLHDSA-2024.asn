@@ -25,7 +25,7 @@ IMPORTS
   sa-slh-dsa-shake-128s, sa-slh-dsa-shake-128f,
   sa-slh-dsa-shake-192s, sa-slh-dsa-shake-192f,
   sa-slh-dsa-shake-256s, sa-slh-dsa-shake-256f
-    FROM SLH-DSA-Module-2024  -- in [I-D.draft-ietf-lamps-cms-sphincs-plus]
+    FROM SLH-DSA-Module-2024  -- in [I-D.ietf-lamps-cms-sphincs-plus]
     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
       id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
 
