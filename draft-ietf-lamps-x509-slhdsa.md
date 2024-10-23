@@ -51,7 +51,30 @@ author:
 
 normative:
   FIPS205: DOI.10.6028/NIST.FIPS.205
-
+  X680:
+    target: https://www.itu.int/rec/T-REC-X.680
+    title: >
+      Information technology - Abstract Syntax Notation One (ASN.1):
+      Specification of basic notation
+    date: 2021-02
+    author:
+    -  org: ITU-T
+    seriesinfo:
+      ITU-T Recommendation: X.680
+      ISO/IEC: 8824-1:2021
+  X690:
+    target: https://www.itu.int/rec/T-REC-X.690
+    title: >
+      Information technology - Abstract Syntax Notation One (ASN.1):
+      ASN.1 encoding rules: Specification of Basic Encoding Rules (BER),
+      Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)
+    date: 2021-02
+    author:
+    -  org: ITU-T
+    seriesinfo:
+      ITU-T Recommendation: X.690
+      ISO/IEC: 8825-1:2021
+      
 informative:
   NIST-PQC:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
@@ -80,12 +103,6 @@ informative:
     date: '2024'
     target: https://eprint.iacr.org/2024/367.pdf
     title: 'Accelerating SLH-DSA by Two Orders of Magnitude with a Single Hash Unit'
-  X680:
-    target: https://www.itu.int/rec/T-REC-X.680
-    title: "Information Technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation. ITU-T Recommendation X.680 (2021) | ISO/IEC 8824-1:2021."
-    author:
-      org: ITU-T
-    date: February 2021
   Ge2023:
     author:
     - name: Aymeric Genêt
@@ -491,6 +508,10 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).
 --- back
 
 # ASN.1 Module {#sec-asn1}
+
+This appendix includes the ASN.1 module {{X680}} for the SL-DSA.  Note that
+as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
+{{X690}}. This module imports objects from {{RFC5912}} and {{I-D.lamps-cms-sphincs-plus}}.
 
 RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of [I-D.draft-ietf-lamps-cms-sphincs-plus].
 
