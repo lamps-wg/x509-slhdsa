@@ -50,7 +50,6 @@ author:
     email: kousidis.ietf@gmail.com
 
 normative:
-  FIPS205: DOI.10.6028/NIST.FIPS.205
 
 informative:
   NIST-PQC:
@@ -104,9 +103,9 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 # Introduction
 
-The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
+The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205=NIST.FIPS.205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
 
-SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal hash functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
+SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 {{FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{FIPS202=NIST.FIPS.202}} as internal hash functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
 Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.
 
@@ -149,7 +148,7 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
 
 <aside markdown="block">
 The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
-See {{?RFC5280}} for the 1988 ASN.1 syntax.
+See {{!RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
 The fields in AlgorithmIdentifier have the following meanings:
@@ -223,7 +222,7 @@ algorithm identifier and a location for the signature.
 
 <aside markdown="block">
 The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
-See {{?RFC5280}} for the 1988 ASN.1 syntax.
+See {{RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
 The same algorithm identifiers are used for signatures as are used
@@ -253,7 +252,7 @@ In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKe
 
 <aside markdown="block">
 The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
-See {{?RFC5280}} for the 1988 ASN.1 syntax.
+See {{RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
 The fields in SubjectPublicKeyInfo have the following meanings:
@@ -262,7 +261,7 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 
 * subjectPublicKey contains the byte stream of the public key.
 
-{{!I-D.draft-ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for SLH-DSA:
+{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for SLH-DSA:
 
 ~~~ asn.1
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -359,7 +358,7 @@ string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA p
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encoding of the public key.
 
-{{!I-D.draft-ietf-lamps-cms-sphincs-plus}} defines the SLH-DSA-PublicKey ASN.1
+{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the SLH-DSA-PublicKey ASN.1
 OCTET STRING type to provide an option for encoding a public key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
 SLH-DSA raw octet string to ASN.1. To map an SLH-DSA-PublicKey OCTET STRING to
@@ -395,7 +394,7 @@ If the keyUsage extension is present in a certificate that indicates an id-slh-d
     decipherOnly.
 ~~~
 
-Requirements about the keyUsage extension bits defined in {{!RFC5280}} still apply.
+Requirements about the keyUsage extension bits defined in {{RFC5280}} still apply.
 
 # Private Key Format
 
@@ -468,17 +467,17 @@ random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
 
 Implementers SHOULD consider their particular use cases and may
-choose to implement OPTIONAL fault attack countermeasures [CMP2018],[Ge2023].
+choose to implement OPTIONAL fault attack countermeasures {{CMP2018}},{{Ge2023}}.
 Verifying a signature before releasing the signature value
 is a typical fault attack countermeasure; however, this
-countermeasure is not effective for SLH-DSA [Ge2023].  Redundancy by
+countermeasure is not effective for SLH-DSA {{Ge2023}}.  Redundancy by
 replicating the signature generation process can be used as an
-effective fault attack countermeasure for SLH-DSA [Ge2023]; however,
+effective fault attack countermeasure for SLH-DSA {{Ge2023}}; however,
 the SLH-DSA signature generation is already considered slow.
 
 Likewise, Implementers SHOULD consider their particular use cases and
 may choose to implement protections against passive power and
-emissions side-channel attacks [SLotH].
+emissions side-channel attacks {{SLotH}}.
 
 # IANA Considerations
 
@@ -492,7 +491,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).
 
 # ASN.1 Module {#sec-asn1}
 
-RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of [I-D.draft-ietf-lamps-cms-sphincs-plus].
+RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of {{I-D.ietf-lamps-cms-sphincs-plus}}.
 
 ~~~ asn.1
 <CODE BEGINS>
@@ -1229,4 +1228,4 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
 # Acknowledgments
 {:numbered="false"}
 
-Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.draft-ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.
+Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.
