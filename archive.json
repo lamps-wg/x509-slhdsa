@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-22T01:14:49.280809+00:00",
+  "timestamp": "2024-10-24T01:14:03.273530+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -196,15 +196,15 @@
       "id": "I_kwDOLS83Ic6aTqpr",
       "title": "To be Explicit or Implicit?",
       "url": "https://github.com/lamps-wg/x509-slhdsa/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Settle on whether ASN.1 module should be implicit or explicit.",
       "createdAt": "2024-10-15T13:48:44Z",
-      "updatedAt": "2024-10-17T13:03:51Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-23T08:55:56Z",
+      "closedAt": "2024-10-23T08:55:56Z",
       "comments": [
         {
           "author": "danvangeest",
@@ -212,6 +212,13 @@
           "body": "By sheer force of numbers, it'll be IMPLICIT.",
           "createdAt": "2024-10-17T13:03:50Z",
           "updatedAt": "2024-10-17T13:03:50Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "You can go ahead and close this one out based on [this](https://mailarchive.ietf.org/arch/msg/spasm/-zua7zlQ-0QBUcyQta3EKgqp7u0/).",
+          "createdAt": "2024-10-23T02:09:02Z",
+          "updatedAt": "2024-10-23T02:09:02Z"
         }
       ]
     }
@@ -992,6 +999,255 @@
           "body": "",
           "createdAt": "2024-10-17T12:42:54Z",
           "updatedAt": "2024-10-17T12:42:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOLS83Ic5_nlFh",
+      "title": "Add aside",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/19",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add a note about where OneAsymmetricKey comes from.",
+      "createdAt": "2024-10-23T13:34:26Z",
+      "updatedAt": "2024-10-23T16:11:54Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "88caa55d868279eac1780e395dce815bc922a5a5",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-oak-aside",
+      "headRefOid": "59e2937dcf46897663a567d632b58e5cd9ad3676",
+      "closedAt": "2024-10-23T16:11:53Z",
+      "mergedAt": "2024-10-23T16:11:53Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "b7432562852597a33634431ba4e041e54b4ce0e9"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6OamYm",
+          "commit": {
+            "abbreviatedOid": "59e2937"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T16:11:44Z",
+          "updatedAt": "2024-10-23T16:11:44Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOLS83Ic5_ntJQ",
+      "title": "Add note & make x680 & x690 normative",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/20",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added a noted in the ASN.1 appendix; been dinged by the IESG on previous occasions.\r\n\r\nAlso, pretty sure x.680 & x.690 ought to be normative.",
+      "createdAt": "2024-10-23T13:46:33Z",
+      "updatedAt": "2024-10-23T16:11:04Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "88caa55d868279eac1780e395dce815bc922a5a5",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-more-asn1",
+      "headRefOid": "504c27124348fa151c5e789403539d473a4574b2",
+      "closedAt": "2024-10-23T16:11:04Z",
+      "mergedAt": "2024-10-23T16:11:04Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "ab2b0663ca68e1e05c268683f9195c300de61b9b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6OYwzg",
+          "commit": {
+            "abbreviatedOid": "e7e5234"
+          },
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T14:02:36Z",
+          "updatedAt": "2024-10-23T14:02:36Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "```suggestion\r\n{{X690}}. This module imports objects from {{RFC5912}} and {{I-D.ietf-lamps-cms-sphincs-plus}}.\r\n```",
+              "createdAt": "2024-10-23T14:02:36Z",
+              "updatedAt": "2024-10-23T14:02:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6Oaclc",
+          "commit": {
+            "abbreviatedOid": "519d1ce"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T15:59:32Z",
+          "updatedAt": "2024-10-23T15:59:49Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "```suggestion\r\n{{X690}}. This module imports objects from {{RFC5912}} and {{I-D.draft-ietf-lamps-cms-sphincs-plus}}.\r\n```",
+              "createdAt": "2024-10-23T15:59:32Z",
+              "updatedAt": "2024-10-23T15:59:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6OaeCu",
+          "commit": {
+            "abbreviatedOid": "2cd14be"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T16:01:18Z",
+          "updatedAt": "2024-10-23T16:01:19Z",
+          "comments": [
+            {
+              "originalPosition": 49,
+              "body": "```suggestion\r\nThis appendix includes the ASN.1 module {{X680}} for SLH-DSA.  Note that\r\n```",
+              "createdAt": "2024-10-23T16:01:18Z",
+              "updatedAt": "2024-10-23T16:01:19Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOLS83Ic5_n3Jj",
+      "title": "fixing md for refs",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/21",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Some of the refs looked off. Hopefully, this will help the editor's version generate.",
+      "createdAt": "2024-10-23T14:01:45Z",
+      "updatedAt": "2024-10-23T16:48:08Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "085af2b5603b44d5029bdac4cc6d40618fd6bb42",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-refm-md",
+      "headRefOid": "d25ca6efdc0508dba1eedf13dd85ef3d7517e8d0",
+      "closedAt": "2024-10-23T16:48:08Z",
+      "mergedAt": "2024-10-23T16:48:08Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "a2d2b1d823600d46be335edea40bb81a3a4fe3a2"
+      },
+      "comments": [
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Some of the refs looked off. Hopefully, this will help the editor's version generate.\r\n\r\n@seanturner , your PR failed to build so I made/reverted some changes.",
+          "createdAt": "2024-10-23T16:38:34Z",
+          "updatedAt": "2024-10-23T16:38:34Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6Oa1EU",
+          "commit": {
+            "abbreviatedOid": "527fa5e"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T16:35:13Z",
+          "updatedAt": "2024-10-23T16:37:38Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "\"DOI.10.6028/\" seems to be needed for this to build.  Make it normative (!).",
+              "createdAt": "2024-10-23T16:35:13Z",
+              "updatedAt": "2024-10-23T16:37:38Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "FIPS 180 and 202 weren't marked as anything in your PR, @seanturner. Switching them back to informative since there's no actual requirement in this draft to implement SHA(KE), they're only used internally to SLH-DSA.",
+              "createdAt": "2024-10-23T16:37:17Z",
+              "updatedAt": "2024-10-23T16:37:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6Oa2-s",
+          "commit": {
+            "abbreviatedOid": "527fa5e"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T16:38:43Z",
+          "updatedAt": "2024-10-23T16:38:43Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOLS83Ic5_n-2d",
+      "title": "Update workflow",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/22",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Hopefully this will also help with the failed builds for the references.",
+      "createdAt": "2024-10-23T14:13:48Z",
+      "updatedAt": "2024-10-23T16:12:38Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "88caa55d868279eac1780e395dce815bc922a5a5",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-workflow-update",
+      "headRefOid": "013254fd73144a52f5015edd1b1fd4318f96244c",
+      "closedAt": "2024-10-23T16:12:38Z",
+      "mergedAt": "2024-10-23T16:12:38Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "085af2b5603b44d5029bdac4cc6d40618fd6bb42"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6Oam4b",
+          "commit": {
+            "abbreviatedOid": "013254f"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T16:12:15Z",
+          "updatedAt": "2024-10-23T16:12:15Z",
           "comments": []
         }
       ]
