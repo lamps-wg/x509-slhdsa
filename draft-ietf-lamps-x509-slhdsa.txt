@@ -192,7 +192,7 @@ Table of Contents
 
       id-slh-dsa-shake-256f OBJECT IDENTIFIER ::= { sigAlgs 31 }
 
-   The contents of the parameters component for each algorithm are
+   The contents of the parameters component for each algorithm MUST be
    absent.
 
 4.  SLH-DSA Signatures
