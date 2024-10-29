@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 26 April 2025                                     Cisco Systems
+Expires: 2 May 2025                                        Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                         23 October 2024
+                                                         29 October 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 April 2025.
+   This Internet-Draft will expire on 2 May 2025.
 
 Copyright Notice
 
@@ -622,10 +622,10 @@ Appendix A.  ASN.1 Module
    Rules; see [X690].  This module imports objects from [RFC5912] and
    [I-D.ietf-lamps-cms-sphincs-plus].
 
-   RFC EDITOR: Please replace TBD2 with the value assigned by IANA
-   during the publication of [I-D.ietf-lamps-cms-sphincs-plus].  Also
-   please replace [I-D.ietf-lamps-cms-sphincs-plus] in the module with a
-   reference to the published RFC.
+      |  RFC EDITOR: Please replace TBD2 with the value assigned by IANA
+      |  during the publication of [I-D.ietf-lamps-cms-sphincs-plus].
+      |  Also please replace [I-D.ietf-lamps-cms-sphincs-plus] in the
+      |  module with a reference to the published RFC.
 
    <CODE BEGINS>
    X509-SLH-DSA-Module-2024
