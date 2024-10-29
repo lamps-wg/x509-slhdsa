@@ -207,7 +207,7 @@ The SLH-DSA OIDs are:
    id-slh-dsa-shake-256f OBJECT IDENTIFIER ::= { sigAlgs 31 }
 ~~~
 
-The contents of the parameters component for each algorithm are absent.
+The contents of the parameters component for each algorithm MUST be absent.
 
 # SLH-DSA Signatures
 
