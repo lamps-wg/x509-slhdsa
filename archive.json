@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-27T01:19:20.283646+00:00",
+  "timestamp": "2024-10-29T01:15:49.240325+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1251,6 +1251,58 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOLS83Ic6ALE_F",
+      "title": "Update draft-ietf-lamps-x509-slhdsa.md",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/23",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-29T00:37:14Z",
+      "updatedAt": "2024-10-29T00:37:14Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "a752540573e72b77dbe32e74adca9fa74c8da924",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-aside87",
+      "headRefOid": "7fc67718e0db052be900f272cc0eb3bcec1a598c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOLS83Ic6ALKNC",
+      "title": "consistency",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/24",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Making this internally consistent where it says MUST be absent later.",
+      "createdAt": "2024-10-29T01:04:14Z",
+      "updatedAt": "2024-10-29T01:04:14Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "a752540573e72b77dbe32e74adca9fa74c8da924",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-para-absent",
+      "headRefOid": "85afde07f7b73befd73dc3dbbe8da06dba4f7f89",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
