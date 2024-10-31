@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-29T01:15:49.240325+00:00",
+  "timestamp": "2024-10-31T01:15:28.919131+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -187,9 +187,24 @@
       "labels": [],
       "body": "Once NIST publishes FIPS205, decide what to do about pure vs predigest mode.  If we only support pure mode, add this text to the introduction:\r\n\r\n> The final version of {{FIPS205}} is expected to define two signature modes: pure mode and predigest mode.  This document only specifies the use of pure mode with X.509 certificates and CRLs.\r\n",
       "createdAt": "2024-06-05T08:36:07Z",
-      "updatedAt": "2024-06-05T08:36:08Z",
+      "updatedAt": "2024-10-29T14:34:53Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "fluppe2",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "NIST assigned OIDs to the parameter sets of the \"pure\" version of SLH-DSA and specific \"pre-hash\" combinations. See https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration\r\n\r\nWould it be better to include the \"pre-hash\" versions that have OIDs assigned for the sake of completeness?",
+          "createdAt": "2024-10-29T14:10:49Z",
+          "updatedAt": "2024-10-29T14:10:49Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The WG has been trying to curtail OID explosions.\r\n\r\nThat said, they may become necessary in X.509, see https://github.com/lamps-wg/dilithium-certificates/pull/31#issuecomment-2441892740\r\n\r\nWe can wait for that discussion to occur and the fallout from it.  However, because CMS has the signedAttributes feature, predigest mode isn't really necessary because the signedAttributes encoding will be relatively small.",
+          "createdAt": "2024-10-29T14:34:51Z",
+          "updatedAt": "2024-10-29T14:34:51Z"
+        }
+      ]
     },
     {
       "number": 16,
@@ -1257,52 +1272,84 @@
       "id": "PR_kwDOLS83Ic6ALE_F",
       "title": "Update draft-ietf-lamps-x509-slhdsa.md",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/23",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-10-29T00:37:14Z",
-      "updatedAt": "2024-10-29T00:37:14Z",
+      "updatedAt": "2024-10-29T13:21:05Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "a752540573e72b77dbe32e74adca9fa74c8da924",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "seanturner-aside87",
       "headRefOid": "7fc67718e0db052be900f272cc0eb3bcec1a598c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-29T13:21:04Z",
+      "mergedAt": "2024-10-29T13:21:04Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "930e5f0a9cab59e3a8d952a4f25dd2f2655470b0"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6PKYxM",
+          "commit": {
+            "abbreviatedOid": "7fc6771"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-29T13:20:58Z",
+          "updatedAt": "2024-10-29T13:20:58Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 24,
       "id": "PR_kwDOLS83Ic6ALKNC",
       "title": "consistency",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Making this internally consistent where it says MUST be absent later.",
       "createdAt": "2024-10-29T01:04:14Z",
-      "updatedAt": "2024-10-29T01:04:14Z",
+      "updatedAt": "2024-10-29T13:21:29Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "a752540573e72b77dbe32e74adca9fa74c8da924",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "seanturner-para-absent",
       "headRefOid": "85afde07f7b73befd73dc3dbbe8da06dba4f7f89",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-29T13:21:29Z",
+      "mergedAt": "2024-10-29T13:21:29Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "f3a1a893caa67b21c86f3e3f98572b5ef9166fc0"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6PKZI5",
+          "commit": {
+            "abbreviatedOid": "85afde0"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-29T13:21:23Z",
+          "updatedAt": "2024-10-29T13:21:23Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
