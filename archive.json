@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-03T01:19:10.721083+00:00",
+  "timestamp": "2024-11-05T01:12:48.344428+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1350,6 +1350,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDOLS83Ic6AvLJ8",
+      "title": "Nit",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/25",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-03T23:43:52Z",
+      "updatedAt": "2024-11-03T23:43:52Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "f3a1a893caa67b21c86f3e3f98572b5ef9166fc0",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-nit",
+      "headRefOid": "27908ebc198c99e76028271290c90036098dc04e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
