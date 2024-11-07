@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-05T01:12:48.344428+00:00",
+  "timestamp": "2024-11-07T01:13:05.912674+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -156,7 +156,7 @@
       "labels": [],
       "body": "From John Mattsson: \"For 5G use cases, I would strongly like the document to also cover use of SLH-DSA in RFC 2986 (PKCS #10), RFC 4210 (CMP), and RFC 6090 (OCSP).\"",
       "createdAt": "2024-03-21T11:00:08Z",
-      "updatedAt": "2024-06-03T11:26:42Z",
+      "updatedAt": "2024-11-06T15:40:40Z",
       "closedAt": null,
       "comments": [
         {
@@ -172,6 +172,13 @@
           "body": "I've emailed John for clarification.  Will find him at IETF 120 / mention needing clarification for this during the presentation if he doesn't respond.",
           "createdAt": "2024-06-03T11:26:41Z",
           "updatedAt": "2024-06-03T11:26:41Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Note we got the same comment for ML-DSA; see [link](https://github.com/lamps-wg/dilithium-certificates/issues/10).",
+          "createdAt": "2024-11-06T15:40:38Z",
+          "updatedAt": "2024-11-06T15:40:38Z"
         }
       ]
     },
@@ -1356,26 +1363,42 @@
       "id": "PR_kwDOLS83Ic6AvLJ8",
       "title": "Nit",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/25",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-11-03T23:43:52Z",
-      "updatedAt": "2024-11-03T23:43:52Z",
+      "updatedAt": "2024-11-06T10:32:58Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "f3a1a893caa67b21c86f3e3f98572b5ef9166fc0",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "seanturner-nit",
       "headRefOid": "27908ebc198c99e76028271290c90036098dc04e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-11-06T10:32:58Z",
+      "mergedAt": "2024-11-06T10:32:58Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "92e20f9b15a0404a822668330ce9df5b7d8ae9d7"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6QHbRZ",
+          "commit": {
+            "abbreviatedOid": "27908eb"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-11-06T10:32:48Z",
+          "updatedAt": "2024-11-06T10:32:48Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
