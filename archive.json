@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-07T01:13:05.912674+00:00",
+  "timestamp": "2024-11-10T01:17:23.007703+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -185,7 +185,7 @@
     {
       "number": 9,
       "id": "I_kwDOLS83Ic6LMS67",
-      "title": "pure vs predigest mode",
+      "title": "Hash-SLH-DSA OIDs",
       "url": "https://github.com/lamps-wg/x509-slhdsa/issues/9",
       "state": "OPEN",
       "author": "danvangeest",
@@ -194,7 +194,7 @@
       "labels": [],
       "body": "Once NIST publishes FIPS205, decide what to do about pure vs predigest mode.  If we only support pure mode, add this text to the introduction:\r\n\r\n> The final version of {{FIPS205}} is expected to define two signature modes: pure mode and predigest mode.  This document only specifies the use of pure mode with X.509 certificates and CRLs.\r\n",
       "createdAt": "2024-06-05T08:36:07Z",
-      "updatedAt": "2024-10-29T14:34:53Z",
+      "updatedAt": "2024-11-08T12:33:33Z",
       "closedAt": null,
       "comments": [
         {
@@ -210,6 +210,13 @@
           "body": "The WG has been trying to curtail OID explosions.\r\n\r\nThat said, they may become necessary in X.509, see https://github.com/lamps-wg/dilithium-certificates/pull/31#issuecomment-2441892740\r\n\r\nWe can wait for that discussion to occur and the fallout from it.  However, because CMS has the signedAttributes feature, predigest mode isn't really necessary because the signedAttributes encoding will be relatively small.",
           "createdAt": "2024-10-29T14:34:51Z",
           "updatedAt": "2024-10-29T14:34:51Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "While the WG determined that they do not want HashML-DSA because ML-DSA can have the message representative calculated by a different module (outside an HSM for example), this is not possible for SLH-DSA because it does a dual-pass.  The WG still thinks that HashSLH-DSA is not necessary for use by CA certificates, but we can't control what will be done by EE users, so during the presentation I said that we will add a section specifying HashSLH-DSA OIDs for use in SPKI of end-entity certificates.\r\n\r\nThere is also a desire to prune the OIDs, but I think we should just offer all them all first and then if people complain hard and offer suggestions, reduce the list.",
+          "createdAt": "2024-11-08T12:33:04Z",
+          "updatedAt": "2024-11-08T12:33:04Z"
         }
       ]
     },
