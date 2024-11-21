@@ -73,6 +73,13 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
+  CSOR:
+    target: https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration
+    title: Computer Security Objects Register
+    author:
+      name: National Institute of Standards and Technology
+      ins: NIST
+    date: 2024-08-20
 
 informative:
   NIST-PQC:
@@ -126,8 +133,10 @@ SLH-DSA offers three security levels.  The parameters for each of the security l
 
 Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.
 
-SLH-DSA offers two signature modes: pure mode and predigest mode. SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string.
-This document only specifies the use of pure mode with an empty context string for use in the X.509 Public Key Infrastructure.
+SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
+
+SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
+This document specifies the use of Pure SLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA public keys only in end-entity certificates.
 
 <!-- End of introduction section -->
 
@@ -137,7 +146,7 @@ This document only specifies the use of pure mode with an empty context string f
 
 # Algorithm Identifiers {#sec-alg-ids}
 
-The AlgorithmIdentifier type, which is included herein for convenience, is defined as follows:
+The AlgorithmIdentifier type, is defined as follows:
 
 ~~~ asn.1
 AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
@@ -149,7 +158,7 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
 ~~~
 
 <aside markdown="block">
-The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+NOTE: The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
 See {{!RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
@@ -159,7 +168,10 @@ The fields in AlgorithmIdentifier have the following meanings:
 
 * parameters, which are optional, are the associated parameters for the algorithm identifier in the algorithm field.
 
-The SLH-DSA OIDs are:
+The object identifiers for SLH-DSA are defined in the NIST Computer Security Objects Register {{CSOR}}, and are reproduced here for convenience.
+The same OID is used to identify an SLH-DSA public key and its associated signature algorithm.
+
+The Pure SLH-DSA OIDs are:
 
 ~~~ asn.1
    nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
@@ -190,6 +202,51 @@ The SLH-DSA OIDs are:
    id-slh-dsa-shake-256s OBJECT IDENTIFIER ::= { sigAlgs 30 }
 
    id-slh-dsa-shake-256f OBJECT IDENTIFIER ::= { sigAlgs 31 }
+~~~
+
+The HashSLH-DSA OIDs are:
+
+~~~ asn.1
+   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
+     country(16) us(840) organization(1) gov(101) csor(3) 4 }
+
+   sigAlgs OBJECT IDENTIFIER ::= { nistAlgorithms 3 }
+
+   id-hash-slh-dsa-sha2-128s-with-sha256 OBJECT IDENTIFIER ::= {
+      sigAlgs 35 }
+
+   id-hash-slh-dsa-sha2-128f-with-sha256 OBJECT IDENTIFIER ::= {
+      sigAlgs 36 }
+
+   id-hash-slh-dsa-sha2-192s-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 37 }
+
+   id-hash-slh-dsa-sha2-192f-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 38 }
+
+   id-hash-slh-dsa-sha2-256s-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 39 }
+
+   id-hash-slh-dsa-sha2-256f-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 40 }
+
+   id-hash-slh-dsa-shake-128s-with-shake128 OBJECT IDENTIFIER ::= {
+      sigAlgs 41 }
+
+   id-hash-slh-dsa-shake-128f-with-shake128 OBJECT IDENTIFIER ::= {
+      sigAlgs 42 }
+
+   id-hash-slh-dsa-shake-192s-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 43 }
+
+   id-hash-slh-dsa-shake-192f-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 44 }
+
+   id-hash-slh-dsa-shake-256s-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 45 }
+
+   id-hash-slh-dsa-shake-256f-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 46 }
 ~~~
 
 The contents of the parameters component for each algorithm MUST be absent.
@@ -242,6 +299,15 @@ directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
 value is encoded in the "signatureValue" BIT STRING field.
 
+This document does not define the use of HashSLH-DSA to sign certificates or
+CRLs, but it does allow the use of HashSLH-DSA public keys in end-entity
+certificates for use by protocols that may need pre-hashing.
+Pre-hashing is performed using the hash algorithm or XOF specified after "with"
+in the object identifier string.  For example, SHA-256 is used for pre-hashing with
+id-hash-slh-dsa-sha2-128s-with-sha256.  When pre-hashing is performed using
+SHAKE128, the output length is 256 bits. When pre-hashing is performed using
+SHAKE256, the output length is 512 bits.
+
 # Subject Public Key Fields {#sec-pub-keys}
 
 In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
@@ -263,7 +329,7 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 
 * subjectPublicKey contains the byte stream of the public key.
 
-{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for SLH-DSA:
+{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for Pure SLH-DSA:
 
 ~~~ asn.1
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -351,6 +417,96 @@ The fields in SubjectPublicKeyInfo have the following meanings:
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    SLH-DSA-PublicKey ::= OCTET STRING
+
+   SLH-DSA-PrivateKey ::= OCTET STRING
+~~~
+
+The public key identifiers for HashSLH-DSA are defined here:
+
+~~~ asn.1
+   pk-hash-slh-dsa-sha2-128s-with-sha256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
 ~~~
 
 Section 9.1 of {{FIPS205}} defines an SLH-DSA public key as two n-byte elements,
@@ -360,24 +516,25 @@ string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA p
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encoding of the public key.
 
-{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the SLH-DSA-PublicKey ASN.1
-OCTET STRING type to provide an option for encoding a public key in an
+{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the SLH-DSA-PublicKey and SLH-DSA-PrivateKey ASN.1
+OCTET STRING types to provide an option for encoding a Pure SLH-DSA public or private key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
-SLH-DSA raw octet string to ASN.1. To map an SLH-DSA-PublicKey OCTET STRING to
+SLH-DSA raw octet string to ASN.1. HashSLH-DSA public and private keys can use SLH-DSA-PublicKey
+and SLH-DSA-PrivateKey in the same way.  To map an SLH-DSA-PublicKey OCTET STRING to
 a SubjectPublicKeyInfo, the OCTET STRING is mapped to the subjectPublicKey
 field (a value of type BIT STRING) as follows: the most significant
 bit of the OCTET STRING value becomes the most significant bit of the BIT
 STRING value, and so on; the least significant bit of the OCTET STRING
 becomes the least significant bit of the BIT STRING.
 
-The AlgorithmIdentifier for an SLH-DSA public key MUST use one of the id-slh-dsa-* object identifiers from {{sec-alg-ids}}. The parameters field of the AlgorithmIdentifier for the SLH-DSA public key MUST be absent.
+The AlgorithmIdentifier for an SLH-DSA public key MUST use one of the id-slh-dsa-* or id-hash-slh-dsa-* object identifiers from {{sec-alg-ids}}. The parameters field of the AlgorithmIdentifier for the SLH-DSA public key MUST be absent.
 
 {{example-public}} contains an example of an id-slh-dsa-sha2-128s public
 key encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Key Usage Bits
 
-The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
+The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
 
 ~~~
     digitalSignature; or
@@ -386,9 +543,28 @@ The intended application for the key is indicated in the keyUsage certificate ex
     cRLSign.
 ~~~
 
-If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
+If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
 
 ~~~
+    keyEncipherment; or
+    dataEncipherment; or
+    keyAgreement; or
+    encipherOnly; or
+    decipherOnly.
+~~~
+
+If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
+
+~~~
+    digitalSignature; or
+    nonRepudiation.
+~~~
+
+If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
+
+~~~
+    keyCertSign; or
+    cRLSign; or
     keyEncipherment; or
     dataEncipherment; or
     keyAgreement; or
@@ -460,7 +636,7 @@ When generating an SLH-DSA key pair, an implementation MUST generate
 each key pair independently of all other key pairs in the SLH-DSA
 hypertree.
 
-A SLH-DSA tree MUST NOT be used for more than 2^64 signing
+An SLH-DSA tree MUST NOT be used for more than 2^64 signing
 operations.
 
 The generation of private keys relies on random numbers.  The use of
@@ -515,7 +691,7 @@ RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publi
 
 Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST defined a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).
 
-The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{tab-strengths}}, along with the resulting signature size, public key, and private key sizes in bytes.
+The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{tab-strengths}}, along with the resulting signature size, public key, and private key sizes in bytes.  The HashSLH-DSA parameter sets have the same values as the Pure SLH-DSA equivalents.
 
 | OID                   | NIST Level | Sig.  | Pub. Key | Priv. Key |
 |---                    |---         |---    |---       |---        |
@@ -586,7 +762,7 @@ HmSlASuBCex3fKpOHwJMz8+Ul9mRgFCSgPQlavKwevgCibSU
 
 ## Example Certificate
 
-An example or a self-signed SLH-DSA certificate using id-slh-dsa-sha2-128s:
+An example of a self-signed SLH-DSA certificate using id-slh-dsa-sha2-128s:
 
 ~~~
 Certificate:
@@ -1240,4 +1416,4 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
 # Acknowledgments
 {:numbered="false"}
 
-Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.
+Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.

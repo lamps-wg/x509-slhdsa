@@ -30,39 +30,264 @@ IMPORTS
       id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
 
 --
+-- HashSLH-DSA object identifiers from [CSOR]
+--
+
+nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
+  country(16) us(840) organization(1) gov(101) csor(3) 4 }
+
+sigAlgs OBJECT IDENTIFIER ::= { nistAlgorithms 3 }
+
+id-hash-slh-dsa-sha2-128s-with-sha256 OBJECT IDENTIFIER ::= {
+  sigAlgs 35 }
+
+id-hash-slh-dsa-sha2-128f-with-sha256 OBJECT IDENTIFIER ::= {
+  sigAlgs 36 }
+
+id-hash-slh-dsa-sha2-192s-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 37 }
+
+id-hash-slh-dsa-sha2-192f-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 38 }
+
+id-hash-slh-dsa-sha2-256s-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 39 }
+
+id-hash-slh-dsa-sha2-256f-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 40 }
+
+id-hash-slh-dsa-shake-128s-with-shake128 OBJECT IDENTIFIER ::= {
+  sigAlgs 41 }
+
+id-hash-slh-dsa-shake-128f-with-shake128 OBJECT IDENTIFIER ::= {
+  sigAlgs 42 }
+
+id-hash-slh-dsa-shake-192s-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 43 }
+
+id-hash-slh-dsa-shake-192f-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 44 }
+
+id-hash-slh-dsa-shake-256s-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 45 }
+
+id-hash-slh-dsa-shake-256f-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 46 }
+
+--
+-- HashSLH-DSA public key identifiers
+--
+
+pk-hash-slh-dsa-sha2-128s-with-sha256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+--
+-- HashSLH-DSA signature algorithm identifiers
+--
+
+-- EDNOTE: we did not include the optional SMIME-CAPS because
+-- HashSLH-DSA is not defined for use in CMS. Is this correct
+-- or should we still include SMIME-CAPS?
+
+sa-hash-slh-dsa-sha2-128s-with-sha256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128s-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-128f-with-sha256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128f-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-192s-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192s-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-192f-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192f-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-256s-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256s-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-256f-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256f-with-sha512 } }
+
+sa-hash-slh-dsa-shake-128s-with-shake128 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128s-with-shake128 } }
+
+sa-hash-slh-dsa-shake-128f-with-shake128 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128f-with-shake128 } }
+
+sa-hash-slh-dsa-shake-192s-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192s-with-shake256 } }
+
+sa-hash-slh-dsa-shake-192f-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192f-with-shake256 } }
+
+sa-hash-slh-dsa-shake-256s-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256s-with-shake256 } }
+
+sa-hash-slh-dsa-shake-256f-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256f-with-shake256 } }
+
+--
 -- Expand SignatureAlgorithms from RFC 5912
 --
 SignatureAlgorithms SIGNATURE-ALGORITHM ::= {
-   sa-slh-dsa-sha2-128s |
-   sa-slh-dsa-sha2-128f |
-   sa-slh-dsa-sha2-192s |
-   sa-slh-dsa-sha2-192f |
-   sa-slh-dsa-sha2-256s |
-   sa-slh-dsa-sha2-256f |
-   sa-slh-dsa-shake-128s |
-   sa-slh-dsa-shake-128f |
-   sa-slh-dsa-shake-192s |
-   sa-slh-dsa-shake-192f |
-   sa-slh-dsa-shake-256s |
-   sa-slh-dsa-shake-256f,
-   ... }
+  sa-slh-dsa-sha2-128s |
+  sa-slh-dsa-sha2-128f |
+  sa-slh-dsa-sha2-192s |
+  sa-slh-dsa-sha2-192f |
+  sa-slh-dsa-sha2-256s |
+  sa-slh-dsa-sha2-256f |
+  sa-slh-dsa-shake-128s |
+  sa-slh-dsa-shake-128f |
+  sa-slh-dsa-shake-192s |
+  sa-slh-dsa-shake-192f |
+  sa-slh-dsa-shake-256s |
+  sa-slh-dsa-shake-256f |
+  sa-hash-slh-dsa-sha2-128s-with-sha256 |
+  sa-hash-slh-dsa-sha2-128f-with-sha256 |
+  sa-hash-slh-dsa-sha2-192s-with-sha512 |
+  sa-hash-slh-dsa-sha2-192f-with-sha512 |
+  sa-hash-slh-dsa-sha2-256s-with-sha512 |
+  sa-hash-slh-dsa-sha2-256f-with-sha512 |
+  sa-hash-slh-dsa-shake-128s-with-shake128 |
+  sa-hash-slh-dsa-shake-128f-with-shake128 |
+  sa-hash-slh-dsa-shake-192s-with-shake256 |
+  sa-hash-slh-dsa-shake-192f-with-shake256 |
+  sa-hash-slh-dsa-shake-256s-with-shake256 |
+  sa-hash-slh-dsa-shake-256f-with-shake256,
+  ... }
 
 --
 -- Expand PublicKeyAlgorithms from RFC 5912
 --
 PublicKeyAlgorithms PUBLIC-KEY ::= {
-   pk-slh-dsa-sha2-128s |
-   pk-slh-dsa-sha2-128f |
-   pk-slh-dsa-sha2-192s |
-   pk-slh-dsa-sha2-192f |
-   pk-slh-dsa-sha2-256s |
-   pk-slh-dsa-sha2-256f |
-   pk-slh-dsa-shake-128s |
-   pk-slh-dsa-shake-128f |
-   pk-slh-dsa-shake-192s |
-   pk-slh-dsa-shake-192f |
-   pk-slh-dsa-shake-256s |
-   pk-slh-dsa-shake-256f,
+  pk-slh-dsa-sha2-128s |
+  pk-slh-dsa-sha2-128f |
+  pk-slh-dsa-sha2-192s |
+  pk-slh-dsa-sha2-192f |
+  pk-slh-dsa-sha2-256s |
+  pk-slh-dsa-sha2-256f |
+  pk-slh-dsa-shake-128s |
+  pk-slh-dsa-shake-128f |
+  pk-slh-dsa-shake-192s |
+  pk-slh-dsa-shake-192f |
+  pk-slh-dsa-shake-256s |
+  pk-slh-dsa-shake-256f |
+  pk-hash-slh-dsa-sha2-128s-with-sha256 |
+  pk-hash-slh-dsa-sha2-128f-with-sha256 |
+  pk-hash-slh-dsa-sha2-192s-with-sha512 |
+  pk-hash-slh-dsa-sha2-192f-with-sha512 |
+  pk-hash-slh-dsa-sha2-256s-with-sha512 |
+  pk-hash-slh-dsa-sha2-256f-with-sha512 |
+  pk-hash-slh-dsa-shake-128s-with-shake128 |
+  pk-hash-slh-dsa-shake-128f-with-shake128 |
+  pk-hash-slh-dsa-shake-192s-with-shake256 |
+  pk-hash-slh-dsa-shake-192f-with-shake256 |
+  pk-hash-slh-dsa-shake-256s-with-shake256 |
+  pk-hash-slh-dsa-shake-256f-with-shake256,
    ... }
 
 END
