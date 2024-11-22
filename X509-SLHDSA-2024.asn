@@ -185,7 +185,7 @@ sa-hash-slh-dsa-sha2-192s-with-sha512 SIGNATURE-ALGORITHM ::= {
   PARAMS ARE absent
   PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192s-with-sha512 }
   SMIME-CAPS {
-    IDENTIFIED BY id-hash-slh-dsa-sha2-192s-with-sha256 } }
+    IDENTIFIED BY id-hash-slh-dsa-sha2-192s-with-sha512 } }
 
 sa-hash-slh-dsa-sha2-192f-with-sha512 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
