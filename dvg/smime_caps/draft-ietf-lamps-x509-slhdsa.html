@@ -17,20 +17,20 @@
 
 
     " name="description">
-<meta content="xml2rfc 3.23.2" name="generator">
+<meta content="xml2rfc 3.24.0" name="generator">
 <meta content="SLH-DSA" name="keyword">
 <meta content="SPHINCS+" name="keyword">
 <meta content="PQ Signatures" name="keyword">
 <meta content="post-quantum X.509" name="keyword">
 <meta content="draft-ietf-lamps-x509-slhdsa-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.23.2
+  xml2rfc 3.24.0
     Python 3.12.7
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.4
-    lxml 4.9.4
+    lxml 5.3.0
     platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
@@ -172,31 +172,6 @@
 }
 
 @font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
   font-family: 'Oxygen Mono';
   font-style: normal;
   font-weight: 400;
@@ -213,6 +188,77 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light dark;
   --background-color: #fff;
@@ -225,6 +271,7 @@
   --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
   --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
   scrollbar-color: #bbb #eee;
 }
 body {
@@ -242,9 +289,15 @@ body {
 }
 
 /* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Cabin Condensed", sans-serif;
-  font-weight: 600;
+  font-family: var(--font-title);
+  font-weight: 680;
   margin: 0.8em 0 0.3em;
   font-size-adjust: 0.5;
   color: var(--title-color);
@@ -273,6 +326,7 @@ h4, h5, h6 {
 /* general structure */
 .author {
   padding-bottom: 0.3em;
+  vertical-align: top;
 }
 #abstract+p {
   font-size: 18px;
@@ -350,25 +404,26 @@ svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
 ol, ul {
   padding: 0;
   margin: 0 0 0.5em 2em;
-}
-:is(ol, ul) :is(ol, ul) {
-  margin-left: 1em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
 }
 li {
   margin: 0 0 0.25em 0;
 }
-.ulCompact li {
-  margin: 0;
-}
 ul.empty, .ulEmpty {
   list-style-type: none;
-}
-ul.empty li, .ulEmpty li {
-  margin-top: 0.5em;
+  & li {
+    margin-top: 0.5em;
+  }
 }
 :is(ul, ol).compact, .ulCompact, .olCompact {
-  line-height: 1;
   margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
 }
 
 /* definition lists */
@@ -376,38 +431,39 @@ dl {
   clear: left;
   --indent: 3ch;
   /* --indent: attr(indent ch); not supported in any browser, but we can dream */
-}
-dl.olPercent {
-  --indent: 5ch;
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
 }
 dl > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
 }
-dl.dlNewline > dt {
-  float: none;
-}
 dl > dd {
   margin-bottom: .8em;
   margin-left: var(--indent) !important; /* stupid element overrides */
   min-height: 2ex;
 }
-dl.olPercent > dt {
-  min-width: calc(var(--indent) - 2ch);
-}
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
-}
-:is(dl.compact, .dlCompact) > dd > :is(:first-child, .break:first-child + *) {
-  margin-top: 0;
-}
-:is(dl.compact, .dlCompact) > dd > :is(:last-child) {
-  margin-bottom: 0;
-}
-dl > dd > dl {
-  margin-top: 0.5em;
-  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
 }
 :is(dd, span).break {
   display: none;
@@ -471,6 +527,7 @@ figcaption, caption {
   font-style: italic;
   margin: 0.5em 1.5em;
   text-align: left;
+  caption-side: bottom;
 }
 @media screen {
   /* Auto-collapse boilerplate. */
@@ -525,6 +582,7 @@ cite {
 
 /* tables */
 table {
+  width: auto;
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
@@ -539,6 +597,16 @@ table.center {
 table.left {
   margin-right: auto;
 }
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
 thead, tbody {
   border: 1px solid var(--line-color);
 }
@@ -569,9 +637,11 @@ a.pilcrow {
   margin-left: 3px;
   opacity: 0.2;
   user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
 }
-a.pilcrow[href] { color: var(--pilcrow-weak); }
-a.pilcrow[href]:hover { text-decoration: none; }
 @media not print {
   :hover > a.pilcrow {
     opacity: 1;
@@ -611,26 +681,28 @@ sub, sup {
   font-size: var(--small-font-size);
   line-height: 18px;
   --identifier-width: 15ch;
-}
-#identifiers dt {
-  width: var(--identifier-width);
-  min-width: var(--identifier-width);
-  clear: left;
-  float: left;
-  text-align: right;
-  margin-right: 1ch;
-}
-#identifiers dd {
-  margin: 0;
-  margin-left: calc(1em + var(--identifier-width)) !important;
-  min-width: 5em;
-}
-#identifiers .authors .author {
-  display: inline-block;
-  margin-right: 1.5em;
-}
-#identifiers .authors .org {
-  font-style: italic;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
 }
 
 /* The prepared/rendered info at the very bottom of the page */
@@ -641,9 +713,6 @@ sub, sup {
   margin-top: 2em;
 }
 .docInfo .prepared {
-  float: left;
-}
-.docInfo .prepared {
   float: right;
 }
 
@@ -651,47 +720,48 @@ sub, sup {
 #toc {
   padding: 0.75em 0 2em 0;
   margin-bottom: 1em;
-}
-#toc nav ul {
-  margin: 0 0.5em 0 0;
-  padding: 0;
-  list-style: none;
-}
-#toc nav li {
-  line-height: 1.3em;
-  margin: 2px 0;
-  padding-left: 1.2em;
-  text-indent: -1.2em;
-}
-#toc a.xref {
-  white-space: normal;
-}
-/* references */
-.references dt {
-  text-align: right;
-  font-weight: bold;
-  min-width: 10ch;
-  margin-right: 1.5ch;
-}
-.references dt:target::before {
-  content: "⇒";
-  width: 15px;
-  margin: 0 10px 0 -25px;
-}
-.references dd {
-  margin-left: 12ch !important;
-  overflow: auto;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
 }
 
-.refInstance {
-  margin-bottom: 1.25em;
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
 }
 
-.references .ascii {
-  margin-bottom: 0.25em;
-}
-
-/* index */
 #rfc\.index\.index + ul {
   margin-left: 0;
 }
@@ -699,21 +769,33 @@ sub, sup {
 /* authors */
 address.vcard {
   font-style: normal;
-  margin: 1em 0;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
 }
-address.vcard .nameRole {
-  font-weight: 700;
-  margin-left: 0;
-}
-address.vcard .label {
-  margin: 0.5em 0;
-}
-address.vcard .type {
-  display: none;
-}
-.alternative-contact {
-  margin: 1.5em 0 1em;
-}
+
 hr.addr {
   border-top: 1px dashed;
   margin: 0;
@@ -735,6 +817,7 @@ hr.addr {
   }
 }
 
+/* Comments */
 .rfcEditorRemove p:first-of-type {
   font-style: italic;
 }
@@ -745,7 +828,31 @@ hr.addr {
 .crefSource {
   font-style: italic;
 }
-/* alternative layout for smaller screens */
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
 @media screen and (max-width: 929px) {
   #toc {
     position: fixed;
@@ -756,9 +863,6 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc.active {
-      opacity: 1;
   }
   #toc h2 {
     margin: 0;
@@ -771,17 +875,17 @@ hr.addr {
     background-color: #444;
     color: white;
     cursor: pointer;
-  }
-  #toc h2::before { /* css hamburger */
-    float: right;
-    position: relative;
-    width: 1em;
-    height: 1px;
-    left: -164px;
-    margin: 8px 0 0 0;
-    background: white none repeat scroll 0 0;
-    box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-    content: "";
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
   }
   #toc nav {
     display: none;
@@ -792,14 +896,13 @@ hr.addr {
     height: calc(100vh - 48px);
     border-left: 1px solid #ddd;
   }
-  #toc.active nav {
-    display: block;
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
   }
   /* Make the collapsed ToC header render white on gray also when it's a link */
   #toc h2 a,
-  #toc h2 a:link,
-  #toc h2 a:focus,
-  #toc h2 a:hover,
+  #toc h2 a:is(:link, :focus, :hover),
   #toc a.toplink,
   #toc a.toplink:hover {
     color: white;
@@ -807,11 +910,11 @@ hr.addr {
     text-decoration: none;
   }
   #toc a.toplink {
-    margin-top: 2px;
+    margin: 2px 0.5em 0;
   }
 }
 
-/* alternative layout for wide screens */
+/* TOC layout for wide screens */
 @media screen and (min-width: 930px) {
   body {
     padding-right: 360px;
@@ -840,20 +943,12 @@ hr.addr {
     overscroll-behavior: contain;
     scrollbar-width: thin;
   }
-  #toc nav > ul  {
-    margin-bottom: 2em;
-  }
-  #toc ul {
-    margin: 0 0 0 4px;
-    font-size: var(--small-font-size);
-  }
-  #toc ul :is(p, li) {
-    margin: 2px 0;
-    line-height: 22px;
-  }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
   }
 }
 
@@ -896,9 +991,6 @@ hr.addr {
   td {
     border-top: 1px solid #ddd;
   }
-  .toplink {
-    display: none;
-  }
 }
 
 @page :first {
@@ -921,82 +1013,6 @@ hr.addr {
   size: A4;
   margin-bottom: 45mm;
   padding-top: 20px;
-}
-
-/* Changes introduced to fix issues found during implementation */
-
-/* Separate body from document info even without intervening H1 */
-section {
-  clear: both;
-}
-
-/* Top align author divs, to avoid names without organization dropping level with org names */
-.author {
-  vertical-align: top;
-}
-
-/* Style section numbers with more space between number and title */
-.section-number {
-  padding-right: 0.5em;
-}
-
-/* Add styling for a link in the ToC that points to the top of the document */
-a.toplink {
-  float: right;
-  margin: 8px 0.5em 0;
-}
-
-/* Provide styling for table cell text alignment */
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
-}
-
-/* Make the alternative author contact information look less like just another
-   author, and group it closer with the primary author contact information */
-.alternative-contact {
-  margin: 0.5em 0 0.25em 0;
-}
-address .non-ascii {
-  margin: 0 0 0 2em;
-}
-
-/* With it being possible to set tables with alignment
-  left, center, and right, { width: 100%; } does not make sense */
-table {
-  width: auto;
-}
-
-/* Avoid reference text that sits in a block with very wide left margin,
-   because of a long floating dt label.*/
-.references dd {
-  overflow: visible;
-}
-
-/* Control caption placement */
-caption {
-  caption-side: bottom;
-}
-
-/* Limit the width of the author address vcard, so names in right-to-left
-   script don't end up on the other side of the page. */
-
-address.vcard {
-  max-width: 20em;
-  margin-right: auto;
-}
-
-/* For address alignment dependent on LTR or RTL scripts */
-address div.left {
-  text-align: left;
-}
-address div.right {
-  text-align: right;
 }
 
 /* Dark mode. */
@@ -1035,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SLH-DSA for X.509</td>
-<td class="right">October 2024</td>
+<td class="right">November 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bashiri, et al.</td>
-<td class="center">Expires 26 April 2025</td>
+<td class="center">Expires 26 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1052,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-x509-slhdsa-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-23" class="published">23 October 2024</time>
+<time datetime="2024-11-22" class="published">22 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-26">26 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-05-26">26 May 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1122,7 +1138,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1227,8 +1243,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1">The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> by the US National Institute of Standards and Technology (NIST) PQC project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 <span>[<a href="#FIPS180" class="cite xref">FIPS180</a>]</span> or SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span> as internal hash functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">SLH-DSA offers two signature modes: pure mode and predigest mode. SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string.
-This document only specifies the use of pure mode with an empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
+This document specifies the use of Pure SLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA public keys only in end-entity certificates.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1247,7 +1264,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-algorithm-identifiers">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-algorithm-identifiers" class="section-name selfRef">Algorithm Identifiers</a>
       </h2>
-<p id="section-3-1">The AlgorithmIdentifier type, which is included herein for convenience, is defined as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The AlgorithmIdentifier type, is defined as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div class="lang-asn.1 sourcecode" id="section-3-2">
 <pre>
 AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
@@ -1259,7 +1276,7 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
 </pre><a href="#section-3-2" class="pilcrow">¶</a>
 </div>
 <aside id="section-3-3">
-        <p id="section-3-3.1">The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
+        <p id="section-3-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
 See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3.1" class="pilcrow">¶</a></p>
 </aside>
 <p id="section-3-4">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
@@ -1271,8 +1288,10 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
           <p id="section-3-5.2.1">parameters, which are optional, are the associated parameters for the algorithm identifier in the algorithm field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-6">The SLH-DSA OIDs are:<a href="#section-3-6" class="pilcrow">¶</a></p>
-<div class="lang-asn.1 sourcecode" id="section-3-7">
+<p id="section-3-6">The object identifiers for SLH-DSA are defined in the NIST Computer Security Objects Register <span>[<a href="#CSOR" class="cite xref">CSOR</a>]</span>, and are reproduced here for convenience.
+The same OID is used to identify an SLH-DSA public key and its associated signature algorithm.<a href="#section-3-6" class="pilcrow">¶</a></p>
+<p id="section-3-7">The Pure SLH-DSA OIDs are:<a href="#section-3-7" class="pilcrow">¶</a></p>
+<div class="lang-asn.1 sourcecode" id="section-3-8">
 <pre>
    nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
      country(16) us(840) organization(1) gov(101) csor(3) 4 }
@@ -1302,9 +1321,54 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
    id-slh-dsa-shake-256s OBJECT IDENTIFIER ::= { sigAlgs 30 }
 
    id-slh-dsa-shake-256f OBJECT IDENTIFIER ::= { sigAlgs 31 }
-</pre><a href="#section-3-7" class="pilcrow">¶</a>
+</pre><a href="#section-3-8" class="pilcrow">¶</a>
 </div>
-<p id="section-3-8">The contents of the parameters component for each algorithm are absent.<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-9">The HashSLH-DSA OIDs are:<a href="#section-3-9" class="pilcrow">¶</a></p>
+<div class="lang-asn.1 sourcecode" id="section-3-10">
+<pre>
+   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
+     country(16) us(840) organization(1) gov(101) csor(3) 4 }
+
+   sigAlgs OBJECT IDENTIFIER ::= { nistAlgorithms 3 }
+
+   id-hash-slh-dsa-sha2-128s-with-sha256 OBJECT IDENTIFIER ::= {
+      sigAlgs 35 }
+
+   id-hash-slh-dsa-sha2-128f-with-sha256 OBJECT IDENTIFIER ::= {
+      sigAlgs 36 }
+
+   id-hash-slh-dsa-sha2-192s-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 37 }
+
+   id-hash-slh-dsa-sha2-192f-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 38 }
+
+   id-hash-slh-dsa-sha2-256s-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 39 }
+
+   id-hash-slh-dsa-sha2-256f-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 40 }
+
+   id-hash-slh-dsa-shake-128s-with-shake128 OBJECT IDENTIFIER ::= {
+      sigAlgs 41 }
+
+   id-hash-slh-dsa-shake-128f-with-shake128 OBJECT IDENTIFIER ::= {
+      sigAlgs 42 }
+
+   id-hash-slh-dsa-shake-192s-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 43 }
+
+   id-hash-slh-dsa-shake-192f-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 44 }
+
+   id-hash-slh-dsa-shake-256s-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 45 }
+
+   id-hash-slh-dsa-shake-256f-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 46 }
+</pre><a href="#section-3-10" class="pilcrow">¶</a>
+</div>
+<p id="section-3-11">The contents of the parameters component for each algorithm <span class="bcp14">MUST</span> be absent.<a href="#section-3-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="slh-dsa-signatures">
@@ -1353,6 +1417,14 @@ The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
 value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-7" class="pilcrow">¶</a></p>
+<p id="section-4-8">This document does not define the use of HashSLH-DSA to sign certificates or
+CRLs, but it does allow the use of HashSLH-DSA public keys in end-entity
+certificates for use by protocols that may need pre-hashing.
+Pre-hashing is performed using the hash algorithm or XOF specified after "with"
+in the object identifier string.  For example, SHA-256 is used for pre-hashing with
+id-hash-slh-dsa-sha2-128s-with-sha256.  When pre-hashing is performed using
+SHAKE128, the output length is 256 bits. When pre-hashing is performed using
+SHAKE256, the output length is 512 bits.<a href="#section-4-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-pub-keys">
@@ -1381,7 +1453,7 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
           <p id="section-5-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-6"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
+<p id="section-5-6"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for Pure SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
 <div class="breakable lang-asn.1 sourcecode" id="section-5-7">
 <pre>
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -1469,26 +1541,117 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    SLH-DSA-PublicKey ::= OCTET STRING
+
+   SLH-DSA-PrivateKey ::= OCTET STRING
 </pre><a href="#section-5-7" class="pilcrow">¶</a>
 </div>
-<p id="section-5-8">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
+<p id="section-5-8">The public key identifiers for HashSLH-DSA are defined here:<a href="#section-5-8" class="pilcrow">¶</a></p>
+<div class="breakable lang-asn.1 sourcecode" id="section-5-9">
+<pre>
+   pk-hash-slh-dsa-sha2-128s-with-sha256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+</pre><a href="#section-5-9" class="pilcrow">¶</a>
+</div>
+<p id="section-5-10">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
 PK.seed and PK.root. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these two elements, i.e. PK.seed || PK.root. The octet
 string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
-contains the raw octet string encoding of the public key.<a href="#section-5-8" class="pilcrow">¶</a></p>
-<p id="section-5-9"><span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
-OCTET STRING type to provide an option for encoding a public key in an
+contains the raw octet string encoding of the public key.<a href="#section-5-10" class="pilcrow">¶</a></p>
+<p id="section-5-11"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey and SLH-DSA-PrivateKey ASN.1
+OCTET STRING types to provide an option for encoding a Pure SLH-DSA public or private key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
-SLH-DSA raw octet string to ASN.1. To map an SLH-DSA-PublicKey OCTET STRING to
+SLH-DSA raw octet string to ASN.1. HashSLH-DSA public and private keys can use SLH-DSA-PublicKey
+and SLH-DSA-PrivateKey in the same way.  To map an SLH-DSA-PublicKey OCTET STRING to
 a SubjectPublicKeyInfo, the OCTET STRING is mapped to the subjectPublicKey
 field (a value of type BIT STRING) as follows: the most significant
 bit of the OCTET STRING value becomes the most significant bit of the BIT
 STRING value, and so on; the least significant bit of the OCTET STRING
-becomes the least significant bit of the BIT STRING.<a href="#section-5-9" class="pilcrow">¶</a></p>
-<p id="section-5-10">The AlgorithmIdentifier for an SLH-DSA public key <span class="bcp14">MUST</span> use one of the id-slh-dsa-* object identifiers from <a href="#sec-alg-ids" class="auto internal xref">Section 3</a>. The parameters field of the AlgorithmIdentifier for the SLH-DSA public key <span class="bcp14">MUST</span> be absent.<a href="#section-5-10" class="pilcrow">¶</a></p>
-<p id="section-5-11"><a href="#example-public" class="auto internal xref">Appendix C.1</a> contains an example of an id-slh-dsa-sha2-128s public
-key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-11" class="pilcrow">¶</a></p>
+becomes the least significant bit of the BIT STRING.<a href="#section-5-11" class="pilcrow">¶</a></p>
+<p id="section-5-12">The AlgorithmIdentifier for an SLH-DSA public key <span class="bcp14">MUST</span> use one of the id-slh-dsa-* or id-hash-slh-dsa-* object identifiers from <a href="#sec-alg-ids" class="auto internal xref">Section 3</a>. The parameters field of the AlgorithmIdentifier for the SLH-DSA public key <span class="bcp14">MUST</span> be absent.<a href="#section-5-12" class="pilcrow">¶</a></p>
+<p id="section-5-13"><a href="#example-public" class="auto internal xref">Appendix C.1</a> contains an example of an id-slh-dsa-sha2-128s public
+key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-usage-bits">
@@ -1496,7 +1659,7 @@ key encoded using the textual encoding defined in <span>[<a href="#RFC7468" clas
       <h2 id="name-key-usage-bits">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-key-usage-bits" class="section-name selfRef">Key Usage Bits</a>
       </h2>
-<p id="section-6-1">The intended application for the key is indicated in the keyUsage certificate extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then at least one of the following <span class="bcp14">MUST</span> be present:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">The intended application for the key is indicated in the keyUsage certificate extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following <span class="bcp14">MUST</span> be present:<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-2">
 <pre>
     digitalSignature; or
@@ -1505,7 +1668,7 @@ key encoded using the textual encoding defined in <span>[<a href="#RFC7468" clas
     cRLSign.
 </pre><a href="#section-6-2" class="pilcrow">¶</a>
 </div>
-<p id="section-6-3">If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then the following <span class="bcp14">MUST NOT</span> be present:<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-3">If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then the following <span class="bcp14">MUST NOT</span> be present:<a href="#section-6-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-4">
 <pre>
     keyEncipherment; or
@@ -1515,7 +1678,26 @@ key encoded using the textual encoding defined in <span>[<a href="#RFC7468" clas
     decipherOnly.
 </pre><a href="#section-6-4" class="pilcrow">¶</a>
 </div>
-<p id="section-6-5">Requirements about the keyUsage extension bits defined in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> still apply.<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-6-5">If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following <span class="bcp14">MUST</span> be present:<a href="#section-6-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-6">
+<pre>
+    digitalSignature; or
+    nonRepudiation.
+</pre><a href="#section-6-6" class="pilcrow">¶</a>
+</div>
+<p id="section-6-7">If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following <span class="bcp14">MUST NOT</span> be present:<a href="#section-6-7" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-8">
+<pre>
+    keyCertSign; or
+    cRLSign; or
+    keyEncipherment; or
+    dataEncipherment; or
+    keyAgreement; or
+    encipherOnly; or
+    decipherOnly.
+</pre><a href="#section-6-8" class="pilcrow">¶</a>
+</div>
+<p id="section-6-9">Requirements about the keyUsage extension bits defined in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> still apply.<a href="#section-6-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="private-key-format">
@@ -1545,25 +1727,28 @@ structure OneAsymmetricKey is replicated below.<a href="#section-7-1" class="pil
    PublicKey ::= BIT STRING
 </pre><a href="#section-7-2" class="pilcrow">¶</a>
 </div>
-<p id="section-7-3">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA private key as four n-byte
+<aside id="section-7-3">
+        <p id="section-7-3.1">The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-7-3.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="section-7-4">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA private key as four n-byte
 elements, SK.seed, SK.prf, PK.seed and PK.root.  The raw octet string
 encoding of an SLH-DSA private key is the concatenation of these four
 elements, i.e. SK.seed || SK.prf || PK.seed || PK.root.  The octet string
 length is 4*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set.  When used in a OneAsymmetricKey type, the privateKey
-OCTET STRING contains the raw octet string encoding of the private key.<a href="#section-7-3" class="pilcrow">¶</a></p>
-<p id="section-7-4">When an SLH-DSA public key is included in a OneAsymmetricKey type, it is
+OCTET STRING contains the raw octet string encoding of the private key.<a href="#section-7-4" class="pilcrow">¶</a></p>
+<p id="section-7-5">When an SLH-DSA public key is included in a OneAsymmetricKey type, it is
 encoded in the same manner as in a SubjectPublicKeyInfo type. That is, the
 publicKey BIT STRING contains the raw octet string encoding of the public
-key.<a href="#section-7-4" class="pilcrow">¶</a></p>
-<p id="section-7-5"><a href="#example-private" class="auto internal xref">Appendix C.2</a> contains an example of an id-slh-dsa-sha2-128s private
-key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-7-5" class="pilcrow">¶</a></p>
-<p id="section-7-6">NOTE: There exist some private key import functions that have not
+key.<a href="#section-7-5" class="pilcrow">¶</a></p>
+<p id="section-7-6"><a href="#example-private" class="auto internal xref">Appendix C.2</a> contains an example of an id-slh-dsa-sha2-128s private
+key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-7-6" class="pilcrow">¶</a></p>
+<p id="section-7-7">NOTE: There exist some private key import functions that have not
 picked up the new ASN.1 structure OneAsymmetricKey that is defined in
 <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>.  This means that they will not accept a private key
 structure that contains the public key field.  This means a balancing
 act needs to be done between being able to do a consistency check on
-the key pair and widest ability to import the key.<a href="#section-7-6" class="pilcrow">¶</a></p>
+the key pair and widest ability to import the key.<a href="#section-7-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1577,7 +1762,7 @@ private keys may result in the ability to forge signatures.<a href="#section-8-2
 <p id="section-8-3">When generating an SLH-DSA key pair, an implementation <span class="bcp14">MUST</span> generate
 each key pair independently of all other key pairs in the SLH-DSA
 hypertree.<a href="#section-8-3" class="pilcrow">¶</a></p>
-<p id="section-8-4">A SLH-DSA tree <span class="bcp14">MUST NOT</span> be used for more than 2^64 signing
+<p id="section-8-4">An SLH-DSA tree <span class="bcp14">MUST NOT</span> be used for more than 2^64 signing
 operations.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <p id="section-8-5">The generation of private keys relies on random numbers.  The use of
 inadequate pseudo-random number generators (PRNGs) to generate these
@@ -1623,13 +1808,17 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="CSOR">[CSOR]</dt>
+        <dd>
+<span class="refAuthor">NIST</span>, <span class="refTitle">"Computer Security Objects Register"</span>, <time datetime="2024-08-20" class="refDate">20 August 2024</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration">https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="FIPS205">[FIPS205]</dt>
         <dd>
-<span class="refTitle">"Stateless Hash-Based Digital Signature Standard"</span>, <span class="refContent">National Institute of Standards and Technology</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.205</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.fips.205">https://doi.org/10.6028/nist.fips.205</a>&gt;</span>. </dd>
+<span class="refTitle">"Stateless hash-based digital signature standard"</span>, <span class="refContent">National Institute of Standards and Technology (U.S.)</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.205</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.fips.205">https://doi.org/10.6028/nist.fips.205</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.draft-ietf-lamps-cms-sphincs-plus">[I-D.draft-ietf-lamps-cms-sphincs-plus]</dt>
+<dt id="I-D.ietf-lamps-cms-sphincs-plus">[I-D.ietf-lamps-cms-sphincs-plus]</dt>
         <dd>
-<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Kampanakis, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of the SLH-DSA Signature Algorithm in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-09</span>, <time datetime="2024-08-21" class="refDate">21 August 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-09">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-09</a>&gt;</span>. </dd>
+<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Kampanakis, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of the SLH-DSA Signature Algorithm in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-16</span>, <time datetime="2024-11-18" class="refDate">18 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-16">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-16</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
@@ -1644,8 +1833,16 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <span class="refAuthor">Turner, S.</span>, <span class="refTitle">"Asymmetric Key Packages"</span>, <span class="seriesInfo">RFC 5958</span>, <span class="seriesInfo">DOI 10.17487/RFC5958</span>, <time datetime="2010-08" class="refDate">August 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5958">https://www.rfc-editor.org/rfc/rfc5958</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="X680">[X680]</dt>
+        <dd>
+<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation"</span>, <span class="seriesInfo">ITU-T Recommendation X.680</span>, <span class="seriesInfo">ISO/IEC 8824-1:2021</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.680">https://www.itu.int/rec/T-REC-X.680</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="X690">[X690]</dt>
+      <dd>
+<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information technology - Abstract Syntax Notation One (ASN.1): ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"</span>, <span class="seriesInfo">ITU-T Recommendation X.690</span>, <span class="seriesInfo">ISO/IEC 8825-1:2021</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.690">https://www.itu.int/rec/T-REC-X.690</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1674,7 +1871,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-dilithium-certificates">[I-D.ietf-lamps-dilithium-certificates]</dt>
         <dd>
-<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure: Algorithm Identifiers for ML-DSA"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-04</span>, <time datetime="2024-07-22" class="refDate">22 July 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-04">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-04</a>&gt;</span>. </dd>
+<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure: Algorithm Identifiers for ML-DSA"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-05</span>, <time datetime="2024-11-04" class="refDate">4 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-05">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="NIST-PQC">[NIST-PQC]</dt>
         <dd>
@@ -1701,12 +1898,8 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <span class="refAuthor">Schaad, J.</span> and <span class="refAuthor">R. Andrews</span>, <span class="refTitle">"IANA Registration for the Cryptographic Algorithm Object Identifier Range"</span>, <span class="seriesInfo">RFC 8411</span>, <span class="seriesInfo">DOI 10.17487/RFC8411</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8411">https://www.rfc-editor.org/rfc/rfc8411</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SLotH">[SLotH]</dt>
-        <dd>
-<span class="refAuthor">Saarinen, M-J.</span>, <span class="refTitle">"Accelerating SLH-DSA by Two Orders of Magnitude with a Single Hash Unit"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://eprint.iacr.org/2024/367.pdf">https://eprint.iacr.org/2024/367.pdf</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="X680">[X680]</dt>
       <dd>
-<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information Technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation. ITU-T Recommendation X.680 (2021) | ISO/IEC 8824-1:2021."</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.680">https://www.itu.int/rec/T-REC-X.680</a>&gt;</span>. </dd>
+<span class="refAuthor">Saarinen, M-J.</span>, <span class="refTitle">"Accelerating SLH-DSA by Two Orders of Magnitude with a Single Hash Unit"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://eprint.iacr.org/2024/367.pdf">https://eprint.iacr.org/2024/367.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1718,8 +1911,13 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
       <h2 id="name-asn1-module">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-asn1-module" class="section-name selfRef">ASN.1 Module</a>
       </h2>
-<p id="appendix-A-1">RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of <span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
-<div class="breakable lang-asn.1 sourcecode" id="appendix-A-2">
+<p id="appendix-A-1">This appendix includes the ASN.1 module <span>[<a href="#X680" class="cite xref">X680</a>]</span> for SLH-DSA.  Note that
+as per <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, certificates use the Distinguished Encoding Rules; see
+<span>[<a href="#X690" class="cite xref">X690</a>]</span>. This module imports objects from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<aside id="appendix-A-2">
+        <p id="appendix-A-2.1">RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>. Also please replace <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> in the module with a reference to the published RFC.<a href="#appendix-A-2.1" class="pilcrow">¶</a></p>
+</aside>
+<div class="breakable lang-asn.1 sourcecode" id="appendix-A-3">
 <pre>
 &lt;CODE BEGINS&gt;
 X509-SLH-DSA-Module-2024
@@ -1749,49 +1947,294 @@ IMPORTS
   sa-slh-dsa-shake-128s, sa-slh-dsa-shake-128f,
   sa-slh-dsa-shake-192s, sa-slh-dsa-shake-192f,
   sa-slh-dsa-shake-256s, sa-slh-dsa-shake-256f
-    FROM SLH-DSA-Module-2024  -- in [I-D.draft-ietf-lamps-cms-sphincs-plus]
+    FROM SLH-DSA-Module-2024  -- in [I-D.ietf-lamps-cms-sphincs-plus]
     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
       id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
+
+--
+-- HashSLH-DSA object identifiers from [CSOR]
+--
+
+nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
+  country(16) us(840) organization(1) gov(101) csor(3) 4 }
+
+sigAlgs OBJECT IDENTIFIER ::= { nistAlgorithms 3 }
+
+id-hash-slh-dsa-sha2-128s-with-sha256 OBJECT IDENTIFIER ::= {
+  sigAlgs 35 }
+
+id-hash-slh-dsa-sha2-128f-with-sha256 OBJECT IDENTIFIER ::= {
+  sigAlgs 36 }
+
+id-hash-slh-dsa-sha2-192s-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 37 }
+
+id-hash-slh-dsa-sha2-192f-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 38 }
+
+id-hash-slh-dsa-sha2-256s-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 39 }
+
+id-hash-slh-dsa-sha2-256f-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 40 }
+
+id-hash-slh-dsa-shake-128s-with-shake128 OBJECT IDENTIFIER ::= {
+  sigAlgs 41 }
+
+id-hash-slh-dsa-shake-128f-with-shake128 OBJECT IDENTIFIER ::= {
+  sigAlgs 42 }
+
+id-hash-slh-dsa-shake-192s-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 43 }
+
+id-hash-slh-dsa-shake-192f-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 44 }
+
+id-hash-slh-dsa-shake-256s-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 45 }
+
+id-hash-slh-dsa-shake-256f-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 46 }
+
+--
+-- HashSLH-DSA public key identifiers
+--
+
+pk-hash-slh-dsa-sha2-128s-with-sha256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+--
+-- HashSLH-DSA signature algorithm identifiers
+--
+
+sa-hash-slh-dsa-sha2-128s-with-sha256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128s-with-sha256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-128s-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-128f-with-sha256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128f-with-sha256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-128f-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-192s-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192s-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-128f-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-192f-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192f-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-192f-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-256s-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256s-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-256s-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-256f-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256f-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-256f-with-sha512 } }
+
+sa-hash-slh-dsa-shake-128s-with-shake128 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128s-with-shake128 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-128s-with-shake128 } }
+
+sa-hash-slh-dsa-shake-128f-with-shake128 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128f-with-shake128 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-128f-with-shake128 } }
+
+sa-hash-slh-dsa-shake-192s-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192s-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-192s-with-shake256 } }
+
+sa-hash-slh-dsa-shake-192f-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192f-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-192f-with-shake256 } }
+
+sa-hash-slh-dsa-shake-256s-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256s-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-256s-with-shake256 } }
+
+sa-hash-slh-dsa-shake-256f-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256f-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-256f-with-shake256 } }
 
 --
 -- Expand SignatureAlgorithms from RFC 5912
 --
 SignatureAlgorithms SIGNATURE-ALGORITHM ::= {
-   sa-slh-dsa-sha2-128s |
-   sa-slh-dsa-sha2-128f |
-   sa-slh-dsa-sha2-192s |
-   sa-slh-dsa-sha2-192f |
-   sa-slh-dsa-sha2-256s |
-   sa-slh-dsa-sha2-256f |
-   sa-slh-dsa-shake-128s |
-   sa-slh-dsa-shake-128f |
-   sa-slh-dsa-shake-192s |
-   sa-slh-dsa-shake-192f |
-   sa-slh-dsa-shake-256s |
-   sa-slh-dsa-shake-256f,
-   ... }
+  sa-slh-dsa-sha2-128s |
+  sa-slh-dsa-sha2-128f |
+  sa-slh-dsa-sha2-192s |
+  sa-slh-dsa-sha2-192f |
+  sa-slh-dsa-sha2-256s |
+  sa-slh-dsa-sha2-256f |
+  sa-slh-dsa-shake-128s |
+  sa-slh-dsa-shake-128f |
+  sa-slh-dsa-shake-192s |
+  sa-slh-dsa-shake-192f |
+  sa-slh-dsa-shake-256s |
+  sa-slh-dsa-shake-256f |
+  sa-hash-slh-dsa-sha2-128s-with-sha256 |
+  sa-hash-slh-dsa-sha2-128f-with-sha256 |
+  sa-hash-slh-dsa-sha2-192s-with-sha512 |
+  sa-hash-slh-dsa-sha2-192f-with-sha512 |
+  sa-hash-slh-dsa-sha2-256s-with-sha512 |
+  sa-hash-slh-dsa-sha2-256f-with-sha512 |
+  sa-hash-slh-dsa-shake-128s-with-shake128 |
+  sa-hash-slh-dsa-shake-128f-with-shake128 |
+  sa-hash-slh-dsa-shake-192s-with-shake256 |
+  sa-hash-slh-dsa-shake-192f-with-shake256 |
+  sa-hash-slh-dsa-shake-256s-with-shake256 |
+  sa-hash-slh-dsa-shake-256f-with-shake256,
+  ... }
 
 --
 -- Expand PublicKeyAlgorithms from RFC 5912
 --
 PublicKeyAlgorithms PUBLIC-KEY ::= {
-   pk-slh-dsa-sha2-128s |
-   pk-slh-dsa-sha2-128f |
-   pk-slh-dsa-sha2-192s |
-   pk-slh-dsa-sha2-192f |
-   pk-slh-dsa-sha2-256s |
-   pk-slh-dsa-sha2-256f |
-   pk-slh-dsa-shake-128s |
-   pk-slh-dsa-shake-128f |
-   pk-slh-dsa-shake-192s |
-   pk-slh-dsa-shake-192f |
-   pk-slh-dsa-shake-256s |
-   pk-slh-dsa-shake-256f,
+  pk-slh-dsa-sha2-128s |
+  pk-slh-dsa-sha2-128f |
+  pk-slh-dsa-sha2-192s |
+  pk-slh-dsa-sha2-192f |
+  pk-slh-dsa-sha2-256s |
+  pk-slh-dsa-sha2-256f |
+  pk-slh-dsa-shake-128s |
+  pk-slh-dsa-shake-128f |
+  pk-slh-dsa-shake-192s |
+  pk-slh-dsa-shake-192f |
+  pk-slh-dsa-shake-256s |
+  pk-slh-dsa-shake-256f |
+  pk-hash-slh-dsa-sha2-128s-with-sha256 |
+  pk-hash-slh-dsa-sha2-128f-with-sha256 |
+  pk-hash-slh-dsa-sha2-192s-with-sha512 |
+  pk-hash-slh-dsa-sha2-192f-with-sha512 |
+  pk-hash-slh-dsa-sha2-256s-with-sha512 |
+  pk-hash-slh-dsa-sha2-256f-with-sha512 |
+  pk-hash-slh-dsa-shake-128s-with-shake128 |
+  pk-hash-slh-dsa-shake-128f-with-shake128 |
+  pk-hash-slh-dsa-shake-192s-with-shake256 |
+  pk-hash-slh-dsa-shake-192f-with-shake256 |
+  pk-hash-slh-dsa-shake-256s-with-shake256 |
+  pk-hash-slh-dsa-shake-256f-with-shake256,
    ... }
 
 END
 &lt;CODE ENDS&gt;
-</pre><a href="#appendix-A-2" class="pilcrow">¶</a>
+</pre><a href="#appendix-A-3" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -1800,8 +2243,8 @@ END
       <h2 id="name-security-strengths">
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-security-strengths" class="section-name selfRef">Security Strengths</a>
       </h2>
-<p id="appendix-B-1">Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST has instead elected to define a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in <a href="#tab-strengths" class="auto internal xref">Table 1</a>, along with the resulting signature size, public key, and private key sizes in bytes.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-1">Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST defined a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in <a href="#tab-strengths" class="auto internal xref">Table 1</a>, along with the resulting signature size, public key, and private key sizes in bytes.  The HashSLH-DSA parameter sets have the same values as the Pure SLH-DSA equivalents.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <span id="name-slh-dsa-security-strengths"></span><div id="tab-strengths">
 <table class="center" id="table-1">
         <caption>
@@ -1977,7 +2420,7 @@ HmSlASuBCex3fKpOHwJMz8+Ul9mRgFCSgPQlavKwevgCibSU
         <h3 id="name-example-certificate">
 <a href="#appendix-C.3" class="section-number selfRef">C.3. </a><a href="#name-example-certificate" class="section-name selfRef">Example Certificate</a>
         </h3>
-<p id="appendix-C.3-1">An example or a self-signed SLH-DSA certificate using id-slh-dsa-sha2-128s:<a href="#appendix-C.3-1" class="pilcrow">¶</a></p>
+<p id="appendix-C.3-1">An example of a self-signed SLH-DSA certificate using id-slh-dsa-sha2-128s:<a href="#appendix-C.3-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.3-2">
 <pre>
 Certificate:
@@ -2638,7 +3081,7 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-D-1">Much of the structure and text of this document is based on <span>[<a href="#RFC8410" class="cite xref">RFC8410</a>]</span> and <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The remainder comes from <span>[<a href="#I-D.draft-ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.draft-ietf-lamps-cms-sphincs-plus</a>]</span>. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - <span>[<a href="#RFC8411" class="cite xref">RFC8411</a>]</span>.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
+<p id="appendix-D-1">Much of the structure and text of this document is based on <span>[<a href="#RFC8410" class="cite xref">RFC8410</a>]</span> and <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The remainder comes from <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - <span>[<a href="#RFC8411" class="cite xref">RFC8411</a>]</span>.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
