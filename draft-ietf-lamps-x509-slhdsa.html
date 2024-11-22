@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bashiri, et al.</td>
-<td class="center">Expires 25 May 2025</td>
+<td class="center">Expires 26 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-x509-slhdsa-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-11-21" class="published">21 November 2024</time>
+<time datetime="2024-11-22" class="published">22 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-25">25 May 2025</time></dd>
+<dd class="expires"><time datetime="2025-05-26">26 May 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1243,8 +1243,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1">The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> by the US National Institute of Standards and Technology (NIST) PQC project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 <span>[<a href="#FIPS180" class="cite xref">FIPS180</a>]</span> or SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span> as internal hash functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">SLH-DSA offers two signature modes: pure mode and predigest mode. SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string.
-This document only specifies the use of pure mode with an empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
+This document specifies the use of Pure SLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA public keys only in end-entity certificates.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1263,7 +1264,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-algorithm-identifiers">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-algorithm-identifiers" class="section-name selfRef">Algorithm Identifiers</a>
       </h2>
-<p id="section-3-1">The AlgorithmIdentifier type, which is included herein for convenience, is defined as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The AlgorithmIdentifier type, is defined as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div class="lang-asn.1 sourcecode" id="section-3-2">
 <pre>
 AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
@@ -1275,7 +1276,7 @@ AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
 </pre><a href="#section-3-2" class="pilcrow">¶</a>
 </div>
 <aside id="section-3-3">
-        <p id="section-3-3.1">The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
+        <p id="section-3-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the 2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.
 See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3.1" class="pilcrow">¶</a></p>
 </aside>
 <p id="section-3-4">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
@@ -1287,8 +1288,10 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
           <p id="section-3-5.2.1">parameters, which are optional, are the associated parameters for the algorithm identifier in the algorithm field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-6">The SLH-DSA OIDs are:<a href="#section-3-6" class="pilcrow">¶</a></p>
-<div class="lang-asn.1 sourcecode" id="section-3-7">
+<p id="section-3-6">The object identifiers for SLH-DSA are defined in the NIST Computer Security Objects Register <span>[<a href="#CSOR" class="cite xref">CSOR</a>]</span>, and are reproduced here for convenience.
+The same OID is used to identify an SLH-DSA public key and its associated signature algorithm.<a href="#section-3-6" class="pilcrow">¶</a></p>
+<p id="section-3-7">The Pure SLH-DSA OIDs are:<a href="#section-3-7" class="pilcrow">¶</a></p>
+<div class="lang-asn.1 sourcecode" id="section-3-8">
 <pre>
    nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
      country(16) us(840) organization(1) gov(101) csor(3) 4 }
@@ -1318,9 +1321,54 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
    id-slh-dsa-shake-256s OBJECT IDENTIFIER ::= { sigAlgs 30 }
 
    id-slh-dsa-shake-256f OBJECT IDENTIFIER ::= { sigAlgs 31 }
-</pre><a href="#section-3-7" class="pilcrow">¶</a>
+</pre><a href="#section-3-8" class="pilcrow">¶</a>
 </div>
-<p id="section-3-8">The contents of the parameters component for each algorithm <span class="bcp14">MUST</span> be absent.<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-9">The HashSLH-DSA OIDs are:<a href="#section-3-9" class="pilcrow">¶</a></p>
+<div class="lang-asn.1 sourcecode" id="section-3-10">
+<pre>
+   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
+     country(16) us(840) organization(1) gov(101) csor(3) 4 }
+
+   sigAlgs OBJECT IDENTIFIER ::= { nistAlgorithms 3 }
+
+   id-hash-slh-dsa-sha2-128s-with-sha256 OBJECT IDENTIFIER ::= {
+      sigAlgs 35 }
+
+   id-hash-slh-dsa-sha2-128f-with-sha256 OBJECT IDENTIFIER ::= {
+      sigAlgs 36 }
+
+   id-hash-slh-dsa-sha2-192s-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 37 }
+
+   id-hash-slh-dsa-sha2-192f-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 38 }
+
+   id-hash-slh-dsa-sha2-256s-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 39 }
+
+   id-hash-slh-dsa-sha2-256f-with-sha512 OBJECT IDENTIFIER ::= {
+      sigAlgs 40 }
+
+   id-hash-slh-dsa-shake-128s-with-shake128 OBJECT IDENTIFIER ::= {
+      sigAlgs 41 }
+
+   id-hash-slh-dsa-shake-128f-with-shake128 OBJECT IDENTIFIER ::= {
+      sigAlgs 42 }
+
+   id-hash-slh-dsa-shake-192s-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 43 }
+
+   id-hash-slh-dsa-shake-192f-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 44 }
+
+   id-hash-slh-dsa-shake-256s-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 45 }
+
+   id-hash-slh-dsa-shake-256f-with-shake256 OBJECT IDENTIFIER ::= {
+      sigAlgs 46 }
+</pre><a href="#section-3-10" class="pilcrow">¶</a>
+</div>
+<p id="section-3-11">The contents of the parameters component for each algorithm <span class="bcp14">MUST</span> be absent.<a href="#section-3-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="slh-dsa-signatures">
@@ -1369,6 +1417,14 @@ The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
 value is encoded in the "signatureValue" BIT STRING field.<a href="#section-4-7" class="pilcrow">¶</a></p>
+<p id="section-4-8">This document does not define the use of HashSLH-DSA to sign certificates or
+CRLs, but it does allow the use of HashSLH-DSA public keys in end-entity
+certificates for use by protocols that may need pre-hashing.
+Pre-hashing is performed using the hash algorithm or XOF specified after "with"
+in the object identifier string.  For example, SHA-256 is used for pre-hashing with
+id-hash-slh-dsa-sha2-128s-with-sha256.  When pre-hashing is performed using
+SHAKE128, the output length is 256 bits. When pre-hashing is performed using
+SHAKE256, the output length is 512 bits.<a href="#section-4-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-pub-keys">
@@ -1397,7 +1453,7 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
           <p id="section-5-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-6"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
+<p id="section-5-6"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the following public key identifiers for Pure SLH-DSA:<a href="#section-5-6" class="pilcrow">¶</a></p>
 <div class="breakable lang-asn.1 sourcecode" id="section-5-7">
 <pre>
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -1485,26 +1541,117 @@ See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    SLH-DSA-PublicKey ::= OCTET STRING
+
+   SLH-DSA-PrivateKey ::= OCTET STRING
 </pre><a href="#section-5-7" class="pilcrow">¶</a>
 </div>
-<p id="section-5-8">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
+<p id="section-5-8">The public key identifiers for HashSLH-DSA are defined here:<a href="#section-5-8" class="pilcrow">¶</a></p>
+<div class="breakable lang-asn.1 sourcecode" id="section-5-9">
+<pre>
+   pk-hash-slh-dsa-sha2-128s-with-sha256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+   pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
+      IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+      -- KEY no ASN.1 wrapping --
+      CERT-KEY-USAGE
+         { digitalSignature, nonRepudiation }
+      -- PRIVATE-KEY no ASN.1 wrapping -- }
+</pre><a href="#section-5-9" class="pilcrow">¶</a>
+</div>
+<p id="section-5-10">Section 9.1 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA public key as two n-byte elements,
 PK.seed and PK.root. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these two elements, i.e. PK.seed || PK.root. The octet
 string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
-contains the raw octet string encoding of the public key.<a href="#section-5-8" class="pilcrow">¶</a></p>
-<p id="section-5-9"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey ASN.1
-OCTET STRING type to provide an option for encoding a public key in an
+contains the raw octet string encoding of the public key.<a href="#section-5-10" class="pilcrow">¶</a></p>
+<p id="section-5-11"><span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span> defines the SLH-DSA-PublicKey and SLH-DSA-PrivateKey ASN.1
+OCTET STRING types to provide an option for encoding a Pure SLH-DSA public or private key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
-SLH-DSA raw octet string to ASN.1. To map an SLH-DSA-PublicKey OCTET STRING to
+SLH-DSA raw octet string to ASN.1. HashSLH-DSA public and private keys can use SLH-DSA-PublicKey
+and SLH-DSA-PrivateKey in the same way.  To map an SLH-DSA-PublicKey OCTET STRING to
 a SubjectPublicKeyInfo, the OCTET STRING is mapped to the subjectPublicKey
 field (a value of type BIT STRING) as follows: the most significant
 bit of the OCTET STRING value becomes the most significant bit of the BIT
 STRING value, and so on; the least significant bit of the OCTET STRING
-becomes the least significant bit of the BIT STRING.<a href="#section-5-9" class="pilcrow">¶</a></p>
-<p id="section-5-10">The AlgorithmIdentifier for an SLH-DSA public key <span class="bcp14">MUST</span> use one of the id-slh-dsa-* object identifiers from <a href="#sec-alg-ids" class="auto internal xref">Section 3</a>. The parameters field of the AlgorithmIdentifier for the SLH-DSA public key <span class="bcp14">MUST</span> be absent.<a href="#section-5-10" class="pilcrow">¶</a></p>
-<p id="section-5-11"><a href="#example-public" class="auto internal xref">Appendix C.1</a> contains an example of an id-slh-dsa-sha2-128s public
-key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-11" class="pilcrow">¶</a></p>
+becomes the least significant bit of the BIT STRING.<a href="#section-5-11" class="pilcrow">¶</a></p>
+<p id="section-5-12">The AlgorithmIdentifier for an SLH-DSA public key <span class="bcp14">MUST</span> use one of the id-slh-dsa-* or id-hash-slh-dsa-* object identifiers from <a href="#sec-alg-ids" class="auto internal xref">Section 3</a>. The parameters field of the AlgorithmIdentifier for the SLH-DSA public key <span class="bcp14">MUST</span> be absent.<a href="#section-5-12" class="pilcrow">¶</a></p>
+<p id="section-5-13"><a href="#example-public" class="auto internal xref">Appendix C.1</a> contains an example of an id-slh-dsa-sha2-128s public
+key encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-usage-bits">
@@ -1512,7 +1659,7 @@ key encoded using the textual encoding defined in <span>[<a href="#RFC7468" clas
       <h2 id="name-key-usage-bits">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-key-usage-bits" class="section-name selfRef">Key Usage Bits</a>
       </h2>
-<p id="section-6-1">The intended application for the key is indicated in the keyUsage certificate extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then at least one of the following <span class="bcp14">MUST</span> be present:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">The intended application for the key is indicated in the keyUsage certificate extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following <span class="bcp14">MUST</span> be present:<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-2">
 <pre>
     digitalSignature; or
@@ -1521,7 +1668,7 @@ key encoded using the textual encoding defined in <span>[<a href="#RFC7468" clas
     cRLSign.
 </pre><a href="#section-6-2" class="pilcrow">¶</a>
 </div>
-<p id="section-6-3">If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* identifier in the SubjectPublicKeyInfo, then the following <span class="bcp14">MUST NOT</span> be present:<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-3">If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then the following <span class="bcp14">MUST NOT</span> be present:<a href="#section-6-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-4">
 <pre>
     keyEncipherment; or
@@ -1531,7 +1678,26 @@ key encoded using the textual encoding defined in <span>[<a href="#RFC7468" clas
     decipherOnly.
 </pre><a href="#section-6-4" class="pilcrow">¶</a>
 </div>
-<p id="section-6-5">Requirements about the keyUsage extension bits defined in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> still apply.<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-6-5">If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following <span class="bcp14">MUST</span> be present:<a href="#section-6-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-6">
+<pre>
+    digitalSignature; or
+    nonRepudiation.
+</pre><a href="#section-6-6" class="pilcrow">¶</a>
+</div>
+<p id="section-6-7">If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following <span class="bcp14">MUST NOT</span> be present:<a href="#section-6-7" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-8">
+<pre>
+    keyCertSign; or
+    cRLSign; or
+    keyEncipherment; or
+    dataEncipherment; or
+    keyAgreement; or
+    encipherOnly; or
+    decipherOnly.
+</pre><a href="#section-6-8" class="pilcrow">¶</a>
+</div>
+<p id="section-6-9">Requirements about the keyUsage extension bits defined in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> still apply.<a href="#section-6-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="private-key-format">
@@ -1596,7 +1762,7 @@ private keys may result in the ability to forge signatures.<a href="#section-8-2
 <p id="section-8-3">When generating an SLH-DSA key pair, an implementation <span class="bcp14">MUST</span> generate
 each key pair independently of all other key pairs in the SLH-DSA
 hypertree.<a href="#section-8-3" class="pilcrow">¶</a></p>
-<p id="section-8-4">A SLH-DSA tree <span class="bcp14">MUST NOT</span> be used for more than 2^64 signing
+<p id="section-8-4">An SLH-DSA tree <span class="bcp14">MUST NOT</span> be used for more than 2^64 signing
 operations.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <p id="section-8-5">The generation of private keys relies on random numbers.  The use of
 inadequate pseudo-random number generators (PRNGs) to generate these
@@ -1642,6 +1808,10 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="CSOR">[CSOR]</dt>
+        <dd>
+<span class="refAuthor">NIST</span>, <span class="refTitle">"Computer Security Objects Register"</span>, <time datetime="2024-08-20" class="refDate">20 August 2024</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration">https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="FIPS205">[FIPS205]</dt>
         <dd>
 <span class="refTitle">"Stateless Hash-Based Digital Signature Standard"</span>, <span class="refContent">National Institute of Standards and Technology</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.205</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.fips.205">https://doi.org/10.6028/nist.fips.205</a>&gt;</span>. </dd>
@@ -1782,39 +1952,264 @@ IMPORTS
       id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
 
 --
+-- HashSLH-DSA object identifiers from [CSOR]
+--
+
+nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
+  country(16) us(840) organization(1) gov(101) csor(3) 4 }
+
+sigAlgs OBJECT IDENTIFIER ::= { nistAlgorithms 3 }
+
+id-hash-slh-dsa-sha2-128s-with-sha256 OBJECT IDENTIFIER ::= {
+  sigAlgs 35 }
+
+id-hash-slh-dsa-sha2-128f-with-sha256 OBJECT IDENTIFIER ::= {
+  sigAlgs 36 }
+
+id-hash-slh-dsa-sha2-192s-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 37 }
+
+id-hash-slh-dsa-sha2-192f-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 38 }
+
+id-hash-slh-dsa-sha2-256s-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 39 }
+
+id-hash-slh-dsa-sha2-256f-with-sha512 OBJECT IDENTIFIER ::= {
+  sigAlgs 40 }
+
+id-hash-slh-dsa-shake-128s-with-shake128 OBJECT IDENTIFIER ::= {
+  sigAlgs 41 }
+
+id-hash-slh-dsa-shake-128f-with-shake128 OBJECT IDENTIFIER ::= {
+  sigAlgs 42 }
+
+id-hash-slh-dsa-shake-192s-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 43 }
+
+id-hash-slh-dsa-shake-192f-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 44 }
+
+id-hash-slh-dsa-shake-256s-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 45 }
+
+id-hash-slh-dsa-shake-256f-with-shake256 OBJECT IDENTIFIER ::= {
+  sigAlgs 46 }
+
+--
+-- HashSLH-DSA public key identifiers
+--
+
+pk-hash-slh-dsa-sha2-128s-with-sha256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+  -- KEY no ASN.1 wrapping --
+  CERT-KEY-USAGE
+      { digitalSignature, nonRepudiation }
+  -- PRIVATE-KEY no ASN.1 wrapping -- }
+
+--
+-- HashSLH-DSA signature algorithm identifiers
+--
+
+-- EDNOTE: we did not include the optional SMIME-CAPS because
+-- HashSLH-DSA is not defined for use in CMS. Is this correct
+-- or should we still include SMIME-CAPS?
+
+sa-hash-slh-dsa-sha2-128s-with-sha256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128s-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-128f-with-sha256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128f-with-sha256 } }
+
+sa-hash-slh-dsa-sha2-192s-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192s-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-192f-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192f-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-256s-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256s-with-sha512 } }
+
+sa-hash-slh-dsa-sha2-256f-with-sha512 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256f-with-sha512 } }
+
+sa-hash-slh-dsa-shake-128s-with-shake128 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128s-with-shake128 } }
+
+sa-hash-slh-dsa-shake-128f-with-shake128 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128f-with-shake128 } }
+
+sa-hash-slh-dsa-shake-192s-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192s-with-shake256 } }
+
+sa-hash-slh-dsa-shake-192f-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192f-with-shake256 } }
+
+sa-hash-slh-dsa-shake-256s-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256s-with-shake256 } }
+
+sa-hash-slh-dsa-shake-256f-with-shake256 SIGNATURE-ALGORITHM ::= {
+  IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
+  PARAMS ARE absent
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256f-with-shake256 } }
+
+--
 -- Expand SignatureAlgorithms from RFC 5912
 --
 SignatureAlgorithms SIGNATURE-ALGORITHM ::= {
-   sa-slh-dsa-sha2-128s |
-   sa-slh-dsa-sha2-128f |
-   sa-slh-dsa-sha2-192s |
-   sa-slh-dsa-sha2-192f |
-   sa-slh-dsa-sha2-256s |
-   sa-slh-dsa-sha2-256f |
-   sa-slh-dsa-shake-128s |
-   sa-slh-dsa-shake-128f |
-   sa-slh-dsa-shake-192s |
-   sa-slh-dsa-shake-192f |
-   sa-slh-dsa-shake-256s |
-   sa-slh-dsa-shake-256f,
-   ... }
+  sa-slh-dsa-sha2-128s |
+  sa-slh-dsa-sha2-128f |
+  sa-slh-dsa-sha2-192s |
+  sa-slh-dsa-sha2-192f |
+  sa-slh-dsa-sha2-256s |
+  sa-slh-dsa-sha2-256f |
+  sa-slh-dsa-shake-128s |
+  sa-slh-dsa-shake-128f |
+  sa-slh-dsa-shake-192s |
+  sa-slh-dsa-shake-192f |
+  sa-slh-dsa-shake-256s |
+  sa-slh-dsa-shake-256f |
+  sa-hash-slh-dsa-sha2-128s-with-sha256 |
+  sa-hash-slh-dsa-sha2-128f-with-sha256 |
+  sa-hash-slh-dsa-sha2-192s-with-sha512 |
+  sa-hash-slh-dsa-sha2-192f-with-sha512 |
+  sa-hash-slh-dsa-sha2-256s-with-sha512 |
+  sa-hash-slh-dsa-sha2-256f-with-sha512 |
+  sa-hash-slh-dsa-shake-128s-with-shake128 |
+  sa-hash-slh-dsa-shake-128f-with-shake128 |
+  sa-hash-slh-dsa-shake-192s-with-shake256 |
+  sa-hash-slh-dsa-shake-192f-with-shake256 |
+  sa-hash-slh-dsa-shake-256s-with-shake256 |
+  sa-hash-slh-dsa-shake-256f-with-shake256,
+  ... }
 
 --
 -- Expand PublicKeyAlgorithms from RFC 5912
 --
 PublicKeyAlgorithms PUBLIC-KEY ::= {
-   pk-slh-dsa-sha2-128s |
-   pk-slh-dsa-sha2-128f |
-   pk-slh-dsa-sha2-192s |
-   pk-slh-dsa-sha2-192f |
-   pk-slh-dsa-sha2-256s |
-   pk-slh-dsa-sha2-256f |
-   pk-slh-dsa-shake-128s |
-   pk-slh-dsa-shake-128f |
-   pk-slh-dsa-shake-192s |
-   pk-slh-dsa-shake-192f |
-   pk-slh-dsa-shake-256s |
-   pk-slh-dsa-shake-256f,
+  pk-slh-dsa-sha2-128s |
+  pk-slh-dsa-sha2-128f |
+  pk-slh-dsa-sha2-192s |
+  pk-slh-dsa-sha2-192f |
+  pk-slh-dsa-sha2-256s |
+  pk-slh-dsa-sha2-256f |
+  pk-slh-dsa-shake-128s |
+  pk-slh-dsa-shake-128f |
+  pk-slh-dsa-shake-192s |
+  pk-slh-dsa-shake-192f |
+  pk-slh-dsa-shake-256s |
+  pk-slh-dsa-shake-256f |
+  pk-hash-slh-dsa-sha2-128s-with-sha256 |
+  pk-hash-slh-dsa-sha2-128f-with-sha256 |
+  pk-hash-slh-dsa-sha2-192s-with-sha512 |
+  pk-hash-slh-dsa-sha2-192f-with-sha512 |
+  pk-hash-slh-dsa-sha2-256s-with-sha512 |
+  pk-hash-slh-dsa-sha2-256f-with-sha512 |
+  pk-hash-slh-dsa-shake-128s-with-shake128 |
+  pk-hash-slh-dsa-shake-128f-with-shake128 |
+  pk-hash-slh-dsa-shake-192s-with-shake256 |
+  pk-hash-slh-dsa-shake-192f-with-shake256 |
+  pk-hash-slh-dsa-shake-256s-with-shake256 |
+  pk-hash-slh-dsa-shake-256f-with-shake256,
    ... }
 
 END
@@ -1829,7 +2224,7 @@ END
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-security-strengths" class="section-name selfRef">Security Strengths</a>
       </h2>
 <p id="appendix-B-1">Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST defined a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in <a href="#tab-strengths" class="auto internal xref">Table 1</a>, along with the resulting signature size, public key, and private key sizes in bytes.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in <a href="#tab-strengths" class="auto internal xref">Table 1</a>, along with the resulting signature size, public key, and private key sizes in bytes.  The HashSLH-DSA parameter sets have the same values as the Pure SLH-DSA equivalents.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <span id="name-slh-dsa-security-strengths"></span><div id="tab-strengths">
 <table class="center" id="table-1">
         <caption>
@@ -2005,7 +2400,7 @@ HmSlASuBCex3fKpOHwJMz8+Ul9mRgFCSgPQlavKwevgCibSU
         <h3 id="name-example-certificate">
 <a href="#appendix-C.3" class="section-number selfRef">C.3. </a><a href="#name-example-certificate" class="section-name selfRef">Example Certificate</a>
         </h3>
-<p id="appendix-C.3-1">An example or a self-signed SLH-DSA certificate using id-slh-dsa-sha2-128s:<a href="#appendix-C.3-1" class="pilcrow">¶</a></p>
+<p id="appendix-C.3-1">An example of a self-signed SLH-DSA certificate using id-slh-dsa-sha2-128s:<a href="#appendix-C.3-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.3-2">
 <pre>
 Certificate:
@@ -2666,7 +3061,7 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-D-1">Much of the structure and text of this document is based on <span>[<a href="#RFC8410" class="cite xref">RFC8410</a>]</span> and <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The remainder comes from <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>. Thanks to those authors, and the ones they based their work on, for making our work earier. "Copying always makes things easier and less error prone" - <span>[<a href="#RFC8411" class="cite xref">RFC8411</a>]</span>.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
+<p id="appendix-D-1">Much of the structure and text of this document is based on <span>[<a href="#RFC8410" class="cite xref">RFC8410</a>]</span> and <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The remainder comes from <span>[<a href="#I-D.ietf-lamps-cms-sphincs-plus" class="cite xref">I-D.ietf-lamps-cms-sphincs-plus</a>]</span>. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - <span>[<a href="#RFC8411" class="cite xref">RFC8411</a>]</span>.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
