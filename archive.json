@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-21T01:17:17.217157+00:00",
+  "timestamp": "2024-11-24T01:23:12.011208+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOLS83Ic6AEUh4",
       "title": "Should we expose the \"SLH-DSA Hash-based Signature Algorithm Overview\" section?",
       "url": "https://github.com/lamps-wg/x509-slhdsa/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I added a \"SLH-DSA Hash-based Signature Algorithm Overview\" section copied from draft-ietf-lamps-cms-sphincs-plus but it is commented out in the markdown.\r\n\r\nIn my opinion, our draft should contain this section and it should be removed from draft-ietf-lamps-cms-sphincs-plus, which should reference our draft more.  But that's something to decide among the authors of both drafts, and so I don't want to make any changes to this text until that is decided, so that the texts don't get out of sync.\r\n\r\nIf we use the text, @BashiriK had some comments on it in #1 which can be addressed when we add the text:\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494667760\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494674721\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494676398\r\nhttps://github.com/x509-hbs/draft-x509-slhdsa/pull/1/files#r1494726908",
       "createdAt": "2024-02-22T09:31:20Z",
-      "updatedAt": "2024-02-22T09:31:20Z",
-      "closedAt": null,
+      "updatedAt": "2024-11-22T08:45:36Z",
+      "closedAt": "2024-11-22T08:45:36Z",
       "comments": []
     },
     {
@@ -114,7 +114,7 @@
       "comments": [
         {
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "I think the #signatures discussion should be left out as it doesn't help an implementer but rather poses confusion. This draft should define how to use SLH-DSA in X.509 and point to FIPS205 for the general security considerations.\r\n\r\nAlso I am unsure about the benefit of pointing towards a future discussion around the reduced number of signatures version of SPHINCS+. I think that might again rather confuse than help.",
           "createdAt": "2024-02-26T10:01:18Z",
           "updatedAt": "2024-02-26T10:01:18Z"
@@ -187,19 +187,19 @@
       "id": "I_kwDOLS83Ic6LMS67",
       "title": "Hash-SLH-DSA OIDs",
       "url": "https://github.com/lamps-wg/x509-slhdsa/issues/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Once NIST publishes FIPS205, decide what to do about pure vs predigest mode.  If we only support pure mode, add this text to the introduction:\r\n\r\n> The final version of {{FIPS205}} is expected to define two signature modes: pure mode and predigest mode.  This document only specifies the use of pure mode with X.509 certificates and CRLs.\r\n",
       "createdAt": "2024-06-05T08:36:07Z",
-      "updatedAt": "2024-11-08T12:33:33Z",
-      "closedAt": null,
+      "updatedAt": "2024-11-22T08:11:55Z",
+      "closedAt": "2024-11-22T08:11:55Z",
       "comments": [
         {
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "NIST assigned OIDs to the parameter sets of the \"pure\" version of SLH-DSA and specific \"pre-hash\" combinations. See https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration\r\n\r\nWould it be better to include the \"pre-hash\" versions that have OIDs assigned for the sake of completeness?",
           "createdAt": "2024-10-29T14:10:49Z",
           "updatedAt": "2024-10-29T14:10:49Z"
@@ -424,7 +424,7 @@
             "abbreviatedOid": "7115640"
           },
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2024-02-22T11:35:37Z",
@@ -754,7 +754,7 @@
             "abbreviatedOid": "128c68b"
           },
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-10-08T10:25:01Z",
@@ -774,7 +774,7 @@
             "abbreviatedOid": "128c68b"
           },
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-10-08T10:28:02Z",
@@ -794,7 +794,7 @@
             "abbreviatedOid": "128c68b"
           },
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "CHANGES_REQUESTED",
           "body": "LGTM\r\n\r\nJust some minor editorial comments that should be checked prior to merging.\r\n",
           "createdAt": "2024-10-08T10:29:41Z",
@@ -1010,7 +1010,7 @@
             "abbreviatedOid": "24a96e2"
           },
           "author": "fluppe2",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "LGTM",
           "createdAt": "2024-10-17T03:53:51Z",
@@ -1403,6 +1403,88 @@
           "body": "",
           "createdAt": "2024-11-06T10:32:48Z",
           "updatedAt": "2024-11-06T10:32:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDOLS83Ic6CrF6P",
+      "title": "Add HashSLH-DSA public keys for end-entity certs",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/26",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #9 ",
+      "createdAt": "2024-11-21T13:54:44Z",
+      "updatedAt": "2024-11-22T08:41:01Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "371b762a695c58ccd9840f111f766fd813089c9e",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/HashSLH-DSA",
+      "headRefOid": "141de84f7e9e17526d2aa5ffa67a24662501b4c0",
+      "closedAt": "2024-11-22T08:11:54Z",
+      "mergedAt": "2024-11-22T08:11:54Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "e4087018a7d78f865e4ea49d10eeb28cb88d7a77"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6SPtWm",
+          "commit": {
+            "abbreviatedOid": "141de84"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "All changes look good to me. Textual changes make sense, no mistakes found.",
+          "createdAt": "2024-11-22T08:11:44Z",
+          "updatedAt": "2024-11-22T08:11:44Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "PR_kwDOLS83Ic6C1B_k",
+      "title": "Add SMIME-CAP to ASN.1",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/27",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-22T15:18:43Z",
+      "updatedAt": "2024-11-22T17:08:20Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "e4087018a7d78f865e4ea49d10eeb28cb88d7a77",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/smime_caps",
+      "headRefOid": "32eef3c2b6e780a4798b1719fed8641ca97ba2ec",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6SVgmA",
+          "commit": {
+            "abbreviatedOid": "32eef3c"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2024-11-22T17:08:20Z",
+          "updatedAt": "2024-11-22T17:08:20Z",
           "comments": []
         }
       ]
