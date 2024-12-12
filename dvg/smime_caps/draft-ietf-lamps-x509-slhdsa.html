@@ -17,14 +17,14 @@
 
 
     " name="description">
-<meta content="xml2rfc 3.24.0" name="generator">
+<meta content="xml2rfc 3.25.0" name="generator">
 <meta content="SLH-DSA" name="keyword">
 <meta content="SPHINCS+" name="keyword">
 <meta content="PQ Signatures" name="keyword">
 <meta content="post-quantum X.509" name="keyword">
 <meta content="draft-ietf-lamps-x509-slhdsa-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.24.0
+  xml2rfc 3.25.0
     Python 3.12.7
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -545,7 +545,11 @@ figcaption, caption {
   }
   pre, svg {
     display: inline-block;
-    overflow-x: auto;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
   }
   pre {
     max-width: 100%;
@@ -1051,11 +1055,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SLH-DSA for X.509</td>
-<td class="right">November 2024</td>
+<td class="right">December 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bashiri, et al.</td>
-<td class="center">Expires 26 May 2025</td>
+<td class="center">Expires 15 June 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1072,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-x509-slhdsa-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-11-22" class="published">22 November 2024</time>
+<time datetime="2024-12-12" class="published">12 December 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-26">26 May 2025</time></dd>
+<dd class="expires"><time datetime="2025-06-15">15 June 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1142,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 June 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1818,7 +1822,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilc
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-cms-sphincs-plus">[I-D.ietf-lamps-cms-sphincs-plus]</dt>
         <dd>
-<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Kampanakis, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of the SLH-DSA Signature Algorithm in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-16</span>, <time datetime="2024-11-18" class="refDate">18 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-16">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-16</a>&gt;</span>. </dd>
+<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Kampanakis, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of the SLH-DSA Signature Algorithm in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-17</span>, <time datetime="2024-11-30" class="refDate">30 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-17">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-sphincs-plus-17</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
@@ -1929,7 +1933,7 @@ DEFINITIONS IMPLICIT TAGS ::= BEGIN
 EXPORTS ALL;
 
 IMPORTS
-  PUBLIC-KEY, SIGNATURE-ALGORITHM
+  PUBLIC-KEY, SIGNATURE-ALGORITHM, SMIME-CAPS
     FROM AlgorithmInformation-2009  -- in [RFC5912]
     { iso(1) identified-organization(3) dod(6) internet(1)
       security(5) mechanisms(5) pkix(7) id-mod(0)
@@ -2200,6 +2204,33 @@ SignatureAlgorithms SIGNATURE-ALGORITHM ::= {
   sa-hash-slh-dsa-shake-192f-with-shake256 |
   sa-hash-slh-dsa-shake-256s-with-shake256 |
   sa-hash-slh-dsa-shake-256f-with-shake256,
+  ... }
+
+SMimeCaps SMIME-CAPS ::= {
+  sa-slh-dsa-sha2-128s.&amp;smimeCaps |
+  sa-slh-dsa-sha2-128f.&amp;smimeCaps |
+  sa-slh-dsa-sha2-192s.&amp;smimeCaps |
+  sa-slh-dsa-sha2-192f.&amp;smimeCaps |
+  sa-slh-dsa-sha2-256s.&amp;smimeCaps |
+  sa-slh-dsa-sha2-256f.&amp;smimeCaps |
+  sa-slh-dsa-shake-128s.&amp;smimeCaps |
+  sa-slh-dsa-shake-128f.&amp;smimeCaps |
+  sa-slh-dsa-shake-192s.&amp;smimeCaps |
+  sa-slh-dsa-shake-192f.&amp;smimeCaps |
+  sa-slh-dsa-shake-256s.&amp;smimeCaps |
+  sa-slh-dsa-shake-256f.&amp;smimeCaps |
+  sa-hash-slh-dsa-sha2-128s-with-sha256.&amp;smimeCaps |
+  sa-hash-slh-dsa-sha2-128f-with-sha256.&amp;smimeCaps |
+  sa-hash-slh-dsa-sha2-192s-with-sha512.&amp;smimeCaps |
+  sa-hash-slh-dsa-sha2-192f-with-sha512.&amp;smimeCaps |
+  sa-hash-slh-dsa-sha2-256s-with-sha512.&amp;smimeCaps |
+  sa-hash-slh-dsa-sha2-256f-with-sha512.&amp;smimeCaps |
+  sa-hash-slh-dsa-shake-128s-with-shake128.&amp;smimeCaps |
+  sa-hash-slh-dsa-shake-128f-with-shake128.&amp;smimeCaps |
+  sa-hash-slh-dsa-shake-192s-with-shake256.&amp;smimeCaps |
+  sa-hash-slh-dsa-shake-192f-with-shake256.&amp;smimeCaps |
+  sa-hash-slh-dsa-shake-256s-with-shake256.&amp;smimeCaps |
+  sa-hash-slh-dsa-shake-256f-with-shake256.&amp;smimeCaps,
   ... }
 
 --
