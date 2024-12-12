@@ -7,7 +7,7 @@ DEFINITIONS IMPLICIT TAGS ::= BEGIN
 EXPORTS ALL;
 
 IMPORTS
-  PUBLIC-KEY, SIGNATURE-ALGORITHM
+  PUBLIC-KEY, SIGNATURE-ALGORITHM, SMIME-CAPS
     FROM AlgorithmInformation-2009  -- in [RFC5912]
     { iso(1) identified-organization(3) dod(6) internet(1)
       security(5) mechanisms(5) pkix(7) id-mod(0)
@@ -166,69 +166,89 @@ pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
 -- HashSLH-DSA signature algorithm identifiers
 --
 
--- EDNOTE: we did not include the optional SMIME-CAPS because
--- HashSLH-DSA is not defined for use in CMS. Is this correct
--- or should we still include SMIME-CAPS?
-
 sa-hash-slh-dsa-sha2-128s-with-sha256 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128s-with-sha256 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128s-with-sha256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-128s-with-sha256 } }
 
 sa-hash-slh-dsa-sha2-128f-with-sha256 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128f-with-sha256 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-128f-with-sha256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-128f-with-sha256 } }
 
 sa-hash-slh-dsa-sha2-192s-with-sha512 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192s-with-sha512 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192s-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-192s-with-sha512 } }
 
 sa-hash-slh-dsa-sha2-192f-with-sha512 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192f-with-sha512 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-192f-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-192f-with-sha512 } }
 
 sa-hash-slh-dsa-sha2-256s-with-sha512 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256s-with-sha512 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256s-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-256s-with-sha512 } }
 
 sa-hash-slh-dsa-sha2-256f-with-sha512 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256f-with-sha512 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-sha2-256f-with-sha512 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-sha2-256f-with-sha512 } }
 
 sa-hash-slh-dsa-shake-128s-with-shake128 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128s-with-shake128 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128s-with-shake128 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-128s-with-shake128 } }
 
 sa-hash-slh-dsa-shake-128f-with-shake128 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128f-with-shake128 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-128f-with-shake128 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-128f-with-shake128 } }
 
 sa-hash-slh-dsa-shake-192s-with-shake256 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192s-with-shake256 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192s-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-192s-with-shake256 } }
 
 sa-hash-slh-dsa-shake-192f-with-shake256 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192f-with-shake256 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-192f-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-192f-with-shake256 } }
 
 sa-hash-slh-dsa-shake-256s-with-shake256 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256s-with-shake256 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256s-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-256s-with-shake256 } }
 
 sa-hash-slh-dsa-shake-256f-with-shake256 SIGNATURE-ALGORITHM ::= {
   IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
   PARAMS ARE absent
-  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256f-with-shake256 } }
+  PUBLIC-KEYS { pk-hash-slh-dsa-shake-256f-with-shake256 }
+  SMIME-CAPS {
+    IDENTIFIED BY id-hash-slh-dsa-shake-256f-with-shake256 } }
 
 --
 -- Expand SignatureAlgorithms from RFC 5912
@@ -258,6 +278,33 @@ SignatureAlgorithms SIGNATURE-ALGORITHM ::= {
   sa-hash-slh-dsa-shake-192f-with-shake256 |
   sa-hash-slh-dsa-shake-256s-with-shake256 |
   sa-hash-slh-dsa-shake-256f-with-shake256,
+  ... }
+
+SMimeCaps SMIME-CAPS ::= {
+  sa-slh-dsa-sha2-128s.&smimeCaps |
+  sa-slh-dsa-sha2-128f.&smimeCaps |
+  sa-slh-dsa-sha2-192s.&smimeCaps |
+  sa-slh-dsa-sha2-192f.&smimeCaps |
+  sa-slh-dsa-sha2-256s.&smimeCaps |
+  sa-slh-dsa-sha2-256f.&smimeCaps |
+  sa-slh-dsa-shake-128s.&smimeCaps |
+  sa-slh-dsa-shake-128f.&smimeCaps |
+  sa-slh-dsa-shake-192s.&smimeCaps |
+  sa-slh-dsa-shake-192f.&smimeCaps |
+  sa-slh-dsa-shake-256s.&smimeCaps |
+  sa-slh-dsa-shake-256f.&smimeCaps |
+  sa-hash-slh-dsa-sha2-128s-with-sha256.&smimeCaps |
+  sa-hash-slh-dsa-sha2-128f-with-sha256.&smimeCaps |
+  sa-hash-slh-dsa-sha2-192s-with-sha512.&smimeCaps |
+  sa-hash-slh-dsa-sha2-192f-with-sha512.&smimeCaps |
+  sa-hash-slh-dsa-sha2-256s-with-sha512.&smimeCaps |
+  sa-hash-slh-dsa-sha2-256f-with-sha512.&smimeCaps |
+  sa-hash-slh-dsa-shake-128s-with-shake128.&smimeCaps |
+  sa-hash-slh-dsa-shake-128f-with-shake128.&smimeCaps |
+  sa-hash-slh-dsa-shake-192s-with-shake256.&smimeCaps |
+  sa-hash-slh-dsa-shake-192f-with-shake256.&smimeCaps |
+  sa-hash-slh-dsa-shake-256s-with-shake256.&smimeCaps |
+  sa-hash-slh-dsa-shake-256f-with-shake256.&smimeCaps,
   ... }
 
 --
