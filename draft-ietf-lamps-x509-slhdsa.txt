@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 26 May 2025                                       Cisco Systems
+Expires: 15 June 2025                                      Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                        22 November 2024
+                                                        12 December 2024
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 May 2025.
+   This Internet-Draft will expire on 15 June 2025.
 
 Copyright Notice
 
@@ -297,8 +297,8 @@ Table of Contents
    i.e. R || SIG_FORS || SIG_HT.  The raw octet string representing the
    signature is encoded directly in the BIT STRING without adding any
    additional ASN.1 wrapping.  For example, in the Certificate
-   structure, the raw signature value is encoded in the "signatureValue"
-   BIT STRING field.
+   structure, the raw signature value is encoded in the "signature" BIT
+   STRING field.
 
    This document does not define the use of HashSLH-DSA to sign
    certificates or CRLs, but it does allow the use of HashSLH-DSA public
@@ -684,8 +684,8 @@ Table of Contents
               2024, <https://csrc.nist.gov/projects/computer-security-
               objects-register/algorithm-registration>.
 
-   [FIPS205]  "Stateless Hash-Based Digital Signature Standard",
-              National Institute of Standards and Technology,
+   [FIPS205]  "Stateless hash-based digital signature standard",
+              National Institute of Standards and Technology (U.S.),
               DOI 10.6028/nist.fips.205, August 2024,
               <https://doi.org/10.6028/nist.fips.205>.
 
@@ -693,9 +693,9 @@ Table of Contents
               Housley, R., Fluhrer, S., Kampanakis, P., and B.
               Westerbaan, "Use of the SLH-DSA Signature Algorithm in the
               Cryptographic Message Syntax (CMS)", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-16, 18
+              Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-17, 30
               November 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-sphincs-plus-16>.
+              draft-ietf-lamps-cms-sphincs-plus-17>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
