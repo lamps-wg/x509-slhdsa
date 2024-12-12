@@ -297,7 +297,7 @@ public key is the concatenation of these three elements, i.e. R || SIG_FORS || S
 The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
-value is encoded in the "signatureValue" BIT STRING field.
+value is encoded in the "signature" BIT STRING field.
 
 This document does not define the use of HashSLH-DSA to sign certificates or
 CRLs, but it does allow the use of HashSLH-DSA public keys in end-entity
