@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-12T01:20:15.452970+00:00",
+  "timestamp": "2024-12-15T01:26:16.119193+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -156,7 +156,7 @@
       "labels": [],
       "body": "From John Mattsson: \"For 5G use cases, I would strongly like the document to also cover use of SLH-DSA in RFC 2986 (PKCS #10), RFC 4210 (CMP), and RFC 6090 (OCSP).\"",
       "createdAt": "2024-03-21T11:00:08Z",
-      "updatedAt": "2024-11-06T15:40:40Z",
+      "updatedAt": "2024-12-12T10:21:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -179,6 +179,20 @@
           "body": "Note we got the same comment for ML-DSA; see [link](https://github.com/lamps-wg/dilithium-certificates/issues/10).",
           "createdAt": "2024-11-06T15:40:38Z",
           "updatedAt": "2024-11-06T15:40:38Z"
+        },
+        {
+          "author": "csosto-pk",
+          "authorAssociation": "NONE",
+          "body": "We decided to not include OCSP in the ML-DSA draft. The identifiers could be used in OCSP, but I think we don't need to mention OCSP since it was not done in previous drafts and because of Tim's comment that said \r\n> [...] It's often confusing because they're quite different, and it's difficult to keep clear what applies to one or the other, and what applies to both.",
+          "createdAt": "2024-12-12T03:59:31Z",
+          "updatedAt": "2024-12-12T03:59:31Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will close when https://github.com/lamps-wg/dilithium-certificates/issues/10 is closed.",
+          "createdAt": "2024-12-12T10:21:17Z",
+          "updatedAt": "2024-12-12T10:21:17Z"
         }
       ]
     },
@@ -1454,25 +1468,49 @@
       "id": "PR_kwDOLS83Ic6C1B_k",
       "title": "Add SMIME-CAP to ASN.1",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/27",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-11-22T15:18:43Z",
-      "updatedAt": "2024-11-22T17:08:20Z",
+      "updatedAt": "2024-12-12T14:25:38Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "e4087018a7d78f865e4ea49d10eeb28cb88d7a77",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/smime_caps",
-      "headRefOid": "32eef3c2b6e780a4798b1719fed8641ca97ba2ec",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "a632f46a82555c081e75c1e90c0fed89630b4561",
+      "closedAt": "2024-12-12T14:25:38Z",
+      "mergedAt": "2024-12-12T14:25:38Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "48c6db74733d4b3fa13d4880b0a82d993f876539"
+      },
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@danvangeest whoops that was a little forward, meant to do that as a suggestion not a merge.",
+          "createdAt": "2024-12-12T03:36:20Z",
+          "updatedAt": "2024-12-12T03:36:20Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @danvangeest whoops that was a little forward, meant to do that as a suggestion not a merge.\r\n\r\nno problem.\r\n\r\n@seanturner do you have an opinion on whether the SMIME caps should be included for HashSLH-DSA.  Panos says no, Russ says it would be future-proofing to do so: https://mailarchive.ietf.org/arch/msg/spasm/Bh49ZHyIw1EdOkqFIGKXiAVzUeY/",
+          "createdAt": "2024-12-12T10:38:17Z",
+          "updatedAt": "2024-12-12T10:38:17Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "So, I tend to think that they might not be needed, but if it does turn out that a cow did jump over the moon nobody is going to be motivated enough to write a draft that just adds SMIME-CAPS.  I'd say just include it.",
+          "createdAt": "2024-12-12T14:20:46Z",
+          "updatedAt": "2024-12-12T14:20:46Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOLS83Ic6SVgmA",
@@ -1485,6 +1523,48 @@
           "body": "LGTM",
           "createdAt": "2024-11-22T17:08:20Z",
           "updatedAt": "2024-11-22T17:08:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDOLS83Ic6E87a_",
+      "title": "refer to signature vice signatureValue",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/28",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Since we switched to the parameterized type the field is \"signature\" not \"signatureValue\" in the ASN.1 excerpt.",
+      "createdAt": "2024-12-12T03:39:28Z",
+      "updatedAt": "2024-12-12T11:22:39Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "e4087018a7d78f865e4ea49d10eeb28cb88d7a77",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "seanturner-nit-1",
+      "headRefOid": "a7ce6dc84f2b7300b165241b6d91f952d5b1f68a",
+      "closedAt": "2024-12-12T11:22:38Z",
+      "mergedAt": "2024-12-12T11:22:38Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "e47f3f4527aba593ecbebac45417c912d4c2f268"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6U9IqL",
+          "commit": {
+            "abbreviatedOid": "a7ce6dc"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-12T11:22:33Z",
+          "updatedAt": "2024-12-12T11:22:33Z",
           "comments": []
         }
       ]
