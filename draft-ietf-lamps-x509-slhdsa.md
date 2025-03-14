@@ -1416,4 +1416,4 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
 # Acknowledgments
 {:numbered="false"}
 
-Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - {{?RFC8411}}.
+Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - {{?RFC8411}}. Thanks to Sean Turner for helpful text.
