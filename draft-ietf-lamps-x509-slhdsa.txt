@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 15 June 2025                                      Cisco Systems
+Expires: 15 September 2025                                 Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                        12 December 2024
+                                                           14 March 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,11 +58,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 June 2025.
+   This Internet-Draft will expire on 15 September 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -133,10 +133,10 @@ Table of Contents
    content is signed.  This document uses the term SLH-DSA to refer to
    the algorithm in general.  When a pure or pre-hash mode needs to be
    differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
-   This document specifies the use of Pure SLH-DSA in Public Key
-   Infrastructure X.509 (PKIX) certificates and Certificate Revocation
-   Lists (CRLs) as well as the use of HashSLH-DSA public keys only in
-   end-entity certificates.
+   This document specifies the use of Pure SLH-DSA public keys and
+   signatures in Public Key Infrastructure X.509 (PKIX) certificates and
+   Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA
+   public keys in end-entity certificates.
 
 2.  Conventions and Definitions
 
@@ -693,9 +693,9 @@ Table of Contents
               Housley, R., Fluhrer, S., Kampanakis, P., and B.
               Westerbaan, "Use of the SLH-DSA Signature Algorithm in the
               Cryptographic Message Syntax (CMS)", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-17, 30
-              November 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-sphincs-plus-17>.
+              Internet-Draft, draft-ietf-lamps-cms-sphincs-plus-19, 13
+              January 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-sphincs-plus-19>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -759,9 +759,9 @@ Table of Contents
               Westerbaan, "Internet X.509 Public Key Infrastructure:
               Algorithm Identifiers for ML-DSA", Work in Progress,
               Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              05, 4 November 2024,
+              07, 2 February 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
-              dilithium-certificates-05>.
+              dilithium-certificates-07>.
 
    [NIST-PQC] National Institute of Standards and Technology, "Post-
               Quantum Cryptography Project", 20 December 2016,
