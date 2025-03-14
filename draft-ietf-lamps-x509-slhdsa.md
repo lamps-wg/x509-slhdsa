@@ -136,7 +136,7 @@ Separate algorithm identifiers have been assigned for SLH-DSA at each of these s
 SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
 
 SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
-This document specifies the use of Pure SLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA public keys only in end-entity certificates.
+This document specifies the use of Pure SLH-DSA public keys and signatures in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA public keys in end-entity certificates.
 
 <!-- End of introduction section -->
 
