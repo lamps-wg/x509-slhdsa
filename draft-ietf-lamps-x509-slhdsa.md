@@ -129,14 +129,14 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{!FIPS205=DOI.10.6028/NIST.FIPS.205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
 
-SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use SHA-256 {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal hash functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
+SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use the SHA2 algorithm family {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
-Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA-256 vs SHAKE256.
+Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA2 vs SHAKE256.
 
 SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
 
 SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
-This document specifies the use of Pure SLH-DSA public keys and signatures in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs) as well as the use of HashSLH-DSA public keys in end-entity certificates.
+This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs).
 
 <!-- End of introduction section -->
 
@@ -291,6 +291,28 @@ parameters MUST be absent.
 The data to be signed is prepared for SLH-DSA.  Then, a private key
 operation is performed to generate the raw signature value.
 
+When signing data using the Pure SLH-DSA signature algorithm, Algorithm 22 (slh_sign) from
+Section 10.2.1 of {{FIPS205}} is used. When verifying Pure SLH-DSA signed data,
+Algorithm 24 (slh_verify) from Section 10.3 of {{FIPS205}} is used.
+When signing data using the HashSLH-DSA signature algorithm, Algorithm 23 (hash_slh_sign) from
+Section 10.2.2 of {{FIPS205}} is used. When verifying HashSLH-DSA signed data,
+Algorithm 25 (hash_slh_verify) from Section 10.3 of {{FIPS205}} is used.
+All four of these algorithms create a message, M', from the message to be signed along with other data,
+and M' is operated on by internal SLH-DSA algorithms.  M' may be constructed outside the
+module that performs the internal SLH-DSA algorithms.
+
+In the case of HashSLH-DSA, there is a pre-hash component (PH_M) of M'. PH_M may be computed
+in the signing/verifying module, in which case the entire message to be signed is sent to the
+module. Alternatively, PH_M may be computed in a different module.  In this case, either PH_M
+is sent to the signing/verifying module, which creates M', or M' is created outside the
+signing/verifying module and is sent to the module. HashSLH-DSA allows this implementation
+flexibility in order to reduce, and make consistent, the amount of data transferred to
+signing/verifying modules.  The hash algorithm or XOF used when signing and verifying with
+HashSLH-DSA is specified by the signature algorithm OID. For example, when signing with
+id-hash-slh-dsa-sha2-128s-with-sha256, SHA-256 is used as the hash algorithm. When pre-hashing
+is performed using SHAKE128, the output length is 256 bits. When pre-hashing is performed using
+SHAKE256, the output length is 512 bits.
+
 Section 9.2 of {{FIPS205}} defines an SLH-DSA signature as three elements,
 R, SIG_FORS and SIG_HT. The raw octet string encoding of an SLH-DSA
 public key is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
@@ -298,15 +320,6 @@ The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
 value is encoded in the "signature" BIT STRING field.
-
-This document does not define the use of HashSLH-DSA to sign certificates or
-CRLs, but it does allow the use of HashSLH-DSA public keys in end-entity
-certificates for use by protocols that may need pre-hashing.
-Pre-hashing is performed using the hash algorithm or XOF specified after "with"
-in the object identifier string.  For example, SHA-256 is used for pre-hashing with
-id-hash-slh-dsa-sha2-128s-with-sha256.  When pre-hashing is performed using
-SHAKE128, the output length is 256 bits. When pre-hashing is performed using
-SHAKE256, the output length is 512 bits.
 
 # Subject Public Key Fields {#sec-pub-keys}
 
@@ -428,84 +441,84 @@ The public key identifiers for HashSLH-DSA are defined here:
       IDENTIFIER id-hash-slh-dsa-sha2-128s-with-sha256
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-sha2-128f-with-sha256 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-sha2-128f-with-sha256
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-sha2-192s-with-sha512 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-sha2-192s-with-sha512
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-sha2-192f-with-sha512 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-sha2-192f-with-sha512
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-sha2-256s-with-sha512 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-sha2-256s-with-sha512
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-sha2-256f-with-sha512 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-sha2-256f-with-sha512
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-shake-128s-with-shake128 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-shake-128s-with-shake128
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-shake-128f-with-shake128 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-shake-128f-with-shake128
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-shake-192s-with-shake256 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-shake-192s-with-shake256
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-shake-192f-with-shake256 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-shake-192f-with-shake256
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-shake-256s-with-shake256 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-shake-256s-with-shake256
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 
    pk-hash-slh-dsa-shake-256f-with-shake256 PUBLIC-KEY ::= {
       IDENTIFIER id-hash-slh-dsa-shake-256f-with-shake256
       -- KEY no ASN.1 wrapping --
       CERT-KEY-USAGE
-         { digitalSignature, nonRepudiation }
+         { digitalSignature, nonRepudiation, keyCertSign, cRLSign }
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 ~~~
 
@@ -534,7 +547,7 @@ key encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Key Usage Bits
 
-The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
+The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
 
 ~~~
     digitalSignature; or
@@ -543,28 +556,9 @@ The intended application for the key is indicated in the keyUsage certificate ex
     cRLSign.
 ~~~
 
-If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
+If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
 
 ~~~
-    keyEncipherment; or
-    dataEncipherment; or
-    keyAgreement; or
-    encipherOnly; or
-    decipherOnly.
-~~~
-
-If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
-
-~~~
-    digitalSignature; or
-    nonRepudiation.
-~~~
-
-If the keyUsage extension is present in a certificate that indicates an id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
-
-~~~
-    keyCertSign; or
-    cRLSign; or
     keyEncipherment; or
     dataEncipherment; or
     keyAgreement; or
@@ -624,6 +618,39 @@ picked up the new ASN.1 structure OneAsymmetricKey that is defined in
 structure that contains the public key field.  This means a balancing
 act needs to be done between being able to do a consistency check on
 the key pair and widest ability to import the key.
+
+# Operational Considerations
+
+SLH-DSA uses the same OID to identify a public key and a
+signature algorithm.  The implication of this is that, despite being
+mathematically possible, an SLH-DSA key identified by a Pure SLH-DSA OID
+is not permitted to be used to generate or verify a signature identified by
+an HashSLH-DSA OID, and vice-versa.
+
+CA operators will need to decide in advance whether their CA certificates
+will use Pure SLH-DSA or HashSLH-DSA and assign the appropriate OID to
+the public and private keys when generating their certificate.  Some of the following
+considerations may affect this decision.
+
+* When using an external signing module, such as an HSM, the size of data that
+can be transferred to and processed by the signature module may be limited.
+SLH-DSA performs two passes on the internal M' message, so it must be held
+in memory.  Using HashSLH-DSA reduces the size of M'.
+
+* Large CRLs might also exceed the size limits of HSM signing operations when using
+Pure SLH-DSA. One way to limit the size of CRLs is to make use of CRL Distribution
+Points and Issuing Distribution Points to create partitioned CRLs in accordance with
+{{Section 5.2.5 of RFC5280}}.
+
+* EE certificates with many SANs might also exceed the size limits of HSM signing operations.
+
+* A verifier's environment need not be considered when deciding on whether a CA
+certificate contains a Pure SLH-DSA or HashSLH-DSA public key. The SLH-DSA verification algorithm
+performs a single pass on M', so Pure SLH-DSA verification can be streamed and
+the entire message need not be held in memory at once.
+
+* TODO: can someone say something about the relative security properties of
+Pure SLH-DSA vs HashSLH-DSA?  Either here or in the Security Considerations?
 
 # Security Considerations
 
@@ -693,20 +720,20 @@ Instead of defining the strength of a quantum algorithm in a traditional manner 
 
 The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{tab-strengths}}, along with the resulting signature size, public key, and private key sizes in bytes.  The HashSLH-DSA parameter sets have the same values as the Pure SLH-DSA equivalents.
 
-| OID                   | NIST Level | Sig.  | Pub. Key | Priv. Key |
-|---                    |---         |---    |---       |---        |
-| id-slh-dsa-sha2-128s  | 1          | 7856  | 32       | 64        |
-| id-slh-dsa-sha2-128f  | 1          | 17088 | 32       | 64        |
-| id-slh-dsa-sha2-192s  | 3          | 16224 | 48       | 96        |
-| id-slh-dsa-sha2-192f  | 3          | 35664 | 48       | 96        |
-| id-slh-dsa-sha2-256s  | 5          | 29792 | 64       | 128       |
-| id-slh-dsa-sha2-256f  | 5          | 49856 | 64       | 128       |
-| id-slh-dsa-shake-128s | 1          | 7856  | 32       | 64        |
-| id-slh-dsa-shake-128f | 1          | 17088 | 32       | 64        |
-| id-slh-dsa-shake-192s | 3          | 16224 | 48       | 96        |
-| id-slh-dsa-shake-192f | 3          | 35664 | 48       | 96        |
-| id-slh-dsa-shake-256s | 5          | 29792 | 64       | 128       |
-| id-slh-dsa-shake-256f | 5          | 49856 | 64       | 128       |
+| OID                          | NIST Level | Sig.  | Pub. Key | Priv. Key |
+|---                           |---         |---    |---       |---        |
+| id-(hash-)slh-dsa-sha2-128s  | 1          | 7856  | 32       | 64        |
+| id-(hash-)slh-dsa-sha2-128f  | 1          | 17088 | 32       | 64        |
+| id-(hash-)slh-dsa-sha2-192s  | 3          | 16224 | 48       | 96        |
+| id-(hash-)slh-dsa-sha2-192f  | 3          | 35664 | 48       | 96        |
+| id-(hash-)slh-dsa-sha2-256s  | 5          | 29792 | 64       | 128       |
+| id-(hash-)slh-dsa-sha2-256f  | 5          | 49856 | 64       | 128       |
+| id-(hash-)slh-dsa-shake-128s | 1          | 7856  | 32       | 64        |
+| id-(hash-)slh-dsa-shake-128f | 1          | 17088 | 32       | 64        |
+| id-(hash-)slh-dsa-shake-192s | 3          | 16224 | 48       | 96        |
+| id-(hash-)slh-dsa-shake-192f | 3          | 35664 | 48       | 96        |
+| id-(hash-)slh-dsa-shake-256s | 5          | 29792 | 64       | 128       |
+| id-(hash-)slh-dsa-shake-256f | 5          | 49856 | 64       | 128       |
 {: #tab-strengths title="SLH-DSA security strengths"}
 
 # Examples
@@ -715,7 +742,7 @@ This appendix contains examples of SLH-DSA public keys, private keys and certifi
 
 ## Example Public Key {#example-public}
 
-An example of a SLH-DSA public key using id-slh-dsa-sha2-128s:
+An example of an SLH-DSA public key using id-slh-dsa-sha2-128s:
 
 ~~~
 -----BEGIN PUBLIC KEY-----
@@ -737,7 +764,7 @@ tJQ=
 
 ## Example Private Key {#example-private}
 
-An example of a SLH-DSA private key without the public key using id-slh-dsa-sha2-128s:
+An example of an SLH-DSA private key without the public key using id-slh-dsa-sha2-128s:
 
 ~~~
 -----BEGIN PRIVATE KEY-----
