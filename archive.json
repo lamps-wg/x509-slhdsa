@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T01:37:07.276046+00:00",
+  "timestamp": "2025-04-24T01:22:24.985504+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1568,6 +1568,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOLS83Ic6TnwOl",
+      "title": "Add full support for HashSLH-DSA, and an Operational Considerations section",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/29",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-23T16:00:19Z",
+      "updatedAt": "2025-04-23T16:00:19Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "d8d473747b9ccba894eac961d51d23de6fddc62c",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/hash-slh-dsa",
+      "headRefOid": "0cbec64a1c1ea6cf54eb734c50a67fd664d705cf",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
