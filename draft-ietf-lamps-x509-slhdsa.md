@@ -307,9 +307,9 @@ module. Alternatively, PH_M may be computed in a different module.  In this case
 is sent to the signing/verifying module, which creates M', or M' is created outside the
 signing/verifying module and is sent to the module. HashSLH-DSA allows this implementation
 flexibility in order to reduce, and make consistent, the amount of data transferred to
-signing/verifying modules.  The hash algorithm or XOF used when signing and verifying with
-HashSLH-DSA is specified by the signature algorithm OID. For example, when signing with
-id-hash-slh-dsa-sha2-128s-with-sha256, SHA-256 is used as the hash algorithm. When pre-hashing
+signing/verifying modules.  The hash algorithm or XOF used to generate the pre-hash when signing and verifying with
+HashSLH-DSA is specified after the "-with-" component of the signature algorithm name. For example, when signing with
+id-hash-slh-dsa-sha2-128s-with-sha256, SHA-256 is used as the pre-hash algorithm. When pre-hashing
 is performed using SHAKE128, the output length is 256 bits. When pre-hashing is performed using
 SHAKE256, the output length is 512 bits.
 
@@ -649,12 +649,17 @@ certificate contains a Pure SLH-DSA or HashSLH-DSA public key. The SLH-DSA verif
 performs a single pass on M', so Pure SLH-DSA verification can be streamed and
 the entire message need not be held in memory at once.
 
-* TODO: can someone say something about the relative security properties of
-Pure SLH-DSA vs HashSLH-DSA?  Either here or in the Security Considerations?
-
 # Security Considerations
 
 The security considerations of {{RFC5280}} apply accordingly.
+
+The security of SLH-DSA relies on the security properties of the internal hash and XOF
+functions. In particular, it relies on these functions being preimage resistant, but it
+does not rely on them being collision resistant. Since HashSLH-DSA performs a pre-hash
+before signing, it relies on both preimage resistance and collision resistance of the
+pre-hash function. In order to achieve an appropriate level of collision resistance,
+the output length of the pre-hash functions used for HashSLH-DSA is twice the length of
+the internal hash and XOF functions.
 
 Implementations MUST protect the private keys.  Compromise of the
 private keys may result in the ability to forge signatures.
