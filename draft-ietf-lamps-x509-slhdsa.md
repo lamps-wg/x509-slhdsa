@@ -644,10 +644,12 @@ Points and Issuing Distribution Points to create partitioned CRLs in accordance 
 
 * EE certificates with many SANs might also exceed the size limits of HSM signing operations.
 
-* A verifier's environment need not be considered when deciding on whether a CA
-certificate contains a Pure SLH-DSA or HashSLH-DSA public key. The SLH-DSA verification algorithm
-performs a single pass on M', so Pure SLH-DSA verification can be streamed and
-the entire message need not be held in memory at once.
+* Potential verifiers' environments might need to be considered. The entire certificate or
+CRL needs to be held in memory during SLH-DSA signature verification, it cannot be
+streamed. In particular, there is a randomizer (R) which is extracted from the SLH-DSA signature and
+fed to a digest function before M' is. Thus, to stream a message for SLH-DSA verification the
+signature must come before the message. This is not the case for certificates and CRLs. Using
+HashSLH-DSA reduces the size of the M' being held in memory.
 
 # Security Considerations
 
