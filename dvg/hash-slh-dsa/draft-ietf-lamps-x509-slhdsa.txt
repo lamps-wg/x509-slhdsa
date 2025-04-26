@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 26 October 2025                                   Cisco Systems
+Expires: 28 October 2025                                   Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                           24 April 2025
+                                                           26 April 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 October 2025.
+   This Internet-Draft will expire on 28 October 2025.
 
 Copyright Notice
 
@@ -661,11 +661,15 @@ Table of Contents
    *  EE certificates with many SANs might also exceed the size limits
       of HSM signing operations.
 
-   *  A verifier's environment need not be considered when deciding on
-      whether a CA certificate contains a Pure SLH-DSA or HashSLH-DSA
-      public key.  The SLH-DSA verification algorithm performs a single
-      pass on M', so Pure SLH-DSA verification can be streamed and the
-      entire message need not be held in memory at once.
+   *  Potential verifiers' environments might need to be considered.
+      The entire certificate or CRL needs to be held in memory during
+      SLH-DSA signature verification, it cannot be streamed.  In
+      particular, there is a randomizer (R) which is extracted from the
+      SLH-DSA signature and fed to a digest function before M' is.
+      Thus, to stream a message for SLH-DSA verification the signature
+      must come before the message.  This is not the case for
+      certificates and CRLs.  Using HashSLH-DSA reduces the size of the
+      M' being held in memory.
 
 9.  Security Considerations
 
@@ -805,9 +809,8 @@ Table of Contents
               Westerbaan, "Internet X.509 Public Key Infrastructure:
               Algorithm Identifiers for ML-DSA", Work in Progress,
               Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              07, 2 February 2025,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
-              dilithium-certificates-07>.
+              08, 25 April 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-dilithium-certificates-08>.
 
    [NIST-PQC] National Institute of Standards and Technology, "Post-
               Quantum Cryptography Project", 20 December 2016,
