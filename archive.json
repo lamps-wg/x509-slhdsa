@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-24T01:22:24.985504+00:00",
+  "timestamp": "2025-04-27T01:27:15.109594+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1581,19 +1581,171 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-04-23T16:00:19Z",
-      "updatedAt": "2025-04-23T16:00:19Z",
+      "updatedAt": "2025-04-26T00:36:04Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "d8d473747b9ccba894eac961d51d23de6fddc62c",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/hash-slh-dsa",
-      "headRefOid": "0cbec64a1c1ea6cf54eb734c50a67fd664d705cf",
+      "headRefOid": "dc2996b81d2f3c59611c245b6b8f318a10b12645",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6mTR0L",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-24T07:39:37Z",
+          "updatedAt": "2025-04-24T07:39:37Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "Here we have to specify which hash algorithm or XOF you mean: Either the internal hash funciton or the pre-hash hash function.",
+              "createdAt": "2025-04-24T07:39:37Z",
+              "updatedAt": "2025-04-24T07:39:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6mTSTS",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-24T07:40:25Z",
+          "updatedAt": "2025-04-24T07:40:26Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "\"For example, when signing with\r\nid-hash-slh-dsa-sha2-128s-with-sha256, SHA-256 is used as the INTERNAL hash algorithm\" ",
+              "createdAt": "2025-04-24T07:40:26Z",
+              "updatedAt": "2025-04-24T07:40:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6mTThS",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-24T07:42:02Z",
+          "updatedAt": "2025-04-24T07:42:02Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "\"When pre-hashing is performed using SHAKE128, the output length of the digest to be signed is 256 bits.\"\r\n",
+              "createdAt": "2025-04-24T07:42:02Z",
+              "updatedAt": "2025-04-24T07:42:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6mTTyg",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-24T07:42:29Z",
+          "updatedAt": "2025-04-24T07:42:29Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "Why do you need the output length 512 bits when you are using id-hash-slh-dsa-sha2-128s-with-sha256?",
+              "createdAt": "2025-04-24T07:42:29Z",
+              "updatedAt": "2025-04-24T07:42:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6mUwgi",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-24T09:44:13Z",
+          "updatedAt": "2025-04-24T09:44:13Z",
+          "comments": [
+            {
+              "originalPosition": 240,
+              "body": "My suggestion: \r\n\r\nThe security of Pure SLH-DSA and HashSLH-DSA relies on the security properties of the hash function used internally. These properties include, in particular, preimage resistance, but not collision resistance of this internal hash function.\r\n\r\nIn order to maintain the same level of security strength  for HashSLH-DSA, additionally, the digest that is signed needs to be generated using a secure hash function (or XOF), whose output length is twice the size of the output length of the hash function (or XOF) used internally. Only in this way, the same security level can be maintained for HashSLH-DSA as collision resistance is required for the hash function (or XOF) that is used to generate the digest that is signed. ",
+              "createdAt": "2025-04-24T09:44:13Z",
+              "updatedAt": "2025-04-24T09:44:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6mUxAF",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "You find my comments and suggestions as single comments. ",
+          "createdAt": "2025-04-24T09:44:51Z",
+          "updatedAt": "2025-04-24T09:44:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6mU8PZ",
+          "commit": {
+            "abbreviatedOid": "0cbec64"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-24T10:00:10Z",
+          "updatedAt": "2025-04-24T10:34:11Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "no, SHA-256 (\"sha256\" after the \"-with-\") is the pre-hash digest algorithm.",
+              "createdAt": "2025-04-24T10:00:10Z",
+              "updatedAt": "2025-04-24T10:34:11Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "We don't, we need 512 bits with SHAKE256, not SHA256.",
+              "createdAt": "2025-04-24T10:01:01Z",
+              "updatedAt": "2025-04-24T10:34:11Z"
+            },
+            {
+              "originalPosition": 41,
+              "body": "I think what's there is clear already,   This is also the wording that CSOR uses.",
+              "createdAt": "2025-04-24T10:05:49Z",
+              "updatedAt": "2025-04-24T10:34:11Z"
+            },
+            {
+              "originalPosition": 240,
+              "body": "Thanks,  This text is good, but I don't think it's appropriate for the Operational Considerations section.  I'll rearrange it some and put it in the security considerations section.\r\n\r\nI'm not sure if there's anything to be said about pre-hash vs pure security in the Operational Considerations section...",
+              "createdAt": "2025-04-24T10:32:48Z",
+              "updatedAt": "2025-04-24T10:34:11Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
