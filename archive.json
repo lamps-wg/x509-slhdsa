@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-27T01:27:15.109594+00:00",
+  "timestamp": "2025-04-29T01:22:59.782975+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1581,7 +1581,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-04-23T16:00:19Z",
-      "updatedAt": "2025-04-26T00:36:04Z",
+      "updatedAt": "2025-04-28T05:15:35Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "d8d473747b9ccba894eac961d51d23de6fddc62c",
@@ -1592,7 +1592,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "falko-strenzke",
+          "authorAssociation": "NONE",
+          "body": "Looks good to me :+1: ",
+          "createdAt": "2025-04-28T05:15:35Z",
+          "updatedAt": "2025-04-28T05:15:35Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOLS83Ic6mTR0L",
