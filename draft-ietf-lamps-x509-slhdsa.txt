@@ -734,7 +734,10 @@ Table of Contents
               2024, <https://csrc.nist.gov/projects/computer-security-
               objects-register/algorithm-registration>.
 
-   [FIPS205]  "*** BROKEN REFERENCE ***".
+   [FIPS205]  National Institute of Standards and Technology (NIST),
+              "Stateless Hash-Based Digital Signature Standard", FIPS
+              PUB 205, 13 August 2024,
+              <https://doi.org/10.6028/NIST.FIPS.205>.
 
    [I-D.ietf-lamps-cms-sphincs-plus]
               Housley, R., Fluhrer, S., Kampanakis, P., and B.
