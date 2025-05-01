@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-29T01:22:59.782975+00:00",
+  "timestamp": "2025-05-01T01:38:39.381806+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1574,24 +1574,26 @@
       "id": "PR_kwDOLS83Ic6TnwOl",
       "title": "Add full support for HashSLH-DSA, and an Operational Considerations section",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/29",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-04-23T16:00:19Z",
-      "updatedAt": "2025-04-28T05:15:35Z",
+      "updatedAt": "2025-04-30T12:39:17Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "d8d473747b9ccba894eac961d51d23de6fddc62c",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/hash-slh-dsa",
       "headRefOid": "dc2996b81d2f3c59611c245b6b8f318a10b12645",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-04-30T12:39:17Z",
+      "mergedAt": "2025-04-30T12:39:17Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "b96b94a7e6017b69baa89b4a32f41cdfaa18ee6a"
+      },
       "comments": [
         {
           "author": "falko-strenzke",
@@ -1709,10 +1711,10 @@
           },
           "author": "BashiriK",
           "authorAssociation": "COLLABORATOR",
-          "state": "CHANGES_REQUESTED",
+          "state": "DISMISSED",
           "body": "You find my comments and suggestions as single comments. ",
           "createdAt": "2025-04-24T09:44:51Z",
-          "updatedAt": "2025-04-24T09:44:51Z",
+          "updatedAt": "2025-04-30T12:33:35Z",
           "comments": []
         },
         {
@@ -1752,6 +1754,45 @@
               "updatedAt": "2025-04-24T10:34:11Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6nRpML",
+          "commit": {
+            "abbreviatedOid": "dc2996b"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Fine with the changes",
+          "createdAt": "2025-04-30T09:29:28Z",
+          "updatedAt": "2025-04-30T09:29:28Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6nRrJb",
+          "commit": {
+            "abbreviatedOid": "dc2996b"
+          },
+          "author": "exception42",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Alright",
+          "createdAt": "2025-04-30T09:30:52Z",
+          "updatedAt": "2025-04-30T09:30:52Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6nTeCx",
+          "commit": {
+            "abbreviatedOid": "dc2996b"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-30T12:34:00Z",
+          "updatedAt": "2025-04-30T12:34:00Z",
+          "comments": []
         }
       ]
     }
