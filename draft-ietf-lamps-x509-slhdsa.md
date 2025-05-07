@@ -141,7 +141,7 @@ SLH-DSA offers three security levels.  The parameters for each of the security l
 
 Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA2 vs SHAKE256.
 
-SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
+SLH-DSA signature operations include as input an optional context string (ctx), defined in Section 10.2 of {{FIPS205}}.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
 
 SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
 This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs).
@@ -261,7 +261,7 @@ The contents of the parameters component for each algorithm MUST be absent.
 
 # SLH-DSA Signatures
 
-SLH-DSA is a digital signature scheme built upon hash functions. The security of SLH-DSA relies on the presumed difficulty of finding preimages for hash functions as well as several related properties of the same hash functions.
+SLH-DSA is a digital signature scheme built upon hash functions. The security of SLH-DSA relies on the security properties of the underlying hash functions, such as the presumed difficulty of finding preimages.
 
 Signatures can be placed in a number of different ASN.1 structures.
 The top level structure for a certificate is given below as being
@@ -323,7 +323,7 @@ SHAKE256, the output length is 512 bits.
 
 Section 9.2 of {{FIPS205}} defines an SLH-DSA signature as three elements,
 R, SIG_FORS and SIG_HT. The raw octet string encoding of an SLH-DSA
-public key is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
+signature is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
 The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
@@ -699,7 +699,7 @@ replicating the signature generation process can be used as an
 effective fault attack countermeasure for SLH-DSA {{Ge2023}}; however,
 the SLH-DSA signature generation is already considered slow.
 
-Likewise, Implementers SHOULD consider their particular use cases and
+Likewise, implementers SHOULD consider their particular use cases and
 may choose to implement protections against passive power and
 emissions side-channel attacks {{SLotH}}.
 
