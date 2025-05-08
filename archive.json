@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-01T01:38:39.381806+00:00",
+  "timestamp": "2025-05-08T01:25:00.940056+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1795,6 +1795,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOLS83Ic6VT2Ni",
+      "title": "Address Deb Cooley's AD comments",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/30",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Deb's comments: https://mailarchive.ietf.org/arch/msg/spasm/CpTC_mkAp5HS5xU6x9I7POtkCg4/",
+      "createdAt": "2025-05-07T17:14:53Z",
+      "updatedAt": "2025-05-07T17:18:55Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "ecd36c7fcdc4b119d82448130d12be0109fb650c",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/deb_comments",
+      "headRefOid": "83105daaabade33a8165f4b0945d12ce6f0fa259",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
