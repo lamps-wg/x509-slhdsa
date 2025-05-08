@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 1 November 2025                                   Cisco Systems
+Expires: 9 November 2025                                   Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                           30 April 2025
+                                                              8 May 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 November 2025.
+   This Internet-Draft will expire on 9 November 2025.
 
 Copyright Notice
 
@@ -123,10 +123,11 @@ Table of Contents
    Separate algorithm identifiers have been assigned for SLH-DSA at each
    of these security levels, fast vs small, and SHA2 vs SHAKE256.
 
-   SLH-DSA signature operations include a context string as input.  The
-   context string has a maximum length of 255 bytes.  By default, the
-   context string is the empty string.  This document only specifies the
-   use of the empty context string for use in the X.509 Public Key
+   SLH-DSA signature operations include as input an optional context
+   string (ctx), defined in Section 10.2 of [FIPS205].  The context
+   string has a maximum length of 255 bytes.  By default, the context
+   string is the empty string.  This document only specifies the use of
+   the empty context string for use in the X.509 Public Key
    Infrastructure.
 
    SLH-DSA offers two signature modes: pure mode, where the entire
@@ -254,9 +255,9 @@ Table of Contents
 4.  SLH-DSA Signatures
 
    SLH-DSA is a digital signature scheme built upon hash functions.  The
-   security of SLH-DSA relies on the presumed difficulty of finding
-   preimages for hash functions as well as several related properties of
-   the same hash functions.
+   security of SLH-DSA relies on the security properties of the
+   underlying hash functions, such as the presumed difficulty of finding
+   preimages.
 
    Signatures can be placed in a number of different ASN.1 structures.
    The top level structure for a certificate is given below as being
@@ -322,7 +323,7 @@ Table of Contents
 
    Section 9.2 of [FIPS205] defines an SLH-DSA signature as three
    elements, R, SIG_FORS and SIG_HT.  The raw octet string encoding of
-   an SLH-DSA public key is the concatenation of these three elements,
+   an SLH-DSA signature is the concatenation of these three elements,
    i.e. R || SIG_FORS || SIG_HT.  The raw octet string representing the
    signature is encoded directly in the BIT STRING without adding any
    additional ASN.1 wrapping.  For example, in the Certificate
@@ -674,6 +675,9 @@ Table of Contents
 9.  Security Considerations
 
    The security considerations of [RFC5280] apply accordingly.
+   Moreover, the security aspects mentioned throughout [FIPS205] should
+   be taken into account; see for instance Sections 3.1 and 3.2 or the
+   beginning of Section 11.
 
    The security of SLH-DSA relies on the security properties of the
    internal hash and XOF functions.  In particular, it relies on these
@@ -714,7 +718,7 @@ Table of Contents
    [Ge2023]; however, the SLH-DSA signature generation is already
    considered slow.
 
-   Likewise, Implementers SHOULD consider their particular use cases and
+   Likewise, implementers SHOULD consider their particular use cases and
    may choose to implement protections against passive power and
    emissions side-channel attacks [SLotH].
 
@@ -806,11 +810,12 @@ Table of Contents
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
-              Westerbaan, "Internet X.509 Public Key Infrastructure:
-              Algorithm Identifiers for ML-DSA", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              08, 25 April 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-dilithium-certificates-08>.
+              Westerbaan, "Internet X.509 Public Key Infrastructure -
+              Algorithm Identifiers for the Module-Lattice-Based Digital
+              Signature Algorithm (ML-DSA)", Work in Progress, Internet-
+              Draft, draft-ietf-lamps-dilithium-certificates-09, 7 May
+              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              lamps-dilithium-certificates-09>.
 
    [NIST-PQC] National Institute of Standards and Technology, "Post-
               Quantum Cryptography Project", 20 December 2016,

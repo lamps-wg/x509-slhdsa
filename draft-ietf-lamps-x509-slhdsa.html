@@ -1055,11 +1055,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SLH-DSA for X.509</td>
-<td class="right">April 2025</td>
+<td class="right">May 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bashiri, et al.</td>
-<td class="center">Expires 1 November 2025</td>
+<td class="center">Expires 9 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1072,12 +1072,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-x509-slhdsa-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-30" class="published">30 April 2025</time>
+<time datetime="2025-05-08" class="published">8 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-01">1 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-09">9 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1142,7 +1142,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1250,7 +1250,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1">The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> by the US National Institute of Standards and Technology (NIST) PQC project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use the SHA2 algorithm family <span>[<a href="#FIPS180" class="cite xref">FIPS180</a>]</span> or SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span> as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA2 vs SHAKE256.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">SLH-DSA signature operations include a context string as input.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">SLH-DSA signature operations include as input an optional context string (ctx), defined in Section 10.2 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span>.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
 This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs).<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
@@ -1383,7 +1383,7 @@ The same OID is used to identify an SLH-DSA public key and its associated signat
       <h2 id="name-slh-dsa-signatures">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-slh-dsa-signatures" class="section-name selfRef">SLH-DSA Signatures</a>
       </h2>
-<p id="section-4-1">SLH-DSA is a digital signature scheme built upon hash functions. The security of SLH-DSA relies on the presumed difficulty of finding preimages for hash functions as well as several related properties of the same hash functions.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">SLH-DSA is a digital signature scheme built upon hash functions. The security of SLH-DSA relies on the security properties of the underlying hash functions, such as the presumed difficulty of finding preimages.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">Signatures can be placed in a number of different ASN.1 structures.
 The top level structure for a certificate is given below as being
 illustrative of how signatures are frequently encoded with an
@@ -1439,7 +1439,7 @@ is performed using SHAKE128, the output length is 256 bits. When pre-hashing is 
 SHAKE256, the output length is 512 bits.<a href="#section-4-8" class="pilcrow">¶</a></p>
 <p id="section-4-9">Section 9.2 of <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> defines an SLH-DSA signature as three elements,
 R, SIG_FORS and SIG_HT. The raw octet string encoding of an SLH-DSA
-public key is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
+signature is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
 The raw octet string representing the signature is encoded
 directly in the BIT STRING without adding any additional ASN.1
 wrapping.  For example, in the Certificate structure, the raw signature
@@ -1797,7 +1797,9 @@ HashSLH-DSA reduces the size of the M' being held in memory.<a href="#section-8-
       <h2 id="name-security-considerations">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-9-1">The security considerations of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> apply accordingly.<a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-9-1">The security considerations of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> apply accordingly. Moreover, the security aspects
+mentioned throughout <span>[<a href="#FIPS205" class="cite xref">FIPS205</a>]</span> should be taken into account; see for instance Sections 3.1
+and 3.2 or the beginning of Section 11.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <p id="section-9-2">The security of SLH-DSA relies on the security properties of the internal hash and XOF
 functions. In particular, it relies on these functions being preimage resistant, but it
 does not rely on them being collision resistant. Since HashSLH-DSA performs a pre-hash
@@ -1828,7 +1830,7 @@ countermeasure is not effective for SLH-DSA <span>[<a href="#Ge2023" class="cite
 replicating the signature generation process can be used as an
 effective fault attack countermeasure for SLH-DSA <span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>; however,
 the SLH-DSA signature generation is already considered slow.<a href="#section-9-7" class="pilcrow">¶</a></p>
-<p id="section-9-8">Likewise, Implementers <span class="bcp14">SHOULD</span> consider their particular use cases and
+<p id="section-9-8">Likewise, implementers <span class="bcp14">SHOULD</span> consider their particular use cases and
 may choose to implement protections against passive power and
 emissions side-channel attacks <span>[<a href="#SLotH" class="cite xref">SLotH</a>]</span>.<a href="#section-9-8" class="pilcrow">¶</a></p>
 </section>
@@ -1919,7 +1921,7 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).<a href="#section-10-1" class="pil
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-dilithium-certificates">[I-D.ietf-lamps-dilithium-certificates]</dt>
         <dd>
-<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure: Algorithm Identifiers for ML-DSA"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-08</span>, <time datetime="2025-04-25" class="refDate">25 April 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-08">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-08</a>&gt;</span>. </dd>
+<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Digital Signature Algorithm (ML-DSA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-09</span>, <time datetime="2025-05-07" class="refDate">7 May 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-09">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-09</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="NIST-PQC">[NIST-PQC]</dt>
         <dd>
