@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 8 November 2025                                   Cisco Systems
+Expires: 9 November 2025                                   Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                              7 May 2025
+                                                              8 May 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 November 2025.
+   This Internet-Draft will expire on 9 November 2025.
 
 Copyright Notice
 
@@ -675,6 +675,9 @@ Table of Contents
 9.  Security Considerations
 
    The security considerations of [RFC5280] apply accordingly.
+   Moreover, the security aspects mentioned throughout [FIPS205] should
+   be taken into account; see for instance Sections 3.1 and 3.2 or the
+   beginning of Section 11.
 
    The security of SLH-DSA relies on the security properties of the
    internal hash and XOF functions.  In particular, it relies on these
