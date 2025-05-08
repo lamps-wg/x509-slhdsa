@@ -661,7 +661,9 @@ HashSLH-DSA reduces the size of the M' being held in memory.
 
 # Security Considerations
 
-The security considerations of {{RFC5280}} apply accordingly.
+The security considerations of {{RFC5280}} apply accordingly. Moreover, the security aspects
+mentioned throughout {{FIPS205}} should be taken into account; see for instance Sections 3.1
+and 3.2 or the beginning of Section 11.
 
 The security of SLH-DSA relies on the security properties of the internal hash and XOF
 functions. In particular, it relies on these functions being preimage resistant, but it
