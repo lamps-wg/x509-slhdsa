@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-08T01:25:00.940056+00:00",
+  "timestamp": "2025-05-11T01:37:02.693292+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1801,26 +1801,95 @@
       "id": "PR_kwDOLS83Ic6VT2Ni",
       "title": "Address Deb Cooley's AD comments",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/30",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Deb's comments: https://mailarchive.ietf.org/arch/msg/spasm/CpTC_mkAp5HS5xU6x9I7POtkCg4/",
       "createdAt": "2025-05-07T17:14:53Z",
-      "updatedAt": "2025-05-07T17:18:55Z",
+      "updatedAt": "2025-05-08T10:44:45Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "ecd36c7fcdc4b119d82448130d12be0109fb650c",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/deb_comments",
-      "headRefOid": "83105daaabade33a8165f4b0945d12ce6f0fa259",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "3bab2f8876a49af120bf89e60a8499514a4664ce",
+      "closedAt": "2025-05-08T10:40:10Z",
+      "mergedAt": "2025-05-08T10:40:10Z",
+      "mergedBy": "exception42",
+      "mergeCommit": {
+        "oid": "7330514dd849977862c5edcf169226d2f18a5dfa"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6oUipI",
+          "commit": {
+            "abbreviatedOid": "83105da"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-08T06:26:26Z",
+          "updatedAt": "2025-05-08T06:26:26Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6oWvUp",
+          "commit": {
+            "abbreviatedOid": "3bab2f8"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-08T09:51:12Z",
+          "updatedAt": "2025-05-08T09:51:12Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "```suggestion\r\nand 3.2 or the beginning of Section 11 in {{FIPS205}}.\r\n```",
+              "createdAt": "2025-05-08T09:51:12Z",
+              "updatedAt": "2025-05-08T09:51:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6oWvvs",
+          "commit": {
+            "abbreviatedOid": "3bab2f8"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-08T09:51:36Z",
+          "updatedAt": "2025-05-08T09:51:36Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLS83Ic6oXcpu",
+          "commit": {
+            "abbreviatedOid": "3bab2f8"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-08T10:44:44Z",
+          "updatedAt": "2025-05-08T10:44:45Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "@exception42 has already merged this, but {{FIPS205}} was already mentioned earlier in the sentence so it wouldn't be appropriate to repeat it here.",
+              "createdAt": "2025-05-08T10:44:45Z",
+              "updatedAt": "2025-05-08T10:44:45Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
