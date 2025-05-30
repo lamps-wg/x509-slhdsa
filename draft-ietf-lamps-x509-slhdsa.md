@@ -139,7 +139,9 @@ The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resi
 
 SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use the SHA2 algorithm family {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
-Separate algorithm identifiers have been assigned for SLH-DSA at each of these security levels, fast vs small, and SHA2 vs SHAKE256.
+Separate algorithm identifiers have been assigned for SLH-DSA for
+each combination of these security levels, fast vs small, SHA2 vs
+SHAKE256 and pure mode vs pre-hash mode.
 
 SLH-DSA signature operations include as input an optional context string (ctx), defined in Section 10.2 of {{FIPS205}}.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
 
@@ -154,7 +156,7 @@ This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public K
 
 # Algorithm Identifiers {#sec-alg-ids}
 
-The AlgorithmIdentifier type, is defined as follows:
+The AlgorithmIdentifier type is defined in [RFC5912] as follows:
 
 ~~~ asn.1
 AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
@@ -177,9 +179,9 @@ The fields in AlgorithmIdentifier have the following meanings:
 * parameters, which are optional, are the associated parameters for the algorithm identifier in the algorithm field.
 
 The object identifiers for SLH-DSA are defined in the NIST Computer Security Objects Register {{CSOR}}, and are reproduced here for convenience.
-The same OID is used to identify an SLH-DSA public key and its associated signature algorithm.
+The same algorithm identifiers are used for identifying a public key, a private key, and a signature.
 
-The Pure SLH-DSA OIDs are:
+The Pure SLH-DSA OIDs are defined in [I-D.ietf-lamps-cms-sphincs-plus]'s ASN.1 module and reproduced here for convenience:
 
 ~~~ asn.1
    nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
@@ -707,7 +709,7 @@ emissions side-channel attacks {{SLotH}}.
 
 # IANA Considerations
 
-For the ASN.1 Module in the Appendix of this document, IANA is
+For the ASN.1 Module in {{sec-asn1}} of this document, IANA is
 requested to assign an object identifier (OID) for the module
 identifier (TBD1) with a Description of "id-mod-x509-slh-dsa-2024". The
 OID for the module should be allocated in the "SMI Security for PKIX
@@ -722,7 +724,7 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 {{X690}}. This module imports objects from {{RFC5912}} and {{I-D.ietf-lamps-cms-sphincs-plus}}.
 
 <aside markdown=block>
-RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of {{I-D.ietf-lamps-cms-sphincs-plus}}. Also please replace [I-D.ietf-lamps-cms-sphincs-plus] in the module with a reference to the published RFC.
+RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of {{I-D.ietf-lamps-cms-sphincs-plus}}. Also please replace [I-D.ietf-lamps-cms-sphincs-plus] throughout this document with a reference to the published RFC.
 </aside>
 
 ~~~ asn.1
