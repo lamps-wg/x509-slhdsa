@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-22T01:25:13.287170+00:00",
+  "timestamp": "2025-06-01T01:49:47.878770+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -1896,26 +1896,42 @@
       "id": "PR_kwDOLS83Ic6XGnFX",
       "title": "Address Dale Worley's Genart review",
       "url": "https://github.com/lamps-wg/x509-slhdsa/pull/31",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Dale's comments:\r\nhttps://mailarchive.ietf.org/arch/msg/spasm/3_kluofNsi_WdFq8TMrM4gCg-dY/",
       "createdAt": "2025-05-21T17:49:56Z",
-      "updatedAt": "2025-05-21T17:49:56Z",
+      "updatedAt": "2025-05-30T09:46:24Z",
       "baseRepository": "lamps-wg/x509-slhdsa",
       "baseRefName": "main",
       "baseRefOid": "7330514dd849977862c5edcf169226d2f18a5dfa",
       "headRepository": "lamps-wg/x509-slhdsa",
       "headRefName": "dvg/genart_review",
       "headRefOid": "789a4a34214b38f267b783cfc86422ae129dae7d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-30T09:46:24Z",
+      "mergedAt": "2025-05-30T09:46:24Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "5b4e899eadc9be6ca3e84908a68417f4902f01b3"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6rs_CV",
+          "commit": {
+            "abbreviatedOid": "789a4a3"
+          },
+          "author": "BashiriK",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I agree with everything. Thank you, Daniel.",
+          "createdAt": "2025-05-30T09:17:16Z",
+          "updatedAt": "2025-05-30T09:17:16Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
