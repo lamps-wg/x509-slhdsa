@@ -1855,7 +1855,7 @@ searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
 random numbers is difficult, and <span>[<a href="#RFC4086" class="cite xref">RFC4086</a>]</span> offers important guidance
 in this area.<a href="#section-9-6" class="pilcrow">¶</a></p>
-<p id="section-9-7">Fault attacks can leak the SLH-DSA private signing key <span>[<a href="#CMP2018" class="cite xref">CMP2018</a>]</span> and <span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>.
+<p id="section-9-7">Fault attacks can lead to forgeries of message signatures <span>[<a href="#CMP2018" class="cite xref">CMP2018</a>]</span> and <span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>.
 Verifying a signature before releasing the signature value
 is a typical fault attack countermeasure; however, this
 countermeasure is not effective for SLH-DSA <span>[<a href="#Ge2023" class="cite xref">Ge2023</a>]</span>.  Redundancy by
