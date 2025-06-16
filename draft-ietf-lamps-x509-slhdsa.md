@@ -137,16 +137,26 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
 
-SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use the SHA2 algorithm family {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. For example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
+SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use the SHA2 algorithm family {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. The small versions are optimized for signature size, see {{tab-strengths}}. As an example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
-Separate algorithm identifiers have been assigned for SLH-DSA for
+NIST {{CSOR}} has assigned separate algorithm identifiers for SLH-DSA for
 each combination of these security levels, fast vs small, SHA2 vs
-SHAKE256 and pure mode vs pre-hash mode.
+SHAKE256, and pure mode vs pre-hash mode.
 
 SLH-DSA signature operations include as input an optional context string (ctx), defined in Section 10.2 of {{FIPS205}}.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
 
 SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
 This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs).
+
+## Notation
+
+The following notation is used in this document:
+
+* a \|\| b: concatenation of a and b
+
+* id-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify the different parameter combinations for Pure SLH-DSA.
+
+* id-hash-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify the different parameter combinations for HashSLH-DSA.
 
 <!-- End of introduction section -->
 
@@ -560,19 +570,19 @@ key encoded using the textual encoding defined in {{?RFC7468}}.
 The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
 
 ~~~
-    digitalSignature; or
-    nonRepudiation; or
-    keyCertSign; or
-    cRLSign.
+    digitalSignature
+    nonRepudiation
+    keyCertSign
+    cRLSign
 ~~~
 
 If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
 
 ~~~
-    keyEncipherment; or
-    dataEncipherment; or
-    keyAgreement; or
-    encipherOnly; or
+    keyEncipherment,
+    dataEncipherment,
+    keyAgreement,
+    encipherOnly, and
     decipherOnly.
 ~~~
 
@@ -661,7 +671,15 @@ fed to a digest function before M' is. Thus, to stream a message for SLH-DSA ver
 signature must come before the message. This is not the case for certificates and CRLs. Using
 HashSLH-DSA reduces the size of the M' being held in memory.
 
-# Security Considerations
+An SLH-DSA private key has a very large (2^64) number of signatures it can
+safely generate (see {{sec-cons}}).  If an operator might conceivably generate a
+number of signatures approaching this limit, they should mitigate potential harm by
+tracking the number of signatures generated and destroying the private key once
+an appropriate limit is reached, or by setting the "Not After" (expiration) date of
+the certificate such that the the limit couldn't possibly be surpassed given the
+rate of signing.
+
+# Security Considerations {#sec-cons}
 
 The security considerations of {{RFC5280}} apply accordingly. Moreover, the security aspects
 mentioned throughout {{FIPS205}} should be taken into account; see for instance Sections 3.1
@@ -694,8 +712,7 @@ force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
 
-Implementers SHOULD consider their particular use cases and may
-choose to implement OPTIONAL fault attack countermeasures {{CMP2018}},{{Ge2023}}.
+Fault attacks can lead to forgeries of message signatures {{CMP2018}} and {{Ge2023}}.
 Verifying a signature before releasing the signature value
 is a typical fault attack countermeasure; however, this
 countermeasure is not effective for SLH-DSA {{Ge2023}}.  Redundancy by
@@ -703,9 +720,8 @@ replicating the signature generation process can be used as an
 effective fault attack countermeasure for SLH-DSA {{Ge2023}}; however,
 the SLH-DSA signature generation is already considered slow.
 
-Likewise, implementers SHOULD consider their particular use cases and
-may choose to implement protections against passive power and
-emissions side-channel attacks {{SLotH}}.
+Likewise, passive power and emissions side-channel attacks can leak the SLH-DSA
+private signing key, and countermeasures can be taken against these attacks {{SLotH}}.
 
 # IANA Considerations
 
@@ -724,7 +740,7 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 {{X690}}. This module imports objects from {{RFC5912}} and {{I-D.ietf-lamps-cms-sphincs-plus}}.
 
 <aside markdown=block>
-RFC EDITOR: Please replace TBD2 with the value assigned by IANA during the publication of {{I-D.ietf-lamps-cms-sphincs-plus}}. Also please replace [I-D.ietf-lamps-cms-sphincs-plus] throughout this document with a reference to the published RFC.
+RFC EDITOR: Please replace [I-D.ietf-lamps-cms-sphincs-plus] throughout this document with a reference to the published RFC.
 </aside>
 
 ~~~ asn.1
@@ -1462,4 +1478,4 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
 # Acknowledgments
 {:numbered="false"}
 
-Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - {{?RFC8411}}. Thanks to Sean Turner for helpful text.
+Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - {{?RFC8411}}. Thanks to Sean Turner for helpful text and to Markku-Juhani O. Saarinen for side-channel clarifications.
