@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 14 December 2025                                  Cisco Systems
+Expires: 18 December 2025                                  Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                            12 June 2025
+                                                            16 June 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 December 2025.
+   This Internet-Draft will expire on 18 December 2025.
 
 Copyright Notice
 
@@ -689,10 +689,10 @@ Table of Contents
       certificates and CRLs.  Using HashSLH-DSA reduces the size of the
       M' being held in memory.
 
-   An SLH-DSA private key has a very large, but finite, number of
-   signatures it can safely generate (see Section 9).  If an operator
-   might conceivably generate a number of signatures approaching this
-   limit, they should mitigate potential harm by tracking the number of
+   An SLH-DSA private key has a very large (2^64) number of signatures
+   it can safely generate (see Section 9).  If an operator might
+   conceivably generate a number of signatures approaching this limit,
+   they should mitigate potential harm by tracking the number of
    signatures generated and destroying the private key once an
    appropriate limit is reached, or by setting the "Not After"
    (expiration) date of the certificate such that the the limit couldn't
