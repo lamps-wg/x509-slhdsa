@@ -712,7 +712,7 @@ force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
 
-Fault attacks can leak the SLH-DSA private signing key {{CMP2018}} and {{Ge2023}}.
+Fault attacks can lead to forgeries of message signatures {{CMP2018}} and {{Ge2023}}.
 Verifying a signature before releasing the signature value
 is a typical fault attack countermeasure; however, this
 countermeasure is not effective for SLH-DSA {{Ge2023}}.  Redundancy by
