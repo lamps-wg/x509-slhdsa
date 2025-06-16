@@ -671,7 +671,7 @@ fed to a digest function before M' is. Thus, to stream a message for SLH-DSA ver
 signature must come before the message. This is not the case for certificates and CRLs. Using
 HashSLH-DSA reduces the size of the M' being held in memory.
 
-An SLH-DSA private key has a very large, but finite, number of signatures it can
+An SLH-DSA private key has a very large (2^64) number of signatures it can
 safely generate (see {{sec-cons}}).  If an operator might conceivably generate a
 number of signatures approaching this limit, they should mitigate potential harm by
 tracking the number of signatures generated and destroying the private key once
