@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 1 December 2025                                   Cisco Systems
+Expires: 18 December 2025                                  Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                             30 May 2025
+                                                            16 June 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 December 2025.
+   This Internet-Draft will expire on 18 December 2025.
 
 Copyright Notice
 
@@ -77,6 +77,7 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
+     1.1.  Notation
    2.  Conventions and Definitions
    3.  Algorithm Identifiers
    4.  SLH-DSA Signatures
@@ -116,13 +117,14 @@ Table of Contents
    algorithm family [FIPS180] or SHAKE256 [FIPS202] as internal
    functions.  While the fast versions are optimized for key generation
    and signing speed, they are actually slower at verification than the
-   SLH-DSA small parameter sets.  For example, id-slh-dsa-shake-256s
+   SLH-DSA small parameter sets.  The small versions are optimized for
+   signature size, see Table 1.  As an example, id-slh-dsa-shake-256s
    represents the 256-bit security level, the small version of the
    algorithm, and the use of SHAKE256.
 
-   Separate algorithm identifiers have been assigned for SLH-DSA for
-   each combination of these security levels, fast vs small, SHA2 vs
-   SHAKE256 and pure mode vs pre-hash mode.
+   NIST [CSOR] has assigned separate algorithm identifiers for SLH-DSA
+   for each combination of these security levels, fast vs small, SHA2 vs
+   SHAKE256, and pure mode vs pre-hash mode.
 
    SLH-DSA signature operations include as input an optional context
    string (ctx), defined in Section 10.2 of [FIPS205].  The context
@@ -139,6 +141,18 @@ Table of Contents
    This document specifies the use of both Pure SLH-DSA and HashSLH-DSA
    in Public Key Infrastructure X.509 (PKIX) certificates and
    Certificate Revocation Lists (CRLs).
+
+1.1.  Notation
+
+   The following notation is used in this document:
+
+   *  a || b: concatenation of a and b
+
+   *  id-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify
+      the different parameter combinations for Pure SLH-DSA.
+
+   *  id-hash-slh-dsa-*: A shorthand to refer to all 12 OIDs used to
+      specify the different parameter combinations for HashSLH-DSA.
 
 2.  Conventions and Definitions
 
@@ -568,20 +582,20 @@ Table of Contents
    identifier in the SubjectPublicKeyInfo, then at least one of the
    following MUST be present:
 
-       digitalSignature; or
-       nonRepudiation; or
-       keyCertSign; or
-       cRLSign.
+       digitalSignature
+       nonRepudiation
+       keyCertSign
+       cRLSign
 
    If the keyUsage extension is present in a certificate that indicates
    an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA)
    identifier in the SubjectPublicKeyInfo, then the following MUST NOT
    be present:
 
-       keyEncipherment; or
-       dataEncipherment; or
-       keyAgreement; or
-       encipherOnly; or
+       keyEncipherment,
+       dataEncipherment,
+       keyAgreement,
+       encipherOnly, and
        decipherOnly.
 
    Requirements about the keyUsage extension bits defined in [RFC5280]
@@ -675,6 +689,15 @@ Table of Contents
       certificates and CRLs.  Using HashSLH-DSA reduces the size of the
       M' being held in memory.
 
+   An SLH-DSA private key has a very large (2^64) number of signatures
+   it can safely generate (see Section 9).  If an operator might
+   conceivably generate a number of signatures approaching this limit,
+   they should mitigate potential harm by tracking the number of
+   signatures generated and destroying the private key once an
+   appropriate limit is reached, or by setting the "Not After"
+   (expiration) date of the certificate such that the the limit couldn't
+   possibly be surpassed given the rate of signing.
+
 9.  Security Considerations
 
    The security considerations of [RFC5280] apply accordingly.
@@ -711,19 +734,17 @@ Table of Contents
    random numbers is difficult, and [RFC4086] offers important guidance
    in this area.
 
-   Implementers SHOULD consider their particular use cases and may
-   choose to implement OPTIONAL fault attack countermeasures
-   [CMP2018],[Ge2023].  Verifying a signature before releasing the
-   signature value is a typical fault attack countermeasure; however,
-   this countermeasure is not effective for SLH-DSA [Ge2023].
-   Redundancy by replicating the signature generation process can be
-   used as an effective fault attack countermeasure for SLH-DSA
-   [Ge2023]; however, the SLH-DSA signature generation is already
-   considered slow.
+   Fault attacks can lead to forgeries of message signatures [CMP2018]
+   and [Ge2023].  Verifying a signature before releasing the signature
+   value is a typical fault attack countermeasure; however, this
+   countermeasure is not effective for SLH-DSA [Ge2023].  Redundancy by
+   replicating the signature generation process can be used as an
+   effective fault attack countermeasure for SLH-DSA [Ge2023]; however,
+   the SLH-DSA signature generation is already considered slow.
 
-   Likewise, implementers SHOULD consider their particular use cases and
-   may choose to implement protections against passive power and
-   emissions side-channel attacks [SLotH].
+   Likewise, passive power and emissions side-channel attacks can leak
+   the SLH-DSA private signing key, and countermeasures can be taken
+   against these attacks [SLotH].
 
 10.  IANA Considerations
 
@@ -861,9 +882,7 @@ Appendix A.  ASN.1 Module
    Rules; see [X690].  This module imports objects from [RFC5912] and
    [I-D.ietf-lamps-cms-sphincs-plus].
 
-      |  RFC EDITOR: Please replace TBD2 with the value assigned by IANA
-      |  during the publication of [I-D.ietf-lamps-cms-sphincs-plus].
-      |  Also please replace [I-D.ietf-lamps-cms-sphincs-plus]
+      |  RFC EDITOR: Please replace [I-D.ietf-lamps-cms-sphincs-plus]
       |  throughout this document with a reference to the published RFC.
 
    <CODE BEGINS>
@@ -896,7 +915,7 @@ Appendix A.  ASN.1 Module
      sa-slh-dsa-shake-256s, sa-slh-dsa-shake-256f
        FROM SLH-DSA-Module-2024  -- in [I-D.ietf-lamps-cms-sphincs-plus]
        { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
-         id-smime(16) id-mod(0) id-mod-slh-dsa-2024(TBD2) } ;
+         id-smime(16) id-mod(0) id-mod-slh-dsa-2024(81) } ;
 
    --
    -- HashSLH-DSA object identifiers from [CSOR]
@@ -1966,7 +1985,8 @@ Acknowledgments
    from [I-D.ietf-lamps-cms-sphincs-plus].  Thanks to those authors, and
    the ones they based their work on, for making our work easier.
    "Copying always makes things easier and less error prone" -
-   [RFC8411].  Thanks to Sean Turner for helpful text.
+   [RFC8411].  Thanks to Sean Turner for helpful text and to Markku-
+   Juhani O.  Saarinen for side-channel clarifications.
 
 Authors' Addresses
 
