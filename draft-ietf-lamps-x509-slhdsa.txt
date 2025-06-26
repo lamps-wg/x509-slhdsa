@@ -5,14 +5,14 @@
 LAMPS - Limited Additional Mechanisms for PKIX and SMIME      K. Bashiri
 Internet-Draft                                                       BSI
 Intended status: Standards Track                              S. Fluhrer
-Expires: 18 December 2025                                  Cisco Systems
+Expires: 28 December 2025                                  Cisco Systems
                                                                S. Gazdag
                                                               genua GmbH
                                                             D. Van Geest
                                                      CryptoNext Security
                                                              S. Kousidis
                                                                      BSI
-                                                            16 June 2025
+                                                            26 June 2025
 
 
 Internet X.509 Public Key Infrastructure: Algorithm Identifiers for SLH-
@@ -23,10 +23,10 @@ Abstract
 
    Digital signatures are used within X.509 Public Key Infrastructure
    such as X.509 certificates, Certificate Revocation Lists (CRLs), and
-   to sign messages.  This document describes the conventions for using
+   to sign messages.  This document specifies the conventions for using
    the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in
    X.509 Public Key Infrastructure.  The conventions for the associated
-   signatures, subject public keys, and private keys are also described.
+   signatures, subject public keys, and private keys are also specified.
 
 About This Document
 
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 December 2025.
+   This Internet-Draft will expire on 28 December 2025.
 
 Copyright Notice
 
