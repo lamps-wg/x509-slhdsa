@@ -731,8 +731,8 @@ Table of Contents
    much easier to reproduce the PRNG environment that produced the keys,
    searching the resulting small set of possibilities, rather than brute
    force searching the whole key space.  The generation of quality
-   random numbers is difficult, and [RFC4086] offers important guidance
-   in this area.
+   random numbers is difficult; see Section 3.1 of [FIPS205] for some
+   additional information.
 
    Fault attacks can lead to forgeries of message signatures [CMP2018]
    and [Ge2023].  Verifying a signature before releasing the signature
@@ -850,11 +850,6 @@ Table of Contents
               Quantum Cryptography Project", 20 December 2016,
               <https://csrc.nist.gov/projects/post-quantum-
               cryptography>.
-
-   [RFC4086]  Eastlake 3rd, D., Schiller, J., and S. Crocker,
-              "Randomness Requirements for Security", BCP 106, RFC 4086,
-              DOI 10.17487/RFC4086, June 2005,
-              <https://www.rfc-editor.org/rfc/rfc4086>.
 
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
