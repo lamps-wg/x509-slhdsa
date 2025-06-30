@@ -709,8 +709,8 @@ values can result in little or no security.  An attacker may find it
 much easier to reproduce the PRNG environment that produced the keys,
 searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
-random numbers is difficult, and {{?RFC4086}} offers important guidance
-in this area.
+random numbers is difficult; see Section 3.1 of {{FIPS205}} for some
+additional information.
 
 Fault attacks can lead to forgeries of message signatures {{CMP2018}} and {{Ge2023}}.
 Verifying a signature before releasing the signature value
