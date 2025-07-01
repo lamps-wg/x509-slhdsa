@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-17T01:28:00.551671+00:00",
+  "timestamp": "2025-07-01T01:46:59.587828+00:00",
   "repo": "lamps-wg/x509-slhdsa",
   "labels": [
     {
@@ -2037,6 +2037,90 @@
           "body": "Perfect, thank you.",
           "createdAt": "2025-06-16T09:48:14Z",
           "updatedAt": "2025-06-16T09:48:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "id": "PR_kwDOLS83Ic6cpvzY",
+      "title": "Randomness ref tweak",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/33",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-30T08:36:43Z",
+      "updatedAt": "2025-06-30T16:53:00Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "904907bd8ed9e024581aa6d1bef270d50e7eff33",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/pauls_comment",
+      "headRefOid": "a595d8d95d4547a1e066538a5d454092e40af5de",
+      "closedAt": "2025-06-30T16:53:00Z",
+      "mergedAt": "2025-06-30T16:53:00Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "e6c08e4ed34737e127cbb9b14fb7d2a6a2b77a84"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6xD9p_",
+          "commit": {
+            "abbreviatedOid": "a595d8d"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-30T09:49:40Z",
+          "updatedAt": "2025-06-30T09:49:40Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOLS83Ic6cpxwZ",
+      "title": "Make RFC 5912 normative",
+      "url": "https://github.com/lamps-wg/x509-slhdsa/pull/34",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-30T08:40:08Z",
+      "updatedAt": "2025-06-30T16:51:23Z",
+      "baseRepository": "lamps-wg/x509-slhdsa",
+      "baseRefName": "main",
+      "baseRefOid": "904907bd8ed9e024581aa6d1bef270d50e7eff33",
+      "headRepository": "lamps-wg/x509-slhdsa",
+      "headRefName": "dvg/romans_review",
+      "headRefOid": "de4603b6b2f540587b238ed3c16ce550d4a8bcfb",
+      "closedAt": "2025-06-30T16:51:23Z",
+      "mergedAt": "2025-06-30T16:51:23Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "8f36d113e1f57e665e4947e9fe7b8135e881efbb"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLS83Ic6xD9ai",
+          "commit": {
+            "abbreviatedOid": "de4603b"
+          },
+          "author": "fluppe2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-30T09:49:21Z",
+          "updatedAt": "2025-06-30T09:49:21Z",
           "comments": []
         }
       ]
