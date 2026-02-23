@@ -1,6 +1,6 @@
-X509-SLH-DSA-Module-2024
+X509-SLH-DSA-Module-2025
   { iso(1) identified-organization(3) dod(6) internet(1) security(5)
-    mechanisms(5) pkix(7) id-mod(0) id-mod-x509-slh-dsa-2024(TBD1) }
+    mechanisms(5) pkix(7) id-mod(0) id-mod-x509-slh-dsa-2025(120) }
 
 DEFINITIONS IMPLICIT TAGS ::= BEGIN
 
@@ -25,7 +25,7 @@ IMPORTS
   sa-slh-dsa-shake-128s, sa-slh-dsa-shake-128f,
   sa-slh-dsa-shake-192s, sa-slh-dsa-shake-192f,
   sa-slh-dsa-shake-256s, sa-slh-dsa-shake-256f
-    FROM SLH-DSA-Module-2024  -- in [I-D.ietf-lamps-cms-sphincs-plus]
+    FROM SLH-DSA-Module-2024  -- in [RFC9814]
     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
       id-smime(16) id-mod(0) id-mod-slh-dsa-2024(81) } ;
 

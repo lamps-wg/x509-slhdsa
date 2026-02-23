@@ -127,7 +127,7 @@ informative:
 
 --- abstract
 
-Digital signatures are used within X.509 Public Key Infrastructure such as X.509 certificates, Certificate Revocation Lists (CRLs), and to sign messages.  This document specifies the conventions for using the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also specified.
+Digital signatures are used within the X.509 Public Key Infrastructure such as X.509 certificates and Certificate Revocation Lists (CRLs), as well as to sign messages.  This document specifies the conventions for using the Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) in the X.509 Public Key Infrastructure.  The conventions for the associated signatures, subject public keys, and private keys are also specified.
 
 <!-- End of Abstract -->
 
@@ -135,15 +135,15 @@ Digital signatures are used within X.509 Public Key Infrastructure such as X.509
 
 # Introduction
 
-The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) PQC project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys and private keys in the X.509 Public Key Infrastructure.
+The Stateless Hash-Based Digital Signature Algorithm (SLH-DSA) is a quantum-resistant digital signature scheme standardized in {{FIPS205}} by the US National Institute of Standards and Technology (NIST) Post-Quantum Cryptography (PQC) project {{NIST-PQC}}. Prior to standardization, the algorithm was known as SPHINCS+. SLH-DSA and SPHINCS+ are not compatible. This document defines the ASN.1 Object Identifiers (OIDs) and conventions for the encoding of SLH-DSA digital signatures, public keys, and private keys in the X.509 Public Key Infrastructure.
 
-SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and the option to use the SHA2 algorithm family {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. The small versions are optimized for signature size, see {{tab-strengths}}. As an example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
+SLH-DSA offers three security levels.  The parameters for each of the security levels were chosen to be at least as secure as a generic block cipher of 128, 192, or 256 bits. There are small (s) and fast (f) versions of the algorithm, and there is also the option to use the SHA-2 algorithm family {{?FIPS180=NIST.FIPS.180-4}} or SHAKE256 {{?FIPS202=NIST.FIPS.202}} as internal functions. While the fast versions are optimized for key generation and signing speed, they are actually slower at verification than the SLH-DSA small parameter sets. The small versions are optimized for signature size; see {{tab-strengths}}. As an example, id-slh-dsa-shake-256s represents the 256-bit security level, the small version of the algorithm, and the use of SHAKE256.
 
 NIST {{CSOR}} has assigned separate algorithm identifiers for SLH-DSA for
-each combination of these security levels, fast vs small, SHA2 vs
-SHAKE256, and pure mode vs pre-hash mode.
+each combination of these security levels: fast vs. small, SHA-2 vs.
+SHAKE256, and pure mode vs. pre-hash mode.
 
-SLH-DSA signature operations include as input an optional context string (ctx), defined in Section 10.2 of {{FIPS205}}.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
+SLH-DSA signature operations include an optional context string (ctx) as input, defined in Section 10.2 of {{FIPS205}}.  The context string has a maximum length of 255 bytes.  By default, the context string is the empty string. This document only specifies the use of the empty context string for use in the X.509 Public Key Infrastructure.
 
 SLH-DSA offers two signature modes: pure mode, where the entire content is signed directly, and pre-hash mode, where a digest of the content is signed.  This document uses the term SLH-DSA to refer to the algorithm in general.  When a pure or pre-hash mode needs to be differentiated, the terms Pure SLH-DSA and HashSLH-DSA are used.
 This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public Key Infrastructure X.509 (PKIX) certificates and Certificate Revocation Lists (CRLs).
@@ -152,11 +152,11 @@ This document specifies the use of both Pure SLH-DSA and HashSLH-DSA in Public K
 
 The following notation is used in this document:
 
-* a \|\| b: concatenation of a and b
+a \|\| b: concatenation of a and b.
 
-* id-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify the different parameter combinations for Pure SLH-DSA.
+id-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify the different parameter combinations for Pure SLH-DSA.
 
-* id-hash-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify the different parameter combinations for HashSLH-DSA.
+id-hash-slh-dsa-*: A shorthand to refer to all 12 OIDs used to specify the different parameter combinations for HashSLH-DSA.
 
 <!-- End of introduction section -->
 
@@ -186,12 +186,12 @@ The fields in AlgorithmIdentifier have the following meanings:
 
 * algorithm identifies the cryptographic algorithm with an object identifier.
 
-* parameters, which are optional, are the associated parameters for the algorithm identifier in the algorithm field.
+* parameters, which is optional, identifies the associated parameters for the algorithm identifier in the algorithm field.
 
 The object identifiers for SLH-DSA are defined in the NIST Computer Security Objects Register {{CSOR}}, and are reproduced here for convenience.
 The same algorithm identifiers are used for identifying a public key, a private key, and a signature.
 
-The Pure SLH-DSA OIDs are defined in [I-D.ietf-lamps-cms-sphincs-plus]'s ASN.1 module and reproduced here for convenience:
+The Pure SLH-DSA OIDs are defined in the ASN.1 module in {{!RFC9814}} and reproduced here for convenience:
 
 ~~~ asn.1
    nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-itu-t(2)
@@ -276,7 +276,7 @@ The contents of the parameters component for each algorithm MUST be absent.
 SLH-DSA is a digital signature scheme built upon hash functions. The security of SLH-DSA relies on the security properties of the underlying hash functions, such as the presumed difficulty of finding preimages.
 
 Signatures can be placed in a number of different ASN.1 structures.
-The top level structure for a certificate is given below as being
+The top-level structure for a certificate is given below as being
 illustrative of how signatures are frequently encoded with an
 algorithm identifier and a location for the signature.
 
@@ -300,11 +300,11 @@ algorithm identifier and a location for the signature.
 ~~~
 
 <aside markdown="block">
-The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+NOTE: The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
 See {{RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
-The same algorithm identifiers are used for signatures as are used
+The algorithm identifiers are used for signatures are the same as those used
 for public keys.  When used to identify signature algorithms, the
 parameters MUST be absent.
 
@@ -321,19 +321,19 @@ All four of these algorithms create a message, M', from the message to be signed
 and M' is operated on by internal SLH-DSA algorithms.  M' may be constructed outside the
 module that performs the internal SLH-DSA algorithms.
 
-In the case of HashSLH-DSA, there is a pre-hash component (PH_M) of M'. PH_M may be computed
-in the signing/verifying module, in which case the entire message to be signed is sent to the
+In the case of HashSLH-DSA, there is a pre-hash component of M' referred to as PH_M. PH_M may be computed
+in the signing/verifying module; in which case, the entire message to be signed is sent to the
 module. Alternatively, PH_M may be computed in a different module.  In this case, either PH_M
 is sent to the signing/verifying module, which creates M', or M' is created outside the
 signing/verifying module and is sent to the module. HashSLH-DSA allows this implementation
 flexibility in order to reduce, and make consistent, the amount of data transferred to
-signing/verifying modules.  The hash algorithm or XOF used to generate the pre-hash when signing and verifying with
+signing/verifying modules.  The hash algorithm or extendable-output function (XOF) used to generate the pre-hash when signing and verifying with
 HashSLH-DSA is specified after the "-with-" component of the signature algorithm name. For example, when signing with
 id-hash-slh-dsa-sha2-128s-with-sha256, SHA-256 is used as the pre-hash algorithm. When pre-hashing
 is performed using SHAKE128, the output length is 256 bits. When pre-hashing is performed using
 SHAKE256, the output length is 512 bits.
 
-Section 9.2 of {{FIPS205}} defines an SLH-DSA signature as three elements,
+Section 9.2 of {{FIPS205}} defines an SLH-DSA signature as three elements:
 R, SIG_FORS and SIG_HT. The raw octet string encoding of an SLH-DSA
 signature is the concatenation of these three elements, i.e. R || SIG_FORS || SIG_HT.
 The raw octet string representing the signature is encoded
@@ -352,7 +352,7 @@ In the X.509 certificate, the subjectPublicKeyInfo field has the SubjectPublicKe
 ~~~
 
 <aside markdown="block">
-The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+NOTE: The above syntax is from {{?RFC5912}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
 See {{RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
@@ -362,7 +362,7 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 
 * subjectPublicKey contains the byte stream of the public key.
 
-{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the following public key identifiers for Pure SLH-DSA:
+{{!RFC9814}} defines the following public key identifiers for Pure SLH-DSA:
 
 ~~~ asn.1
    pk-slh-dsa-sha2-128s PUBLIC-KEY ::= {
@@ -542,20 +542,20 @@ The public key identifiers for HashSLH-DSA are defined here:
       -- PRIVATE-KEY no ASN.1 wrapping -- }
 ~~~
 
-Section 9.1 of {{FIPS205}} defines an SLH-DSA public key as two n-byte elements,
+Section 9.1 of {{FIPS205}} defines an SLH-DSA public key as two n-byte elements:
 PK.seed and PK.root. The raw octet string encoding of an SLH-DSA
-public key is the concatenation of these two elements, i.e. PK.seed || PK.root. The octet
+public key is the concatenation of these two elements, i.e., PK.seed || PK.root. The octet
 string length is 2*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set. When used in a SubjectPublicKeyInfo type, the subjectPublicKey BIT STRING
 contains the raw octet string encoding of the public key.
 
-{{!I-D.ietf-lamps-cms-sphincs-plus}} defines the SLH-DSA-PublicKey and SLH-DSA-PrivateKey ASN.1
+{{!RFC9814}} defines the SLH-DSA-PublicKey and SLH-DSA-PrivateKey ASN.1
 OCTET STRING types to provide an option for encoding a Pure SLH-DSA public or private key in an
 environment that uses ASN.1 encoding but doesn't define its own mapping of an
 SLH-DSA raw octet string to ASN.1. HashSLH-DSA public and private keys can use SLH-DSA-PublicKey
 and SLH-DSA-PrivateKey in the same way.  To map an SLH-DSA-PublicKey OCTET STRING to
 a SubjectPublicKeyInfo, the OCTET STRING is mapped to the subjectPublicKey
-field (a value of type BIT STRING) as follows: the most significant
+field (a value of type BIT STRING) as follows: The most significant
 bit of the OCTET STRING value becomes the most significant bit of the BIT
 STRING value, and so on; the least significant bit of the OCTET STRING
 becomes the least significant bit of the BIT STRING.
@@ -569,22 +569,18 @@ key encoded using the textual encoding defined in {{?RFC7468}}.
 
 The intended application for the key is indicated in the keyUsage certificate extension; see {{Section 4.2.1.3 of RFC5280}}.  If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then at least one of the following MUST be present:
 
-~~~
-    digitalSignature
-    nonRepudiation
-    keyCertSign
-    cRLSign
-~~~
+* digitalSignature
+* nonRepudiation
+* keyCertSign
+* cRLSign
 
 If the keyUsage extension is present in a certificate that indicates an id-slh-dsa-* (Pure SLH-DSA) or id-hash-slh-dsa-* (HashSLH-DSA) identifier in the SubjectPublicKeyInfo, then the following MUST NOT be present:
 
-~~~
-    keyEncipherment,
-    dataEncipherment,
-    keyAgreement,
-    encipherOnly, and
-    decipherOnly.
-~~~
+* keyEncipherment
+* dataEncipherment
+* keyAgreement
+* encipherOnly
+* decipherOnly
 
 Requirements about the keyUsage extension bits defined in {{RFC5280}} still apply.
 
@@ -613,13 +609,13 @@ structure OneAsymmetricKey is replicated below.
 ~~~
 
 <aside markdown="block">
-The above syntax is from {{?RFC5958}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
+NOTE: The above syntax is from {{?RFC5958}} and is compatible with the 2021 ASN.1 syntax {{X680}}.
 </aside>
 
 Section 9.1 of {{FIPS205}} defines an SLH-DSA private key as four n-byte
-elements, SK.seed, SK.prf, PK.seed and PK.root.  The raw octet string
+elements: SK.seed, SK.prf, PK.seed, and PK.root.  The raw octet string
 encoding of an SLH-DSA private key is the concatenation of these four
-elements, i.e. SK.seed || SK.prf || PK.seed || PK.root.  The octet string
+elements, i.e., SK.seed || SK.prf || PK.seed || PK.root.  The octet string
 length is 4*n bytes, where n is 16, 24, or 32, depending on the SLH-DSA parameter
 set.  When used in a OneAsymmetricKey type, the privateKey
 OCTET STRING contains the raw octet string encoding of the private key.
@@ -633,7 +629,7 @@ key.
 key encoded using the textual encoding defined in {{?RFC7468}}.
 
 NOTE: There exist some private key import functions that have not
-picked up the new ASN.1 structure OneAsymmetricKey that is defined in
+picked up the new ASN.1 structure OneAsymmetricKey, which is defined in
 {{RFC5958}}.  This means that they will not accept a private key
 structure that contains the public key field.  This means a balancing
 act needs to be done between being able to do a consistency check on
@@ -645,14 +641,14 @@ SLH-DSA uses the same OID to identify a public key and a
 signature algorithm.  The implication of this is that, despite being
 mathematically possible, an SLH-DSA key identified by a Pure SLH-DSA OID
 is not permitted to be used to generate or verify a signature identified by
-an HashSLH-DSA OID, and vice-versa.
+a HashSLH-DSA OID, and vice versa.
 
-CA operators will need to decide in advance whether their CA certificates
+Certification authority (CA) operators will need to decide in advance whether their CA certificates
 will use Pure SLH-DSA or HashSLH-DSA and assign the appropriate OID to
 the public and private keys when generating their certificate.  Some of the following
 considerations may affect this decision.
 
-* When using an external signing module, such as an HSM, the size of data that
+* When using an external signing module, such as a Hardware Security Module (HSM), the size of data that
 can be transferred to and processed by the signature module may be limited.
 SLH-DSA performs two passes on the internal M' message, so it must be held
 in memory.  Using HashSLH-DSA reduces the size of M'.
@@ -662,12 +658,12 @@ Pure SLH-DSA. One way to limit the size of CRLs is to make use of CRL Distributi
 Points and Issuing Distribution Points to create partitioned CRLs in accordance with
 {{Section 5.2.5 of RFC5280}}.
 
-* EE certificates with many SANs might also exceed the size limits of HSM signing operations.
+* End-Entity (EE) certificates with many subject alternative names (SANs) might also exceed the size limits of HSM signing operations.
 
 * Potential verifiers' environments might need to be considered. The entire certificate or
-CRL needs to be held in memory during SLH-DSA signature verification, it cannot be
-streamed. In particular, there is a randomizer (R) which is extracted from the SLH-DSA signature and
-fed to a digest function before M' is. Thus, to stream a message for SLH-DSA verification the
+CRL needs to be held in memory during SLH-DSA signature verification; it cannot be
+streamed. In particular, there is a randomizer (R) that is extracted from the SLH-DSA signature and
+fed to a digest function before M' is. Thus, to stream a message for SLH-DSA verification, the
 signature must come before the message. This is not the case for certificates and CRLs. Using
 HashSLH-DSA reduces the size of the M' being held in memory.
 
@@ -675,14 +671,14 @@ An SLH-DSA private key has a very large (2^64) number of signatures it can
 safely generate (see {{sec-cons}}).  If an operator might conceivably generate a
 number of signatures approaching this limit, they should mitigate potential harm by
 tracking the number of signatures generated and destroying the private key once
-an appropriate limit is reached, or by setting the "Not After" (expiration) date of
-the certificate such that the the limit couldn't possibly be surpassed given the
+an appropriate limit is reached or by setting the "Not After" (expiration) date of
+the certificate such that the limit couldn't possibly be surpassed given the
 rate of signing.
 
 # Security Considerations {#sec-cons}
 
 The security considerations of {{RFC5280}} apply accordingly. Moreover, the security aspects
-mentioned throughout {{FIPS205}} should be taken into account; see for instance Sections 3.1
+mentioned throughout {{FIPS205}} should be taken into account; for instance, see Sections 3.1
 and 3.2 or the beginning of Section 11.
 
 The security of SLH-DSA relies on the security properties of the internal hash and XOF
@@ -704,7 +700,7 @@ An SLH-DSA tree MUST NOT be used for more than 2^64 signing
 operations.
 
 The generation of private keys relies on random numbers.  The use of
-inadequate pseudo-random number generators (PRNGs) to generate these
+inadequate pseudorandom number generators (PRNGs) to generate these
 values can result in little or no security.  An attacker may find it
 much easier to reproduce the PRNG environment that produced the keys,
 searching the resulting small set of possibilities, rather than brute
@@ -712,7 +708,7 @@ force searching the whole key space.  The generation of quality
 random numbers is difficult; see Section 3.1 of {{FIPS205}} for some
 additional information.
 
-Fault attacks can lead to forgeries of message signatures {{CMP2018}} and {{Ge2023}}.
+Fault attacks can lead to forgeries of message signatures; see {{CMP2018}} and {{Ge2023}}.
 Verifying a signature before releasing the signature value
 is a typical fault attack countermeasure; however, this
 countermeasure is not effective for SLH-DSA {{Ge2023}}.  Redundancy by
@@ -725,10 +721,10 @@ private signing key, and countermeasures can be taken against these attacks {{SL
 
 # IANA Considerations
 
-For the ASN.1 Module in {{sec-asn1}} of this document, IANA is
-requested to assign an object identifier (OID) for the module
-identifier (TBD1) with a Description of "id-mod-x509-slh-dsa-2024". The
-OID for the module should be allocated in the "SMI Security for PKIX
+For the ASN.1 module in {{sec-asn1}} of this document, IANA has
+assigned an object identifier (OID) for the module
+identifier (120) with a Description of "id-mod-x509-slh-dsa-2025". The
+OID for the module has been allocated in the "SMI Security for PKIX
 Module Identifier" registry (1.3.6.1.5.5.7.0).
 
 --- back
@@ -737,10 +733,10 @@ Module Identifier" registry (1.3.6.1.5.5.7.0).
 
 This appendix includes the ASN.1 module {{X680}} for SLH-DSA.  Note that
 as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
-{{X690}}. This module imports objects from {{RFC5912}} and {{I-D.ietf-lamps-cms-sphincs-plus}}.
+{{X690}}. This module imports objects from {{RFC5912}} and {{RFC9814}}.
 
 <aside markdown=block>
-RFC EDITOR: Please replace [I-D.ietf-lamps-cms-sphincs-plus] throughout this document with a reference to the published RFC.
+RFC EDITOR: Please replace [RFC9814] throughout this document with a reference to the published RFC.
 </aside>
 
 ~~~ asn.1
@@ -751,7 +747,13 @@ RFC EDITOR: Please replace [I-D.ietf-lamps-cms-sphincs-plus] throughout this doc
 
 # Security Strengths
 
-Instead of defining the strength of a quantum algorithm in a traditional manner using precise estimates of the number of bits of security, NIST defined a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that cover a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for: Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128), Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256), Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192), Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).
+Instead of defining the strength of a quantum algorithm using the number of bits of security, NIST defined a collection of broad security strength categories.  Each category is defined by a comparatively easy-to-analyze reference primitive that covers a range of security strengths offered by existing NIST standards in symmetric cryptography, which NIST expects to offer significant resistance to quantum cryptanalysis.  These categories describe any attack that breaks the relevant security definition that must require computational resources comparable to or greater than those required for:
+
+* Level 1 - key search on a block cipher with a 128-bit key (e.g., AES128),
+* Level 2 - collision search on a 256-bit hash function (e.g., SHA256/ SHA3-256),
+* Level 3 - key search on a block cipher with a 192-bit key (e.g., AES192),
+* Level 4 - collision search on a 384-bit hash function (e.g.  SHA384/SHA3-384), and
+* Level 5 - key search on a block cipher with a 256-bit key (e.g., AES 256).
 
 The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are listed in {{tab-strengths}}, along with the resulting signature size, public key, and private key sizes in bytes.  The HashSLH-DSA parameter sets have the same values as the Pure SLH-DSA equivalents.
 
@@ -769,11 +771,11 @@ The SLH-DSA parameter sets defined for NIST security levels 1, 3 and 5 are liste
 | id-(hash-)slh-dsa-shake-192f | 3          | 35664 | 48       | 96        |
 | id-(hash-)slh-dsa-shake-256s | 5          | 29792 | 64       | 128       |
 | id-(hash-)slh-dsa-shake-256f | 5          | 49856 | 64       | 128       |
-{: #tab-strengths title="SLH-DSA security strengths"}
+{: #tab-strengths title="SLH-DSA Security Strengths"}
 
 # Examples
 
-This appendix contains examples of SLH-DSA public keys, private keys and certificates.
+This appendix contains examples of SLH-DSA public keys, private keys, and certificates.
 
 ## Example Public Key {#example-public}
 
@@ -1478,4 +1480,4 @@ UYKYCyx6a5bvjcD1H5i09iK2IW4247sY2h0kRg1lKLZq
 # Acknowledgments
 {:numbered="false"}
 
-Much of the structure and text of this document is based on {{?RFC8410}} and {{?I-D.ietf-lamps-dilithium-certificates}}. The remainder comes from {{!I-D.ietf-lamps-cms-sphincs-plus}}. Thanks to those authors, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" - {{?RFC8411}}. Thanks to Sean Turner for helpful text and to Markku-Juhani O. Saarinen for side-channel clarifications.
+Much of the structure and text of this document is based on {{?RFC8410}} and {{?RFC9881}}. The remainder comes from {{!RFC9814}}. Thanks to the authors of those document, and the ones they based their work on, for making our work easier. "Copying always makes things easier and less error prone" {{?RFC8411}}. Thanks to Sean Turner for helpful text and to Markku-Juhani O. Saarinen for side-channel clarifications.
