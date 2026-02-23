@@ -741,7 +741,7 @@ RFC EDITOR: Please replace [RFC9814] throughout this document with a reference t
 
 ~~~ asn.1
 <CODE BEGINS>
-{::include X509-SLHDSA-2024.asn}
+{::include X509-SLHDSA-2025.asn}
 <CODE ENDS>
 ~~~
 
